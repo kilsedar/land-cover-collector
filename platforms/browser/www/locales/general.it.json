@@ -1,0 +1,101 @@
+{
+  "polimiLink": "<a href='http://www.polimi.it/' target='_blank'><img id='polimi-logo' class='logo' src='img/polimi3.png'></a>",
+  "glc30Link": "<a href='http://www.globallandcover.com/GLC30Download/index.aspx' target='_blank'><img id='glc30-logo' class='logo' src='img/glc30.png'></a>",
+  "registration":
+  {
+    "introduction": "Benvenuto! Ti chiediamo di inserire le seguenti informazioni:",
+    "genderLabel": "Genere",
+    "genderMale": "Uomo",
+    "genderFemale": "Donna",
+    "genderUnknown": "Non specificato",
+    "age": "Età",
+    "workLabel": "Condizione lavorativa",
+    "workEmployed": "Occupato",
+    "workStudent": "Studente",
+    "workUnemployed": "Disoccupato",
+    "workRetired": "Pensionato",
+    "workOther": "Altro",
+    "button": "Registrati"
+  },
+  "navbar":
+  {
+    "add": "Aggiungi",
+    "my": "La mia mappa",
+    "all": "Mappa degli utenti",
+    "about": "Informazioni",
+    "registration": "Registrati"
+  },
+  "menu":
+  {
+    "comment": "Commenti?",
+    "takePhoto": "Scatta una foto...",
+    "choosePhoto": "Scegli un'immagine...",
+    "certainty":
+    {
+      "question": "Quanto sei sicuro?",
+      "one": "non sicuro",
+      "five": "assolutamente sicuro"
+    },
+    "classes":
+    {
+      "select": "Seleziona la classificazione del punto",
+      "artificialSurface": "Superficie artificiale",
+      "bareLand": "Terreno non valorizzato",
+      "cultivatedLand": "Superficie agricola utilizzata",
+      "forest": "Foresta",
+      "grassland": "Prateria",
+      "permanentSnowAndIce": "Neve permanente e ghiaccio",
+      "shrubland": "Arbusti",
+      "tundra": "Tundra",
+      "waterBody": "Bacino idrico",
+      "wetland": "Zona umida",
+      "bing": "Bing Aereo"
+    },
+    "buttons":
+    {
+      "contribute": "Inserisci il tuo punto di interesse!",
+      "cancel": "Annulla",
+      "next": "Avanti",
+      "back": "Indietro",
+      "submit": "Invia"
+    }
+  },
+  "popup":
+  {
+    "class": "Classe",
+    "certainty": "Sicurezza",
+    "comment": "Commento",
+    "date": "Data"
+  },
+  "messages":
+  {
+    "registrationFormEmpty": "Completa i tuoi dati!",
+    "registrationSuccess": "Grazie! Ora puoi iniziare a contribuire all’applicazione!",
+    "markerPopup": "Non è la tua posizione corrente? Trascina l’icona per correggerla!",
+    "contributionSuccess": "Grazie per il tuo contributo!",
+    "allNoInternet": "L’opzione mappe ‘Mappa degli utenti’ non può essere mostrata perché la connessione Internet è assente!",
+    "ok": "OK",
+    "registrationNoInternet": "La registrazione è fallita perché la connessione Internet è assente!",
+    "gpsError":"Errore GPS! Ti preghiamo di spostare l’indicatore della posizione sull’area in cui ti trovi ora.",
+    "contributionSuccessNoInternet":"Grazie per il tuo contributo. Nota: in questo momento non sei connesso ad Internet, ti preghiamo di chiudere e riaprire l’app non appena sarai connesso per condividere automaticamente i tuoi contributi.",
+    "photoUnavailable": "È possibile scattare una foto solo dalle app Android e iOS e non da browser.",
+    "bingNoInternet": "Bing Aerial non può essere mostrata perché la connessione Internet è assente!",
+    "osmNoInternet": "OpenStreetMap non può essere mostrata perché la connessione Internet è assente!",
+    "storageError": "Questo browser non supporta la memoria locale.",
+    "error": "Errore!",
+    "privateMode": "Errore! Sei in modalità privata?"
+  },
+  "stat":
+  {
+    "totalMy": "In totale, hai ",
+    "contrMySingle": " contributo.",
+    "contrMyPlural": " contributi.",
+    "totalAllSingle": "In totale, c'è ",
+    "contrAllSingle": " contributo entro 5 km dalla tua posizione.",
+    "totalAllPlural": "In totale, ci sono ",
+    "contrAllPlural": " contributi entro 5 km dalla tua posizione.",
+    "noContrMy": "Non hai ancora fornito alcun contributo!",
+    "noContrAll": "Nessuno ha fornito contributi in un raggio di 5 km dalla tua posizione."
+  },
+  "about": "abc"
+}

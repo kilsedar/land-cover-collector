@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="polimi.geolab.glc30" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>GlobeLand30 Validation</name>
+    <description>
+        An Apache Cordova application that enables to collect data on land cover classification using the 10 classes of GLobeLand30.
+    </description>
+    <author email="candaneylul.kilsedar@polimi.it" href="http://geomobile.como.polimi.it/">
+        Candan Eylül Kilsedar
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+</widget>

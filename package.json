@@ -1,0 +1,36 @@
+{
+  "name": "glc30",
+  "displayName": "GlobeLand30 Validation",
+  "version": "1.0.0",
+  "description": "An Apache Cordova application that enables to collect data on land cover classification using the 10 classes of GLobeLand30.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Candan Eylül Kilsedar",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "cordova-browser": "^5.0.1",
+    "cordova-plugin-camera": "^3.0.0",
+    "cordova-plugin-device": "^1.1.7",
+    "cordova-plugin-dialogs": "^1.3.4",
+    "cordova-plugin-geolocation": "^3.0.0",
+    "cordova-plugin-globalization": "^1.0.8",
+    "cordova-plugin-network-information": "^1.3.4",
+    "cordova-plugin-whitelist": "^1.3.3"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-globalization": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-camera": {},
+      "cordova-plugin-dialogs": {},
+      "cordova-plugin-geolocation": {},
+      "cordova-plugin-network-information": {}
+    },
+    "platforms": [
+      "browser"
+    ]
+  }
+}

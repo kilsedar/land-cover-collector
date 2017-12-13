@@ -1,0 +1,142 @@
+{
+  "_args": [
+    [
+      "cordova-plugin-geolocation@3.0.0",
+      "/var/www/html/glc30"
+    ]
+  ],
+  "_from": "cordova-plugin-geolocation@3.0.0",
+  "_id": "cordova-plugin-geolocation@3.0.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/cordova-plugin-geolocation",
+  "_nodeVersion": "6.6.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-geolocation-3.0.0.tgz_1510361666985_0.10332479607313871"
+  },
+  "_npmUser": {
+    "email": "stevengill97@gmail.com",
+    "name": "stevegill"
+  },
+  "_npmVersion": "4.6.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "cordova-plugin-geolocation",
+    "raw": "cordova-plugin-geolocation@3.0.0",
+    "rawSpec": "3.0.0",
+    "scope": null,
+    "spec": "3.0.0",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-geolocation/-/cordova-plugin-geolocation-3.0.0.tgz",
+  "_shasum": "e63e0d457c1a2fbab0dc029ddea65b8f04921410",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-geolocation@3.0.0",
+  "_where": "/var/www/html/glc30",
+  "author": {
+    "name": "Apache Software Foundation"
+  },
+  "bugs": {
+    "url": "https://issues.apache.org/jira/browse/CB"
+  },
+  "cordova": {
+    "id": "cordova-plugin-geolocation",
+    "platforms": [
+      "amazon-fireos",
+      "android",
+      "blackberry10",
+      "firefoxos",
+      "ios",
+      "ubuntu",
+      "windows",
+      "windows8",
+      "wp7",
+      "wp8"
+    ]
+  },
+  "dependencies": {},
+  "description": "Cordova Geolocation Plugin",
+  "devDependencies": {
+    "eslint": "^4.0.0",
+    "eslint-config-semistandard": "^11.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "e63e0d457c1a2fbab0dc029ddea65b8f04921410",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-geolocation/-/cordova-plugin-geolocation-3.0.0.tgz"
+  },
+  "engines": {
+    "cordovaDependencies": {
+      "3.0.0": {
+        "cordova-android": ">=6.3.0"
+      },
+      "4.0.0": {
+        "cordova": ">100"
+      }
+    }
+  },
+  "homepage": "https://github.com/apache/cordova-plugin-geolocation#readme",
+  "keywords": [
+    "cordova",
+    "cordova-amazon-fireos",
+    "cordova-android",
+    "cordova-blackberry10",
+    "cordova-firefoxos",
+    "cordova-ios",
+    "cordova-ubuntu",
+    "cordova-windows",
+    "cordova-windows8",
+    "cordova-wp7",
+    "cordova-wp8",
+    "ecosystem:cordova",
+    "geolocation"
+  ],
+  "license": "Apache-2.0",
+  "maintainers": [
+    {
+      "name": "bowserj",
+      "email": "bowserj@apache.org"
+    },
+    {
+      "name": "csantanapr",
+      "email": "csantana23@gmail.com"
+    },
+    {
+      "name": "filmaj",
+      "email": "maj.fil@gmail.com"
+    },
+    {
+      "name": "purplecabbage",
+      "email": "purplecabbage@gmail.com"
+    },
+    {
+      "name": "shazron",
+      "email": "shazron@gmail.com"
+    },
+    {
+      "name": "stevegill",
+      "email": "stevengill97@gmail.com"
+    }
+  ],
+  "name": "cordova-plugin-geolocation",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apache/cordova-plugin-geolocation.git"
+  },
+  "scripts": {
+    "eslint": "node node_modules/eslint/bin/eslint www && node node_modules/eslint/bin/eslint src && node node_modules/eslint/bin/eslint tests",
+    "test": "npm run eslint"
+  },
+  "version": "3.0.0"
+}
