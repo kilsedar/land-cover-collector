@@ -1,4 +1,4 @@
-# glc30
+# Globeland30 Validation
 
 The app "Globeland30 Validation" is developed to collect data on land cover classification using the 10 classes of [GlobeLand30](http://www.globallandcover.com/GLC30Download/index.aspx).
 
