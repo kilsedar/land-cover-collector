@@ -15,3 +15,7 @@ Cordova version is 7.1.0. Installation instructions can be found [here](https://
 The packages and platforms used in this app are already in the repository.
 
 It may be necessary to point the app to your CouchDB instance in the "www/settings.js" file.
+
+## Credits
+
+The app uses [EmoMap](https://github.com/cartogroup/emomap). The developer acknowledges its contribution to the development.
