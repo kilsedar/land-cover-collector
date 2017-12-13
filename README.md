@@ -1,6 +1,9 @@
-# glc30
+# GlobeLand30 Validation
 
-The app "Globeland30 Validation" is developed to collect data on land cover classification using the 10 classes of [GlobeLand30](http://www.globallandcover.com/GLC30Download/index.aspx).
+The app "GlobeLand30 Validation" is developed to collect data on land cover classification using the 10 classes of [GlobeLand30](http://www.globallandcover.com/GLC30Download/index.aspx).
+
+Points of interest added by everyone:
+![everyonePois](screenshots/everyonePois.png)
 
 ## Configuration
 It mainly uses PouchDB, CouchDB, Cordova and Leaflet.
@@ -11,4 +14,4 @@ Cordova version is 7.1.0. Installation instructions can be found [here](https://
 
 The packages and platforms used in this app are already in the repository.
 
-It may be necessary to point the app to your CouchDB instance in the "www/settings.js".
+It may be necessary to point the app to your CouchDB instance in the "www/settings.js" file.
