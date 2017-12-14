@@ -73,7 +73,7 @@ select, option {
 }
 
 .leaflet-popup-content {
-  width: auto;
+  width: auto !important;
   min-width: 160px;
 }
 

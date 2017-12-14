@@ -208,6 +208,12 @@ function afterLangInit() {
     $("#class-next, #certainty-next").addClass("ui-disabled");
     $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-about").addClass("ui-disabled");
 
+    var app = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
+    if (app)
+      $("#input-file, #choose-photo").remove();
+    else
+      $("#take-photo").remove();
+
     $("#classes-menu-list").css("overflow-y", "scroll");
 
     // set all forms to initial values
@@ -511,7 +517,7 @@ function afterLangInit() {
   });
 
   /***
-  IMAGE - beginning
+  photos - beginning
   ***/
   // this function is called when the input loads an image
   function renderImage(file) {
@@ -529,57 +535,33 @@ function afterLangInit() {
 
   // triggered when OK is clicked
   $("input[type='file']").change(function() {
-    // console.log(this.files[0].size);
+    // console.log(this.files[0]);
     renderImage(this.files[0]);
   });
 
   function onSuccess(imageData) {
     image = imageData;
-    // console.log(image);
     // console.log("image is received");
+    // console.log(image);
   }
 
   function onFail(message) {
     console.log("Failed getting photo. Message: " + message);
   }
 
-  // get photo when "Take a picture..." is clicked
   $("#take-photo").click(function() {
-    // console.log("clicked the take photo button!");
-    app = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
-    if (app) {
-      // console.log("app");
-      navigator.camera.getPicture(onSuccess, onFail, {
-        quality: 20,
-        destinationType: Camera.DestinationType.DATA_URL,
-        sourceType: Camera.PictureSourceType.CAMERA
-      });
-    }
-    else {
-      // console.log("not app, you are on browser");
-      navigator.notification.alert(i18n.t("messages.photoUnavailable"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
-    }
+    navigator.camera.getPicture(onSuccess, onFail, {
+      quality: 20,
+      destinationType: Camera.DestinationType.DATA_URL,
+      sourceType: Camera.PictureSourceType.CAMERA
+    });
   });
 
-  // get photo when "Choose an image..." is clicked
   $("#choose-photo").click(function() {
-    // console.log("clicked the take photo button!");
-    app = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
-    if (app) {
-      // console.log("app");
-      navigator.camera.getPicture(onSuccess, onFail, {
-        quality: 30,
-        destinationType: Camera.DestinationType.DATA_URL,
-        sourceType: Camera.PictureSourceType.PHOTOLIBRARY
-      });
-    }
-    else {
-      // console.log("not app, you are on browser");
-      $("input[type='file']").click();
-    }
+    $("input[type='file']").click();
   });
   /***
-  IMAGE - end
+  photos - end
   ***/
 }
 
