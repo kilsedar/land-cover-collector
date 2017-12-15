@@ -9,6 +9,10 @@ var curLatLng = [0, 0],
 curLatLngAccuracy = 0;
 var classification = "",
 image = "",
+imageNorth = "",
+imageWest = "",
+imageSouth = "",
+imageEast = "",
 certainty = 3,
 comment= "";
 
@@ -205,14 +209,17 @@ function afterLangInit() {
   $("#add-menu-start").click(function() {
     $("#add-menu").hide();
     $("#classes-menu").show();
-    $("#class-next, #certainty-next").addClass("ui-disabled");
+    $("#class-next, #certainty-next, #photo-north-next, #photo-west-next, #photo-south-next, #photo-east-next").addClass("ui-disabled");
     $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-about").addClass("ui-disabled");
 
     var app = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
-    if (app)
-      $("#input-file, #choose-photo").remove();
-    else
-      $("#take-photo").remove();
+    if (app) {
+      $("#input-file").remove();
+      $(".choose-photo").remove();
+    }
+    else {
+      $(".take-photo").remove();
+    }
 
     $("#classes-menu-list").css("overflow-y", "scroll");
 
@@ -243,6 +250,10 @@ function afterLangInit() {
     // set all initial values
     classification = "";
     image = "";
+    imageNorth = "";
+    imageWest = "";
+    imageSouth = "";
+    imageEast = "";
     certainty = 3;
     comment= "";
   });
@@ -291,7 +302,7 @@ function afterLangInit() {
             classes.push(todo.doc.classification);
             certainties.push(todo.doc.certainty);
             comments.push(todo.doc.comment);
-            imageLengths.push(todo.doc._attachments["image.jpg"].length);
+            imageLengths.push(todo.doc._attachments["photo-north.png"].length);
             count++;
           }
         });
@@ -358,7 +369,7 @@ function afterLangInit() {
               classes.push(todo.doc.classification);
               certainties.push(todo.doc.certainty);
               comments.push(todo.doc.comment);
-              imageLengths.push(todo.doc._attachments["image.jpg"].length);
+              imageLengths.push(todo.doc._attachments["photo-north.png"].length);
               count++;
             }
           });
@@ -423,17 +434,56 @@ function afterLangInit() {
   $("#comment-next").click(function() {
     comment =  $("#comment-input").val();
     $("#comment").hide();
-    $("#photo").show();
+    $("#photo-north").show();
   });
 
-  $("#photo-back").click(function() {
-    $("#photo").hide();
+  $("#photo-north-back").click(function() {
+    $("#photo-north").hide();
     $("#comment").show();
   });
 
-  $("#photo-next").click(function() {
-    $("#photo").hide();
+  $("#photo-north-next").click(function() {
+    $("#photo-north").hide();
+    $("#photo-west").show();
+
+    imageNorth = image;
+  });
+
+  $("#photo-west-back").click(function() {
+    $("#photo-west").hide();
+    $("#photo-north").show();
+  });
+
+  $("#photo-west-next").click(function() {
+    $("#photo-west").hide();
+    $("#photo-south").show();
+
+    imageWest = image;
+  });
+
+  $("#photo-south-back").click(function() {
+    $("#photo-south").hide();
+    $("#photo-west").show();
+  });
+
+  $("#photo-south-next").click(function() {
+    $("#photo-south").hide();
+    $("#photo-east").show();
+
+    imageSouth = image;
+  });
+
+  $("#photo-east-back").click(function() {
+    $("#photo-east").hide();
+    $("#photo-south").show();
+  });
+
+  // $("#photo-east-next").click(function() {
+  $("#photo-east").on("click", "#photo-east-next", function(event) {
+    $("#photo-east").hide();
     $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-about").removeClass("ui-disabled");
+
+    imageEast = image;
 
     var timestamp = new Date().toISOString();
     var poi = {
@@ -448,10 +498,25 @@ function afterLangInit() {
       comment: comment,
       _attachments:
       {
-        "image.jpg":
+        "photo-north.png":
         {
-          content_type:"image\/jpeg",
-          data: image
+          content_type:"image\/png",
+          data: imageNorth
+        },
+        "photo-west.png":
+        {
+          content_type:"image\/png",
+          data: imageWest
+        },
+        "photo-south.png":
+        {
+          content_type:"image\/png",
+          data: imageSouth
+        },
+        "photo-east.png":
+        {
+          content_type:"image\/png",
+          data: imageEast
         }
       }
     };
@@ -527,6 +592,12 @@ function afterLangInit() {
       // console.log(url);
       image = url.substr(url.indexOf(",")+1);
       // console.log(image);
+
+      var activeDivId = ($("#add-bottompanel").children().filter(function() {
+        return $(this).css("display") === "block" && $(this).attr("id") !== "input-file";
+      }).attr("id"));
+
+      $("#"+activeDivId+"-next").removeClass("ui-disabled");
     }
 
     // when the file is read it triggers the onload event above
@@ -535,30 +606,33 @@ function afterLangInit() {
 
   // triggered when OK is clicked
   $("input[type='file']").change(function() {
-    // console.log(this.files[0]);
     renderImage(this.files[0]);
+  });
+  
+  $(".choose-photo").click(function() {
+    $("input[type='file']").click();
   });
 
   function onSuccess(imageData) {
     image = imageData;
-    // console.log("image is received");
-    // console.log(image);
+
+    var activeDivId = ($("#add-bottompanel").children().filter(function() {
+      return $(this).css("display") === "block";
+    }).attr("id"));
+
+    $("#"+activeDivId+"-next").removeClass("ui-disabled");
   }
 
   function onFail(message) {
     console.log("Failed getting photo. Message: " + message);
   }
 
-  $("#take-photo").click(function() {
+  $(".take-photo").click(function() {
     navigator.camera.getPicture(onSuccess, onFail, {
       quality: 20,
       destinationType: Camera.DestinationType.DATA_URL,
       sourceType: Camera.PictureSourceType.CAMERA
     });
-  });
-
-  $("#choose-photo").click(function() {
-    $("input[type='file']").click();
   });
   /***
   photos - end
@@ -576,7 +650,7 @@ function isImageEmpty(id, length) {
   if (length == 0)
     return "";
   else
-    return "<br><center><img src=http://localhost:5984/glc30_points/" + id + "/image.jpg" + " width=200px></center>";
+    return "<br><center><img src=http://localhost:5984/glc30_points/" + id + "/photo-north.png" + " width=200px></center>";
 }
 
 function onlyUnique(value, index, self) {

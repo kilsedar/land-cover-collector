@@ -106,66 +106,90 @@
           </div>
         </div>
 
-        <div id="add-menu" class="bottompanel">
-          <a id="add-menu-start" data-role="button" data-icon="plus" data-iconpos="right" data-theme="c" data-i18n="menu.buttons.contribute">Insert your point of your interest!</a>
-        </div>
-
-        <div id="classes-menu" class="bottompanel">
-          <a href="#classes-menu-list" id="classes-select" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-carat-d" data-rel="popup" data-position-to="window" data-inline="true" data-theme="c" data-transition="pop" data-i18n="menu.classes.select">Select the classification of your point</a>
-          <div id="classes-menu-list" class="ui-corner-all" data-theme="c" data-role="popup">
-            <form>
-              <fieldset data-role="controlgroup">
-                <a href="#"><label for="radio-choice-1" class="valign"><img class="valign classes-menu-image" src="img/classes/artificialSurface.png"><span class="classes-menu-label" data-i18n="classes.artificialSurface">Artificial surface</span></label><input type="radio" name="radio-choice" id="radio-choice-1" value="artificialSurface"></input></a>
-                <a href="#"><label for="radio-choice-2" class="valign"><img class="valign classes-menu-image" src="img/classes/bareLand.png"><span class="classes-menu-label" data-i18n="classes.bareLand">Bare land</span></label><input type="radio" name="radio-choice" id="radio-choice-2" value="bareLand"></input></a>
-                <a href="#"><label for="radio-choice-3" class="valign"><img class="valign classes-menu-image" src="img/classes/cultivatedLand.png"><span class="classes-menu-label" data-i18n="classes.cultivatedLand">Cultivated land</span></label><input type="radio" name="radio-choice" id="radio-choice-3" value="cultivatedLand"></input></a>
-                <a href="#"><label for="radio-choice-4" class="valign"><img class="valign classes-menu-image" src="img/classes/forest.png"><span class="classes-menu-label" data-i18n="classes.forest">Forest</span></label><input type="radio" name="radio-choice" id="radio-choice-4" value="forest"></input></a>
-                <a href="#"><label for="radio-choice-5" class="valign"><img class="valign classes-menu-image" src="img/classes/grassland.png"><span class="classes-menu-label" data-i18n="classes.grassland">Grassland</span></label><input type="radio" name="radio-choice" id="radio-choice-5" value="grassland"></input></a>
-                <a href="#"><label for="radio-choice-6" class="valign"><img class="valign classes-menu-image" src="img/classes/permanentSnowAndIce.png"><span class="classes-menu-label" data-i18n="classes.permanentSnowAndIce">Permanent snow and ice</span></label><input type="radio" name="radio-choice" id="radio-choice-6" value="permanentSnowAndIce"></input></a>
-                <a href="#"><label for="radio-choice-7" class="valign"><img class="valign classes-menu-image" src="img/classes/shrubland.png"><span class="classes-menu-label" data-i18n="classes.shrubland">Shrubland</span></label><input type="radio" name="radio-choice" id="radio-choice-7" value="shrubland"></input></a>
-                <a href="#"><label for="radio-choice-8" class="valign"><img class="valign classes-menu-image" src="img/classes/tundra.png"><span class="classes-menu-label" data-i18n="classes.tundra">Tundra</span></label><input type="radio" name="radio-choice" id="radio-choice-8" value="tundra"></input></a>
-                <a href="#"><label for="radio-choice-9" class="valign"><img class="valign classes-menu-image" src="img/classes/waterBody.png"><span class="classes-menu-label" data-i18n="classes.waterBody">Water body</span></label><input type="radio" name="radio-choice" id="radio-choice-9" value="waterBody"></input></a>
-                <a href="#"><label for="radio-choice-10" class="valign"><img class="valign classes-menu-image" src="img/classes/wetland.png"><span class="classes-menu-label" data-i18n="classes.wetland">Wetland</span></label><input type="radio" name="radio-choice" id="radio-choice-10" value="wetland"></input></a>
-
-                <a href="#"><button type="button" id="class-ok" class="ui-btn ui-icon-check ui-btn-icon-right ui-corner-all">OK</button></a>
-              </fieldset>
-            </form>
-          </div>
-          <a data-role="button" id="class-cancel" data-icon="home" data-iconpos="left" data-inline="true" data-theme="c" data-i18n="menu.buttons.cancel">Cancel</a>
-          <a data-role="button" id="class-next" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="c" data-i18n="menu.buttons.next">Next</a>
-        </div>
-
-        <div id="certainty-slider" class="bottompanel">
-          <span id="certainty-slider-label" class="label" data-i18n="menu.certainty.question">How certain are you?</span>
-          <input type="range" name="slider" id="slider" min="1" max="5" value="3">
-          <div id="slider-ticks">
-            <div class="tick tick-1"></div>
-            <div class="tick tick-2"></div>
-            <div class="tick tick-3"></div>
-            <div class="tick tick-4"></div>
-            <div class="tick tick-5"></div>
-          </div>
-          <div class="slider-labels">
-            <div class="label label-1" data-i18n="menu.certainty.one">not certain</div>
-            <div class="label label-5" data-i18n="menu.certainty.five">absolutely certain</div>
-          </div>
-          <a id="certainty-back" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-theme="c" data-i18n="menu.buttons.back">Back</a>
-          <a id="certainty-next" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="c" data-i18n="menu.buttons.next">Next</a>
-        </div>
-
-        <div id="comment" class="bottompanel">
-          <span id="comment-label" class="label" data-i18n="menu.comment">Any comments?</span>
-          <input type="text" id="comment-input"></input>
-          <a id="comment-back" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-theme="c" data-i18n="menu.buttons.back">Back</a>
-          <a id="comment-next" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="c" data-i18n="menu.buttons.next">Next</a>
-        </div>
-
-        <div id="photo" class="bottompanel">
-          <div id="take-photo"><button data-i18n="menu.takePhoto">Take a picture...</button></div>
+        <div id="add-bottompanel">
           <div id="input-file"><input type="file"></div>
-          <div id="choose-photo"><button data-i18n="menu.choosePhoto">Choose an image...</button></div>
-          <a id="photo-back" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-theme="c" data-i18n="menu.buttons.back">Back</a>
-          <a id="photo-next" data-role="button" data-icon="plus" data-iconpos="right" data-inline="true" data-theme="c" data-i18n="menu.buttons.submit">Submit</a>
-        </div>
+
+          <div id="add-menu" class="bottompanel">
+            <a id="add-menu-start" data-role="button" data-icon="plus" data-iconpos="right" data-theme="c" data-i18n="menu.buttons.contribute">Insert your point of your interest!</a>
+          </div>
+
+          <div id="classes-menu" class="bottompanel">
+            <a href="#classes-menu-list" id="classes-select" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-carat-d" data-rel="popup" data-position-to="window" data-inline="true" data-theme="c" data-transition="pop" data-i18n="menu.classes.select">Select the classification of your point.</a>
+            <div id="classes-menu-list" class="ui-corner-all" data-theme="c" data-role="popup">
+              <form>
+                <fieldset data-role="controlgroup">
+                  <a href="#"><label for="radio-choice-1" class="valign"><img class="valign classes-menu-image" src="img/classes/artificialSurface.png"><span class="classes-menu-label" data-i18n="classes.artificialSurface">Artificial surface</span></label><input type="radio" name="radio-choice" id="radio-choice-1" value="artificialSurface"></input></a>
+                  <a href="#"><label for="radio-choice-2" class="valign"><img class="valign classes-menu-image" src="img/classes/bareLand.png"><span class="classes-menu-label" data-i18n="classes.bareLand">Bare land</span></label><input type="radio" name="radio-choice" id="radio-choice-2" value="bareLand"></input></a>
+                  <a href="#"><label for="radio-choice-3" class="valign"><img class="valign classes-menu-image" src="img/classes/cultivatedLand.png"><span class="classes-menu-label" data-i18n="classes.cultivatedLand">Cultivated land</span></label><input type="radio" name="radio-choice" id="radio-choice-3" value="cultivatedLand"></input></a>
+                  <a href="#"><label for="radio-choice-4" class="valign"><img class="valign classes-menu-image" src="img/classes/forest.png"><span class="classes-menu-label" data-i18n="classes.forest">Forest</span></label><input type="radio" name="radio-choice" id="radio-choice-4" value="forest"></input></a>
+                  <a href="#"><label for="radio-choice-5" class="valign"><img class="valign classes-menu-image" src="img/classes/grassland.png"><span class="classes-menu-label" data-i18n="classes.grassland">Grassland</span></label><input type="radio" name="radio-choice" id="radio-choice-5" value="grassland"></input></a>
+                  <a href="#"><label for="radio-choice-6" class="valign"><img class="valign classes-menu-image" src="img/classes/permanentSnowAndIce.png"><span class="classes-menu-label" data-i18n="classes.permanentSnowAndIce">Permanent snow and ice</span></label><input type="radio" name="radio-choice" id="radio-choice-6" value="permanentSnowAndIce"></input></a>
+                  <a href="#"><label for="radio-choice-7" class="valign"><img class="valign classes-menu-image" src="img/classes/shrubland.png"><span class="classes-menu-label" data-i18n="classes.shrubland">Shrubland</span></label><input type="radio" name="radio-choice" id="radio-choice-7" value="shrubland"></input></a>
+                  <a href="#"><label for="radio-choice-8" class="valign"><img class="valign classes-menu-image" src="img/classes/tundra.png"><span class="classes-menu-label" data-i18n="classes.tundra">Tundra</span></label><input type="radio" name="radio-choice" id="radio-choice-8" value="tundra"></input></a>
+                  <a href="#"><label for="radio-choice-9" class="valign"><img class="valign classes-menu-image" src="img/classes/waterBody.png"><span class="classes-menu-label" data-i18n="classes.waterBody">Water body</span></label><input type="radio" name="radio-choice" id="radio-choice-9" value="waterBody"></input></a>
+                  <a href="#"><label for="radio-choice-10" class="valign"><img class="valign classes-menu-image" src="img/classes/wetland.png"><span class="classes-menu-label" data-i18n="classes.wetland">Wetland</span></label><input type="radio" name="radio-choice" id="radio-choice-10" value="wetland"></input></a>
+
+                  <a href="#"><button type="button" id="class-ok" class="ui-btn ui-icon-check ui-btn-icon-right ui-corner-all">OK</button></a>
+                </fieldset>
+              </form>
+            </div>
+            <a data-role="button" id="class-cancel" data-icon="home" data-iconpos="left" data-inline="true" data-theme="c" data-i18n="menu.buttons.cancel">Cancel</a>
+            <a data-role="button" id="class-next" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="c" data-i18n="menu.buttons.next">Next</a>
+          </div>
+
+          <div id="certainty-slider" class="bottompanel">
+            <span id="certainty-slider-label" class="label" data-i18n="menu.certainty.question">How certain are you?</span>
+            <input type="range" name="slider" id="slider" min="1" max="5" value="3">
+            <div id="slider-ticks">
+              <div class="tick tick-1"></div>
+              <div class="tick tick-2"></div>
+              <div class="tick tick-3"></div>
+              <div class="tick tick-4"></div>
+              <div class="tick tick-5"></div>
+            </div>
+            <div class="slider-labels">
+              <div class="label label-1" data-i18n="menu.certainty.one">not certain</div>
+              <div class="label label-5" data-i18n="menu.certainty.five">absolutely certain</div>
+            </div>
+            <a id="certainty-back" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-theme="c" data-i18n="menu.buttons.back">Back</a>
+            <a id="certainty-next" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="c" data-i18n="menu.buttons.next">Next</a>
+          </div>
+
+          <div id="comment" class="bottompanel">
+            <span id="comment-label" class="label" data-i18n="menu.comment">Any comments?</span>
+            <input type="text" id="comment-input"></input>
+            <a id="comment-back" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-theme="c" data-i18n="menu.buttons.back">Back</a>
+            <a id="comment-next" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="c" data-i18n="menu.buttons.next">Next</a>
+          </div>
+
+          <div id="photo-north" class="bottompanel">
+            <div class="take-photo"><button data-i18n="menu.takePhotoNorth">Take a picture of north.</button></div>
+            <div class="choose-photo"><button data-i18n="menu.choosePhotoNorth">Choose an image of north.</button></div>
+            <a id="photo-north-back" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-theme="c" data-i18n="menu.buttons.back">Back</a>
+            <a id="photo-north-next" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="c" data-i18n="menu.buttons.next">Next</a>
+          </div>
+
+          <div id="photo-west" class="bottompanel">
+            <div class="take-photo"><button data-i18n="menu.takePhotoWest">Take a picture of west.</button></div>
+            <div class="choose-photo"><button data-i18n="menu.choosePhotoWest">Choose an image of west.</button></div>
+            <a id="photo-west-back" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-theme="c" data-i18n="menu.buttons.back">Back</a>
+            <a id="photo-west-next" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="c" data-i18n="menu.buttons.next">Next</a>
+          </div>
+
+          <div id="photo-south" class="bottompanel">
+            <div class="take-photo"><button data-i18n="menu.takePhotoSouth">Take a picture of south.</button></div>
+            <div class="choose-photo"><button data-i18n="menu.choosePhotoSouth">Choose an image of south.</button></div>
+            <a id="photo-south-back" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-theme="c" data-i18n="menu.buttons.back">Back</a>
+            <a id="photo-south-next" data-role="button" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-theme="c" data-i18n="menu.buttons.next">Next</a>
+          </div>
+
+          <div id="photo-east" class="bottompanel">
+            <div class="take-photo"><button data-i18n="menu.takePhotoEast">Take a picture of east.</button></div>
+            <div class="choose-photo"><button data-i18n="menu.choosePhotoEast">Choose an image of east.</button></div>
+            <a id="photo-east-back" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-theme="c" data-i18n="menu.buttons.back">Back</a>
+            <a id="photo-east-next" data-role="button" data-icon="plus" data-iconpos="right" data-inline="true" data-theme="c" data-i18n="menu.buttons.submit">Submit</a>
+          </div>
+      </div>
 
         <div id="mymap-stat" class="bottompanel">
           <label id="mymap-stat-text" data-i18n="stat.total">In total, you have ...</label>

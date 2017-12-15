@@ -205,13 +205,12 @@ select, option {
   display: block;
 }
 
-#class-next, #photo-next, #certainty-next, #comment-next {
+#class-next, #photo-north-next, #photo-west-next, #photo-south-next, #photo-east-next, #certainty-next, #comment-next {
   position: absolute;
   right: 0%;
 }
 
 #input-file {
-  display: block;
   visibility: hidden;
   width: 0;
   height: 0;

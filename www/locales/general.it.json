@@ -28,8 +28,14 @@
   "menu":
   {
     "comment": "Commenti?",
-    "takePhoto": "Scatta una foto...",
-    "choosePhoto": "Scegli un'immagine...",
+    "takePhotoNorth": "Scatta una foto del nord.",
+    "takePhotoWest": "Scatta una foto dell'ovest.",
+    "takePhotoSouth": "Scatta una foto del sud.",
+    "takePhotoEast": "Scatta una foto dell'est.",
+    "choosePhotoNorth": "Scegli un'immagine del nord.",
+    "choosePhotoWest": "Scegli un'immagine dell'ovest.",
+    "choosePhotoSouth": "Scegli un'immagine del sud.",
+    "choosePhotoEast": "Scegli un'immagine dell'est.",
     "certainty":
     {
       "question": "Quanto sei sicuro?",
@@ -38,7 +44,7 @@
     },
     "classes":
     {
-      "select": "Seleziona la classificazione del punto",
+      "select": "Seleziona la classificazione del punto.",
       "artificialSurface": "Superficie artificiale",
       "bareLand": "Terreno non valorizzato",
       "cultivatedLand": "Superficie agricola utilizzata",

@@ -28,8 +28,14 @@
   "menu":
   {
     "comment": "Any comments?",
-    "takePhoto": "Take a picture...",
-    "choosePhoto": "Choose an image...",
+    "takePhotoNorth": "Take a picture of north.",
+    "takePhotoWest": "Take a picture of west.",
+    "takePhotoSouth": "Take a picture of south.",
+    "takePhotoEast": "Take a picture of east.",
+    "choosePhotoNorth": "Choose an image of north.",
+    "choosePhotoWest": "Choose an image of west.",
+    "choosePhotoSouth": "Choose an image of south.",
+    "choosePhotoEast": "Choose an image of east.",
     "certainty":
     {
       "question": "How certain are you?",
@@ -38,7 +44,7 @@
     },
     "classes":
     {
-      "select": "Select the classification of your point",
+      "select": "Select the classification of your point.",
       "artificialSurface": "Artificial surface",
       "bareLand": "Bare land",
       "cultivatedLand": "Cultivated land",
@@ -91,11 +97,11 @@
     "contrMySingle": " contribution.",
     "contrMyPlural": " contributions.",
     "totalAllSingle": "In total, there is ",
-    "contrAllSingle": " contribution within 5km of your current location.",
+    "contrAllSingle": " contribution within 5 km of your current location.",
     "totalAllPlural": "In total, there are ",
-    "contrAllPlural": " contributions within 5km of your current location.",
+    "contrAllPlural": " contributions within 5 km of your current location.",
     "noContrMy": "You have not had any contribution yet!",
-    "noContrAll": "No body has added a contribution within 5km of your current location."
+    "noContrAll": "No body has added a contribution within 5 km of your current location."
   },
   "about": "abc"
 }
