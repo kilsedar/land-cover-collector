@@ -28,7 +28,7 @@ function afterLangInit() {
   networkState = navigator.connection.type;
 
   // pouchdb & couchdb settings
-  var localDB = new PouchDB("db_local", {auto_compaction:true});
+  var localDB = new PouchDB("db_local", {auto_compaction: true});
   var remoteUsersDB = new PouchDB(SETTINGS.db_users_url, {size: 100});
   var remotePointsDB = new PouchDB(SETTINGS.db_points_url, {size: 100});
   var opts = {live: true};
@@ -42,7 +42,7 @@ function afterLangInit() {
 
   osm = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors",
-    errorTileUrl:"como_tiles/errorTile.png"
+    errorTileUrl: "como_tiles/errorTile.png"
   });
 
   $("#bing").click(function() {
@@ -129,14 +129,14 @@ function afterLangInit() {
       return;
     }
 
-    if(gender == null || age == null || workstatus == null) {
+    if (gender == null || age == null || workstatus == null) {
       navigator.notification.alert(i18n.t("messages.registrationFormEmpty"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
       return;
     }
 
     // register user
-    var timestamp= new Date().toISOString();
-    remoteUsersDB.get(uuid).then(function (doc) {
+    var timestamp = new Date().toISOString();
+    remoteUsersDB.get(uuid).then(function(doc) {
       // if exists, update the user
       var user = {
         _id: uuid,
@@ -152,7 +152,7 @@ function afterLangInit() {
         else
           navigator.notification.alert(i18n.t("messages.error") + " " + err, null, "GlobeLand30 Validation", i18n.t("messages.ok"));
       });
-    }).catch(function (err) {
+    }).catch(function(err) {
       // if not exists, add the user
       var user = {
         _id: uuid,
@@ -229,7 +229,7 @@ function afterLangInit() {
     $("#comment-input").val("");
     $("#slider").val(3).slider("refresh");
 
-    if(navigator.geolocation) {
+    if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         function(position) {
           curLatLng = [position.coords.latitude, position.coords.longitude];
@@ -281,7 +281,7 @@ function afterLangInit() {
 
     // read data from the local database
     localDB.allDocs({include_docs: true}, function(err, doc) {
-      if(err) {
+      if (err) {
         navigator.notification.alert(i18n.t("messages.privateMode"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
         return;
       }
@@ -292,22 +292,20 @@ function afterLangInit() {
         var classes=[];
         var certainties=[];
         var comments=[];
-        var imageLengths=[];
         var count=0;
         doc.rows.forEach(function(todo) {
-          if(todo.doc.location!=null&&todo.doc.classification!=null) {
+          if (todo.doc.location!=null&&todo.doc.classification!=null) {
             ids.push(todo.doc._id);
             timestamps.push(todo.doc.timestamp);
             locations.push(todo.doc.location);
             classes.push(todo.doc.classification);
             certainties.push(todo.doc.certainty);
             comments.push(todo.doc.comment);
-            imageLengths.push(todo.doc._attachments["photo-north.png"].length);
             count++;
           }
         });
 
-        markersMy = vizPOIs(map, ids, timestamps, locations, classes, certainties, comments, imageLengths);
+        markersMy = vizPOIs(map, ids, timestamps, locations, classes, certainties, comments);
         if (count == 0)
           $("#mymap-stat").html(i18n.t("stat.noContrMy") +"<br><br>");
         else if (count == 1)
@@ -348,7 +346,7 @@ function afterLangInit() {
     else {
       // read data from the server database
       remotePointsDB.allDocs({include_docs: true}, function(err, doc) {
-        if(err) {
+        if (err) {
           navigator.notification.alert(i18n.t("messages.error"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
           return;
         }
@@ -359,29 +357,27 @@ function afterLangInit() {
           var classes=[];
           var certainties=[];
           var comments=[];
-          var imageLengths=[];
           var count=0;
           doc.rows.forEach(function(todo) {
-            if(todo.doc.location!=null&&todo.doc.classification!=null) {
+            if (todo.doc.location!=null&&todo.doc.classification!=null) {
               ids.push(todo.doc._id);
               locations.push(todo.doc.location);
               timestamps.push(todo.doc.timestamp);
               classes.push(todo.doc.classification);
               certainties.push(todo.doc.certainty);
               comments.push(todo.doc.comment);
-              imageLengths.push(todo.doc._attachments["photo-north.png"].length);
               count++;
             }
           });
 
-          markersAll = vizPOIs(map, ids, timestamps, locations, classes, certainties, comments, imageLengths);
+          markersAll = vizPOIs(map, ids, timestamps, locations, classes, certainties, comments);
 
           var count = 0;
           var dist;
           var curLatLngL = L.latLng(curLatLng[0], curLatLng[1]);
           for (var i = 0; i < ids.length; i++) {
             dist = curLatLngL.distanceTo(L.latLng(locations[i][0], locations[i][1]));
-            if(dist <= 5000) {
+            if (dist <= 5000) {
               count++;
             }
           }
@@ -478,8 +474,7 @@ function afterLangInit() {
     $("#photo-south").show();
   });
 
-  // $("#photo-east-next").click(function() {
-  $("#photo-east").on("click", "#photo-east-next", function(event) {
+  $("#photo-east-next").click(function() {
     $("#photo-east").hide();
     $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-about").removeClass("ui-disabled");
 
@@ -500,22 +495,22 @@ function afterLangInit() {
       {
         "photo-north.png":
         {
-          content_type:"image\/png",
+          content_type: "image\/png",
           data: imageNorth
         },
         "photo-west.png":
         {
-          content_type:"image\/png",
+          content_type: "image\/png",
           data: imageWest
         },
         "photo-south.png":
         {
-          content_type:"image\/png",
+          content_type: "image\/png",
           data: imageSouth
         },
         "photo-east.png":
         {
-          content_type:"image\/png",
+          content_type: "image\/png",
           data: imageEast
         }
       }
@@ -544,7 +539,7 @@ function afterLangInit() {
     $("#certainty-next").removeClass("ui-disabled");
   });
 
-  $("input[type='radio']").on("click", function() {
+  $("input[type='radio']").click(function() {
     classification = $(this).val();
     $("#class-next").removeClass("ui-disabled");
   });
@@ -608,7 +603,7 @@ function afterLangInit() {
   $("input[type='file']").change(function() {
     renderImage(this.files[0]);
   });
-  
+
   $(".choose-photo").click(function() {
     $("input[type='file']").click();
   });
@@ -639,18 +634,95 @@ function afterLangInit() {
   ***/
 }
 
+$("#map").on("click", ".popup-right-arrow", function(event) {
+  $(this).parent().css("display", "none");
+
+  var parentClassNameSplitted = $(this).parent().attr("class").split("-");
+  var direction = parentClassNameSplitted[parentClassNameSplitted.length - 1];
+  if (direction == "north")
+    $(this).parent().siblings(".popup-images-west").css("display", "block");
+  else if (direction == "west")
+    $(this).parent().siblings(".popup-images-south").css("display", "block");
+  else if (direction == "south")
+    $(this).parent().siblings(".popup-images-east").css("display", "block");
+});
+
+$("#map").on("click", ".popup-left-arrow", function(event) {
+  $(this).parent().css("display", "none");
+
+  var parentClassNameSplitted = $(this).parent().attr("class").split("-");
+  var direction = parentClassNameSplitted[parentClassNameSplitted.length - 1];
+  if (direction == "east")
+    $(this).parent().siblings(".popup-images-south").css("display", "block");
+  else if (direction == "south")
+    $(this).parent().siblings(".popup-images-west").css("display", "block");
+  else if (direction == "west")
+    $(this).parent().siblings(".popup-images-north").css("display", "block");
+});
+
+var popupImages = document.createElement("div");
+popupImages.className = "popup-images";
+
+var popupRightArrow = document.createElement("img");
+popupRightArrow.className = "popup-right-arrow";
+popupRightArrow.src = "img/rightTriangleSmall.png";
+
+var popupLeftArrow = document.createElement("img");
+popupLeftArrow.className = "popup-left-arrow";
+popupLeftArrow.src = "img/leftTriangleSmall.png";
+
+var popupImagesNorth = document.createElement("div");
+popupImagesNorth.className = "popup-images-north";
+
+var popupImagesWest = document.createElement("div");
+popupImagesWest.className = "popup-images-west";
+
+var popupImagesSouth = document.createElement("div");
+popupImagesSouth.className = "popup-images-south";
+
+var popupImagesEast = document.createElement("div");
+popupImagesEast.className = "popup-images-east";
+
+popupImages.appendChild(popupImagesNorth);
+popupImages.appendChild(popupImagesWest);
+popupImages.appendChild(popupImagesSouth);
+popupImages.appendChild(popupImagesEast);
+
+function addPopupImages(id) {
+  window["imageNorth"+id] = document.createElement("img");
+  window["imageNorth"+id].src = "http://localhost:5984/glc30_points/" + id + "/photo-north.png";
+  popupImagesNorth.innerHTML = "";
+  popupImagesNorth.appendChild(window["imageNorth"+id]);
+  popupImagesNorth.appendChild(popupRightArrow.cloneNode(true));
+
+  window["imageWest"+id] = document.createElement("img");
+  window["imageWest"+id].src = "http://localhost:5984/glc30_points/" + id + "/photo-west.png";
+  popupImagesWest.innerHTML = "";
+  popupImagesWest.appendChild(popupLeftArrow.cloneNode(true));
+  popupImagesWest.appendChild(window["imageWest"+id]);
+  popupImagesWest.appendChild(popupRightArrow.cloneNode(true));
+
+  window["imageSouth"+id] = document.createElement("img");
+  window["imageSouth"+id].src = "http://localhost:5984/glc30_points/" + id + "/photo-south.png";
+  popupImagesSouth.innerHTML = "";
+  popupImagesSouth.appendChild(popupLeftArrow.cloneNode(true));
+  popupImagesSouth.appendChild(window["imageSouth"+id]);
+  popupImagesSouth.appendChild(popupRightArrow.cloneNode(true));
+
+  window["imageEast"+id] = document.createElement("img");
+  window["imageEast"+id].src = "http://localhost:5984/glc30_points/" + id + "/photo-east.png";
+  popupImagesEast.innerHTML = "";
+  popupImagesEast.appendChild(popupLeftArrow.cloneNode(true));
+  popupImagesEast.appendChild(window["imageEast"+id]);
+
+  return popupImages.outerHTML;
+}
+
 function isCommentEmpty(comment) {
   if (comment == "")
     return "";
   else
-    return "<b>" + i18n.t("popup.comment") + ":</b> " + comment + "<br>";
-}
-
-function isImageEmpty(id, length) {
-  if (length == 0)
-    return "";
-  else
-    return "<br><center><img src=http://localhost:5984/glc30_points/" + id + "/photo-north.png" + " width=200px></center>";
+    return "<b>" + i18n.t("popup.comment") + ": </b>" + comment + "<br>";
 }
 
 function onlyUnique(value, index, self) {
@@ -658,7 +730,7 @@ function onlyUnique(value, index, self) {
 }
 
 // visualizing POIs using marker cluster
-function vizPOIs (map, ids, timestamps, locations, classes, certainties, comments, imageLengths) {
+function vizPOIs (map, ids, timestamps, locations, classes, certainties, comments) {
   var str = "";
   var markerClusters = [];
   var marker;
@@ -680,7 +752,7 @@ function vizPOIs (map, ids, timestamps, locations, classes, certainties, comment
       popupAnchor: [0, -36]
     });
     marker = L.marker(locations[i], {icon: locationIcon});
-    marker.bindPopup("<b>" + i18n.t("popup.class") + ": </b>" + i18n.t("menu.classes."+classes[i]) + "<br><b>" + i18n.t("popup.date") + ": </b>" + new Date(timestamps[i]).toLocaleString() + "<br><b>" + i18n.t("popup.certainty") + ": </b>" + certainties[i] + "<br>" + isCommentEmpty(comments[i]) + isImageEmpty(ids[i], imageLengths[i]));
+    marker.bindPopup("<b>" + i18n.t("popup.class") + ": </b>" + i18n.t("menu.classes."+classes[i]) + "<br><b>" + i18n.t("popup.date") + ": </b>" + new Date(timestamps[i]).toLocaleString() + "<br><b>" + i18n.t("popup.certainty") + ": </b>" + certainties[i] + "<br>" + isCommentEmpty(comments[i]) + addPopupImages(ids[i]));
     marker.mydata = classes[i];
     str = "markers" + classes[i].charAt(0).toUpperCase() + classes[i].slice(1);
     window[str].addLayer(marker);
