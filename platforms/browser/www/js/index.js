@@ -31,12 +31,11 @@ function afterLangInit() {
   var localDB = new PouchDB("db_local", {auto_compaction: true});
   var remoteUsersDB = new PouchDB(SETTINGS.db_users_url, {size: 100});
   var remotePointsDB = new PouchDB(SETTINGS.db_points_url, {size: 100});
-  var opts = {live: true};
   function syncError(err) {
     console.log("sync error: " + err);
   }
   if (SETTINGS.db_points_url)
-    localDB.replicate.to(SETTINGS.db_points_url, opts, syncError);
+    localDB.replicate.to(SETTINGS.db_points_url, {live: true}, syncError); 
 
   bing = new L.tileLayer.bing("AqSfYcbsnUwaN_5NvJfoNgNnsBfo1lYuRUKsiVdS5wQP3gMX6x8xuzrjZkWMcJQ1", {type: "AerialWithLabels"});
 
