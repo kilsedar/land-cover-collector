@@ -35,7 +35,7 @@ function afterLangInit() {
     console.log("sync error: " + err);
   }
   if (SETTINGS.db_points_url)
-    localDB.replicate.to(SETTINGS.db_points_url, {live: true}, syncError); 
+    localDB.replicate.to(SETTINGS.db_points_url, {live: true}, syncError);
 
   bing = new L.tileLayer.bing("AqSfYcbsnUwaN_5NvJfoNgNnsBfo1lYuRUKsiVdS5wQP3gMX6x8xuzrjZkWMcJQ1", {type: "AerialWithLabels"});
 
@@ -689,27 +689,27 @@ popupImages.appendChild(popupImagesEast);
 
 function addPopupImages(id) {
   window["imageNorth"+id] = document.createElement("img");
-  window["imageNorth"+id].src = "http://localhost:5984/glc30_points/" + id + "/photo-north.png";
+  window["imageNorth"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-north.png";
   popupImagesNorth.innerHTML = "";
   popupImagesNorth.appendChild(window["imageNorth"+id]);
   popupImagesNorth.appendChild(popupRightArrow.cloneNode(true));
 
   window["imageWest"+id] = document.createElement("img");
-  window["imageWest"+id].src = "http://localhost:5984/glc30_points/" + id + "/photo-west.png";
+  window["imageWest"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-west.png";
   popupImagesWest.innerHTML = "";
   popupImagesWest.appendChild(popupLeftArrow.cloneNode(true));
   popupImagesWest.appendChild(window["imageWest"+id]);
   popupImagesWest.appendChild(popupRightArrow.cloneNode(true));
 
   window["imageSouth"+id] = document.createElement("img");
-  window["imageSouth"+id].src = "http://localhost:5984/glc30_points/" + id + "/photo-south.png";
+  window["imageSouth"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-south.png";
   popupImagesSouth.innerHTML = "";
   popupImagesSouth.appendChild(popupLeftArrow.cloneNode(true));
   popupImagesSouth.appendChild(window["imageSouth"+id]);
   popupImagesSouth.appendChild(popupRightArrow.cloneNode(true));
 
   window["imageEast"+id] = document.createElement("img");
-  window["imageEast"+id].src = "http://localhost:5984/glc30_points/" + id + "/photo-east.png";
+  window["imageEast"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-east.png";
   popupImagesEast.innerHTML = "";
   popupImagesEast.appendChild(popupLeftArrow.cloneNode(true));
   popupImagesEast.appendChild(window["imageEast"+id]);
