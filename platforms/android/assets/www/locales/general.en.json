@@ -1,0 +1,107 @@
+{
+  "polimiLink": "<a href='http://www.polimi.it/en/english-version/' target='_blank'><img id='polimi-logo' class='logo' src='img/polimi3.png'></a>",
+  "glc30Link": "<a href='http://www.globallandcover.com/GLC30Download/index.aspx' target='_blank'><img id='glc30-logo' class='logo' src='img/glc30.png'></a>",
+  "registration":
+  {
+    "introduction": "Welcome! Please insert the following information:",
+    "genderLabel": "Gender",
+    "genderMale": "Male",
+    "genderFemale": "Female",
+    "genderUnknown": "Prefer not to say",
+    "age": "Age",
+    "workLabel": "Work status",
+    "workEmployed": "Employed",
+    "workStudent": "Student",
+    "workUnemployed": "Unemployed and seeking work",
+    "workRetired": "Retired",
+    "workOther": "Other",
+    "button": "Register"
+  },
+  "navbar":
+  {
+    "add": "Add",
+    "my": "My Map",
+    "all": "Everyone",
+    "about": "About",
+    "registration": "Register"
+  },
+  "menu":
+  {
+    "comment": "Any comments?",
+    "takePhotoNorth": "Take a picture of north.",
+    "takePhotoWest": "Take a picture of west.",
+    "takePhotoSouth": "Take a picture of south.",
+    "takePhotoEast": "Take a picture of east.",
+    "choosePhotoNorth": "Choose an image of north.",
+    "choosePhotoWest": "Choose an image of west.",
+    "choosePhotoSouth": "Choose an image of south.",
+    "choosePhotoEast": "Choose an image of east.",
+    "certainty":
+    {
+      "question": "How certain are you?",
+      "one": "not certain",
+      "five": "absolutely certain"
+    },
+    "classes":
+    {
+      "select": "Select the classification of your point.",
+      "artificialSurface": "Artificial surface",
+      "bareLand": "Bare land",
+      "cultivatedLand": "Cultivated land",
+      "forest": "Forest",
+      "grassland": "Grassland",
+      "permanentSnowAndIce": "Permanent snow and ice",
+      "shrubland": "Shrubland",
+      "tundra": "Tundra",
+      "waterBody": "Water body",
+      "wetland": "Wetland",
+      "bing": "Bing Aerial"
+    },
+    "buttons":
+    {
+      "contribute": "Insert your point of interest!",
+      "cancel": "Cancel",
+      "next": "Next",
+      "back": "Back",
+      "submit": "Submit"
+    }
+  },
+  "popup":
+  {
+    "class": "Class",
+    "certainty": "Certainty",
+    "comment": "Comment",
+    "date": "Date"
+  },
+  "messages":
+  {
+    "registrationFormEmpty": "Please complete the registration form!",
+    "registrationSuccess": "Thank you! Now you can start to contribute!",
+    "markerPopup": "Not your current location? Drag the marker to correct!",
+    "contributionSuccess": "Thank you very much for the contribution!",
+    "allNoInternet": "The map displaying all people's contributions can not be shown due to no Internet Connection!",
+    "ok": "OK",
+    "registrationNoInternet": "Registration fails due to no Internet connection!",
+    "gpsError":"GPS error! Please drag the marker to set your current location!",
+    "contributionSuccessNoInternet":"Thank you for the contribution. Note that you are currently in offline mode, please re-open the app once you have Internet connection to share your contributions.",
+    "photoUnavailable": "Taking photo is available only on Android and iOS apps, and not from browsers.",
+    "bingNoInternet": "Bing Aerial cannot be displayed due to no Internet connection!",
+    "osmNoInternet": "OpenStreetMap cannot be displayed due to no Internet connection!",
+    "storageError": "This browser does not support local storage.",
+    "error": "Error!",
+    "privateMode": "Error! Are you in private mode?"
+  },
+  "stat":
+  {
+    "totalMy": "In total, you have ",
+    "contrMySingle": " contribution.",
+    "contrMyPlural": " contributions.",
+    "totalAllSingle": "In total, there is ",
+    "contrAllSingle": " contribution within 5 km of your current location.",
+    "totalAllPlural": "In total, there are ",
+    "contrAllPlural": " contributions within 5 km of your current location.",
+    "noContrMy": "You have not had any contribution yet!",
+    "noContrAll": "No body has added a contribution within 5 km of your current location."
+  },
+  "about": "abc"
+}

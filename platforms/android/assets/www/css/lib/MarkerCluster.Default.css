@@ -1,0 +1,108 @@
+.marker-cluster-artificial-surface {
+	background-color: rgba(147, 47, 20, 0.6);
+}
+.marker-cluster-artificial-surface div {
+	background-color: rgba(147, 47, 20, 1.0);
+}
+
+.marker-cluster-bare-land {
+	background-color: rgba(202, 202, 202, 0.6);
+}
+.marker-cluster-bare-land div {
+	background-color: rgba(202, 202, 202, 1.0);
+}
+
+.marker-cluster-cultivated-land {
+	background-color: rgba(249, 243, 193, 0.6);
+}
+.marker-cluster-cultivated-land div {
+	background-color: rgba(249, 243, 193, 1.0);
+}
+
+.marker-cluster-forest {
+	background-color: rgba(20, 119, 73, 0.6);
+}
+.marker-cluster-forest div {
+	background-color: rgba(20, 119, 73, 1.0);
+}
+
+.marker-cluster-grassland {
+	background-color: rgba(169, 208, 95, 0.6);
+}
+.marker-cluster-grassland div {
+	background-color: rgba(169, 208, 95, 1.0);
+}
+
+.marker-cluster-permanent-snow-and-ice {
+	background-color: rgba(211, 237, 251, 0.6);
+}
+.marker-cluster-permanent-snow-and-ice div {
+	background-color: rgba(211, 237, 251, 1.0);
+}
+
+.marker-cluster-shrubland {
+	background-color: rgba(62, 179, 112, 0.6);
+}
+.marker-cluster-shrubland div {
+	background-color: rgba(62, 179, 112, 1.0);
+}
+
+.marker-cluster-tundra {
+	background-color: rgba(100, 100, 50, 0.6);
+}
+.marker-cluster-tundra div {
+	background-color: rgba(100, 100, 50, 1.0);
+}
+
+.marker-cluster-water-body {
+	background-color: rgba(0, 68, 154, 0.6);
+}
+.marker-cluster-water-body div {
+	background-color: rgba(0, 68, 154, 1.0);
+}
+
+.marker-cluster-wetland {
+	background-color: rgba(126, 206, 244, 0.6);
+}
+.marker-cluster-wetland div {
+	background-color: rgba(126, 206, 244, 1.0);
+}
+
+	/* IE 6-8 fallback colors */
+.leaflet-oldie .marker-cluster-small {
+	background-color: rgb(181, 226, 140);
+}
+.leaflet-oldie .marker-cluster-small div {
+	background-color: rgb(110, 204, 57);
+}
+
+.leaflet-oldie .marker-cluster-medium {
+	background-color: rgb(241, 211, 87);
+}
+.leaflet-oldie .marker-cluster-medium div {
+	background-color: rgb(240, 194, 12);
+}
+
+.leaflet-oldie .marker-cluster-large {
+	background-color: rgb(253, 156, 115);
+}
+.leaflet-oldie .marker-cluster-large div {
+	background-color: rgb(241, 128, 23);
+}
+
+.marker-cluster {
+	background-clip: padding-box;
+	border-radius: 20px;
+}
+.marker-cluster div {
+	width: 30px;
+	height: 30px;
+	margin-left: 5px;
+	margin-top: 5px;
+	text-align: center;
+	border-radius: 15px;
+	font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+.marker-cluster span {
+	line-height: 30px;
+}
