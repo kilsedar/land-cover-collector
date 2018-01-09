@@ -113,7 +113,8 @@ select, option {
 }
 
 #classes-menu-list {
-  width: 400px;
+  width: 275px;
+  overflow-y: scroll;
 }
 
 #start-about, #main-about {
@@ -364,11 +365,17 @@ img.valign {
   right: 0%;
 }
 
-@media (max-height: 520px) {
+/* @media (max-height: 520px) {
   .ui-btn {
     line-height: 0.5 !important;
   }
   .ui-select .ui-btn {
     line-height: 1 !important;
   }
-}
+} */
+
+/* @media (max-width: 768px) {
+  #classes-menu-list {
+    width: 250px;
+  }
+} */

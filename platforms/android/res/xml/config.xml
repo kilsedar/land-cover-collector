@@ -22,6 +22,9 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="Compass">
+        <param name="android-package" value="org.apache.cordova.deviceorientation.CompassListener" />
+    </feature>
     <name>GlobeLand30 Validation</name>
     <description>
         An Apache Cordova application that enables to collect data on land cover classification using the 10 classes of GLobeLand30.

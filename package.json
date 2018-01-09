@@ -18,7 +18,8 @@
     "cordova-plugin-geolocation": "^3.0.0",
     "cordova-plugin-globalization": "^1.0.8",
     "cordova-plugin-network-information": "^1.3.4",
-    "cordova-plugin-whitelist": "^1.3.3"
+    "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-plugin-device-orientation": "~1.0.7"
   },
   "cordova": {
     "plugins": {
@@ -28,7 +29,8 @@
       "cordova-plugin-camera": {},
       "cordova-plugin-dialogs": {},
       "cordova-plugin-geolocation": {},
-      "cordova-plugin-network-information": {}
+      "cordova-plugin-network-information": {},
+      "cordova-plugin-device-orientation": {}
     },
     "platforms": [
       "browser"

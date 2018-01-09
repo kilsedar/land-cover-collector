@@ -113,7 +113,8 @@ select, option {
 }
 
 #classes-menu-list {
-  width: 400px;
+  width: 275px;
+  overflow-y: scroll;
 }
 
 #start-about, #main-about {

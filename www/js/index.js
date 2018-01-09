@@ -1,23 +1,10 @@
-var map;
-var bing;
-var osm;
-var markersMy, markersAll;
-var marker;
+var map, bing, osm, markersMy, markersAll, marker;
+
+var networkState, legendHeight, watchCompassID, isApp;
 
 // initial values
-var curLatLng = [0, 0],
-curLatLngAccuracy = 0;
-var classification = "",
-image = "",
-imageNorth = "",
-imageWest = "",
-imageSouth = "",
-imageEast = "",
-certainty = 3,
-comment= "";
-
-var networkState;
-var legendHeight;
+var curLatLng = [0, 0], curLatLngAccuracy = 0;
+var classification = "", image = "", imageNorth = "", imageWest = "", imageSouth = "", imageEast = "", certainty = 3, comment= "";
 
 function afterLangInit() {
 
@@ -208,25 +195,33 @@ function afterLangInit() {
   $("#add-menu-start").click(function() {
     $("#add-menu").hide();
     $("#classes-menu").show();
-    $("#class-next, #certainty-next, #photo-north-next, #photo-west-next, #photo-south-next, #photo-east-next").addClass("ui-disabled");
+    $("#class-next, #certainty-next, #photo-north-next, #photo-west-next, #photo-south-next, #photo-east-next, #photo-north .take-photo, #photo-west .take-photo, #photo-south .take-photo, #photo-east .take-photo").addClass("ui-disabled");
     $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-about").addClass("ui-disabled");
-
-    var app = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
-    if (app) {
-      $("#input-file").remove();
-      $(".choose-photo").remove();
-    }
-    else {
-      $(".take-photo").remove();
-    }
-
-    $("#classes-menu-list").css("overflow-y", "scroll");
 
     // set all forms to initial values
     $("#radio-choice-1, #radio-choice-2, #radio-choice-3, #radio-choice-4, #radio-choice-5, #radio-choice-6, #radio-choice-7, #radio-choice-8, #radio-choice-9, #radio-choice-10").prop("checked",false).checkboxradio("refresh");
     $("#classes-select").text(i18n.t("menu.classes.select"));
     $("#comment-input").val("");
     $("#slider").val(3).slider("refresh");
+
+    isApp = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
+
+    function compassSuccess(heading) {
+      console.log("compass heading: " + heading.magneticHeading);
+    };
+    function compassError(error) {
+      console.log("compass error: " + error.code);
+    };
+
+    if (isApp) {
+      $("#input-file").remove();
+      $(".choose-photo").remove();
+
+      navigator.compass.getCurrentHeading(compassSuccess, compassError);
+    }
+    else {
+      $(".take-photo").remove();
+    }
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -426,15 +421,31 @@ function afterLangInit() {
     $("#certainty-slider").show();
   });
 
+  function compassError(error) {
+    alert("compass error: " + error.code);
+  };
+
   $("#comment-next").click(function() {
     comment =  $("#comment-input").val();
     $("#comment").hide();
     $("#photo-north").show();
+
+    function compassSuccess(heading) {
+      if (heading.magneticHeading >= 340 || heading.magneticHeading <= 20)
+        $("#photo-north .take-photo").removeClass("ui-disabled");
+      else
+        $("#photo-north .take-photo").addClass("ui-disabled");
+    };
+    if (isApp)
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
   });
 
   $("#photo-north-back").click(function() {
     $("#photo-north").hide();
     $("#comment").show();
+
+    if (isApp)
+      navigator.compass.clearWatch(watchCompassID);
   });
 
   $("#photo-north-next").click(function() {
@@ -442,11 +453,29 @@ function afterLangInit() {
     $("#photo-west").show();
 
     imageNorth = image;
+
+    function compassSuccess(heading) {
+      if (heading.magneticHeading >= 250 && heading.magneticHeading <= 290)
+        $("#photo-west .take-photo").removeClass("ui-disabled");
+      else
+        $("#photo-west .take-photo").addClass("ui-disabled");
+    };
+    if (isApp)
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
   });
 
   $("#photo-west-back").click(function() {
     $("#photo-west").hide();
     $("#photo-north").show();
+
+    function compassSuccess(heading) {
+      if (heading.magneticHeading >= 340 || heading.magneticHeading <= 20)
+        $("#photo-north .take-photo").removeClass("ui-disabled");
+      else
+        $("#photo-north .take-photo").addClass("ui-disabled");
+    };
+    if (isApp)
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
   });
 
   $("#photo-west-next").click(function() {
@@ -454,11 +483,29 @@ function afterLangInit() {
     $("#photo-south").show();
 
     imageWest = image;
+
+    function compassSuccess(heading) {
+      if (heading.magneticHeading >= 160 && heading.magneticHeading <= 200)
+        $("#photo-south .take-photo").removeClass("ui-disabled");
+      else
+        $("#photo-south .take-photo").addClass("ui-disabled");
+    };
+    if (isApp)
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
   });
 
   $("#photo-south-back").click(function() {
     $("#photo-south").hide();
     $("#photo-west").show();
+
+    function compassSuccess(heading) {
+      if (heading.magneticHeading >= 250 && heading.magneticHeading <= 290)
+        $("#photo-west .take-photo").removeClass("ui-disabled");
+      else
+        $("#photo-west .take-photo").addClass("ui-disabled");
+    };
+    if (isApp)
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
   });
 
   $("#photo-south-next").click(function() {
@@ -466,11 +513,29 @@ function afterLangInit() {
     $("#photo-east").show();
 
     imageSouth = image;
+
+    function compassSuccess(heading) {
+      if (heading.magneticHeading >= 70 && heading.magneticHeading <= 110)
+        $("#photo-east .take-photo").removeClass("ui-disabled");
+      else
+        $("#photo-east .take-photo").addClass("ui-disabled");
+    };
+    if (isApp)
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
   });
 
   $("#photo-east-back").click(function() {
     $("#photo-east").hide();
     $("#photo-south").show();
+
+    function compassSuccess(heading) {
+      if (heading.magneticHeading >= 160 && heading.magneticHeading <= 200)
+        $("#photo-south .take-photo").removeClass("ui-disabled");
+      else
+        $("#photo-south .take-photo").addClass("ui-disabled");
+    };
+    if (isApp)
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
   });
 
   $("#photo-east-next").click(function() {
@@ -515,6 +580,12 @@ function afterLangInit() {
       }
     };
 
+    function contributionSuccess() {
+      $("#add-menu").show();
+      marker.setIcon(setMarkerClassIcon());
+      marker.dragging.disable();
+    }
+
     localDB.put(poi, function callback(err, result) {
       if (!err) {
         if (networkState == Connection.NONE || navigator.onLine == false)
@@ -526,11 +597,8 @@ function afterLangInit() {
         navigator.notification.alert(i18n.t("messages.storageError"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
     });
 
-    function contributionSuccess() {
-      $("#add-menu").show();
-      marker.setIcon(setMarkerClassIcon());
-      marker.dragging.disable();
-    }
+    if (isApp)
+      navigator.compass.clearWatch(watchCompassID);
   });
 
   $("#slider").bind("slidestop", function() {
@@ -607,7 +675,7 @@ function afterLangInit() {
     $("input[type='file']").click();
   });
 
-  function onSuccess(imageData) {
+  function getPictureSuccess(imageData) {
     image = imageData;
 
     var activeDivId = ($("#add-bottompanel").children().filter(function() {
@@ -617,12 +685,12 @@ function afterLangInit() {
     $("#"+activeDivId+"-next").removeClass("ui-disabled");
   }
 
-  function onFail(message) {
+  function getPictureFail(message) {
     console.log("Failed getting photo. Message: " + message);
   }
 
   $(".take-photo").click(function() {
-    navigator.camera.getPicture(onSuccess, onFail, {
+    navigator.camera.getPicture(getPictureSuccess, getPictureFail, {
       quality: 20,
       destinationType: Camera.DestinationType.DATA_URL,
       sourceType: Camera.PictureSourceType.CAMERA
