@@ -223,7 +223,7 @@ function afterLangInit() {
     }
 
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
+      var watchGeolocationID = navigator.geolocation.watchPosition(
         function(position) {
           curLatLng = [position.coords.latitude, position.coords.longitude];
           curLatLngAccuracy = position.coords.accuracy;
@@ -233,7 +233,11 @@ function afterLangInit() {
           marker.dragging.enable();
         },
         function(error) {
-          marker.bindPopup(i18n.t("messages.gpsError")).openPopup();
+          var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") && navigator.userAgent.toLowerCase().indexOf("mobile") > -1;
+          if(!isAndroid)
+            marker.bindPopup(i18n.t("messages.gpsError")).openPopup();
+          else
+            marker.bindPopup(i18n.t("messages.gpsErrorAndroid")).openPopup();
           marker.dragging.enable();
         },
         {maximumAge: 3000, timeout: 5000, enableHighAccuracy: true}
@@ -589,6 +593,8 @@ function afterLangInit() {
 
     if (isApp)
       navigator.compass.clearWatch(watchCompassID);
+
+    navigator.geolocation.clearWatch(watchGeolocationID);
   });
 
   $("#slider").bind("slidestop", function() {
