@@ -7,13 +7,6 @@ var curLatLng = [0, 0], curLatLngAccuracy = 0;
 var classification = "", photoNorth = "", photoEast = "", photoSouth = "", photoWest = "", certainty = 3, comment= "";
 
 function afterLangInit() {
-
-  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    $("#classes-menu-list").css("width", "246px");
-    $(".polimi-logo").css("height", "50px");
-    $(".glc30-logo").css("height", "25px");
-  }
-
   var uuid = device.uuid;
   if (uuid == null)
     uuid = new Fingerprint().get().toString() + "-PC";
@@ -427,7 +420,7 @@ function afterLangInit() {
   });
 
   function compassError(error) {
-    alert("compass error: " + error.code);
+    console.log("compass error: " + error.code);
   };
 
   $("#comment-next").click(function() {
@@ -672,7 +665,7 @@ function afterLangInit() {
     $("input[type='file']").click();
   });
 
-  function getPhotoSuccess(photoData) {
+  function getPictureSuccess(pictureData) {
     var activeDivId = ($("#add-bottompanel").children().filter(function() {
       return $(this).css("display") === "block";
     }).attr("id"));
@@ -680,15 +673,15 @@ function afterLangInit() {
     $("#"+activeDivId+"-next").removeClass("ui-disabled");
 
     var activeDirection = activeDivId.split("-")[1];
-    window["photo"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)] = photoData;
+    window["photo"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)] = pictureData;
   }
 
-  function getPhotoFail(message) {
-    console.log("Failed getting photo. Message: " + message);
+  function getPictureFail(message) {
+    console.log("failed taking photo, message: " + message);
   }
 
   $(".take-photo").click(function() {
-    navigator.camera.getPhoto(getPhotoSuccess, getPhotoFail, {
+    navigator.camera.getPicture(getPictureSuccess, getPictureFail, {
       quality: 20,
       destinationType: Camera.DestinationType.DATA_URL,
       sourceType: Camera.PictureSourceType.CAMERA

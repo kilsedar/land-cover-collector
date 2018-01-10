@@ -113,7 +113,6 @@ select, option {
 }
 
 #classes-menu-list {
-  width: 275px;
   overflow-y: scroll;
 }
 
@@ -129,11 +128,11 @@ select, option {
 
 .polimi-logo {
   padding-right: 10px;
-  height: 100px;
+  height: 60px;
 }
 
 .glc30-logo {
-  height: 45px;
+  height: 30px;
 }
 
 #legend-button {
@@ -366,11 +365,11 @@ img.valign {
   right: 0%;
 }
 
-@media (max-height: 520px) {
-  .ui-btn {
-    line-height: 0.5 !important;
+@media only screen and (min-width: 480px) {
+  .polimi-logo {
+    height: 100px;
   }
-  .ui-select .ui-btn {
-    line-height: 1 !important;
+  .glc30-logo {
+    height: 45px;
   }
 }
