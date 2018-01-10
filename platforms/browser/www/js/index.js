@@ -4,9 +4,15 @@ var networkState, legendHeight, watchCompassID, isApp;
 
 // initial values
 var curLatLng = [0, 0], curLatLngAccuracy = 0;
-var classification = "", image = "", imageNorth = "", imageWest = "", imageSouth = "", imageEast = "", certainty = 3, comment= "";
+var classification = "", imageNorth = "", imageEast = "", imageSouth = "", imageWest = "", certainty = 3, comment= "";
 
 function afterLangInit() {
+
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    $("#classes-menu-list").css("width", "246px");
+    $(".polimi-logo").css("height", "50px");
+    $(".glc30-logo").css("height", "25px");
+  }
 
   var uuid = device.uuid;
   if (uuid == null)
@@ -195,7 +201,7 @@ function afterLangInit() {
   $("#add-menu-start").click(function() {
     $("#add-menu").hide();
     $("#classes-menu").show();
-    $("#class-next, #certainty-next, #photo-north-next, #photo-west-next, #photo-south-next, #photo-east-next, #photo-north .take-photo, #photo-west .take-photo, #photo-south .take-photo, #photo-east .take-photo").addClass("ui-disabled");
+    $("#class-next, #certainty-next, #photo-north-next, #photo-east-next, #photo-south-next, #photo-west-next, #photo-north .take-photo, #photo-east .take-photo, #photo-south .take-photo, #photo-west .take-photo").addClass("ui-disabled");
     $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-about").addClass("ui-disabled");
 
     // set all forms to initial values
@@ -243,11 +249,10 @@ function afterLangInit() {
 
     // set all initial values
     classification = "";
-    image = "";
     imageNorth = "";
-    imageWest = "";
-    imageSouth = "";
     imageEast = "";
+    imageSouth = "";
+    imageWest = "";
     certainty = 3;
     comment= "";
   });
@@ -450,69 +455,7 @@ function afterLangInit() {
 
   $("#photo-north-next").click(function() {
     $("#photo-north").hide();
-    $("#photo-west").show();
-
-    imageNorth = image;
-
-    function compassSuccess(heading) {
-      if (heading.magneticHeading >= 250 && heading.magneticHeading <= 290)
-        $("#photo-west .take-photo").removeClass("ui-disabled");
-      else
-        $("#photo-west .take-photo").addClass("ui-disabled");
-    };
-    if (isApp)
-      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
-  });
-
-  $("#photo-west-back").click(function() {
-    $("#photo-west").hide();
-    $("#photo-north").show();
-
-    function compassSuccess(heading) {
-      if (heading.magneticHeading >= 340 || heading.magneticHeading <= 20)
-        $("#photo-north .take-photo").removeClass("ui-disabled");
-      else
-        $("#photo-north .take-photo").addClass("ui-disabled");
-    };
-    if (isApp)
-      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
-  });
-
-  $("#photo-west-next").click(function() {
-    $("#photo-west").hide();
-    $("#photo-south").show();
-
-    imageWest = image;
-
-    function compassSuccess(heading) {
-      if (heading.magneticHeading >= 160 && heading.magneticHeading <= 200)
-        $("#photo-south .take-photo").removeClass("ui-disabled");
-      else
-        $("#photo-south .take-photo").addClass("ui-disabled");
-    };
-    if (isApp)
-      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
-  });
-
-  $("#photo-south-back").click(function() {
-    $("#photo-south").hide();
-    $("#photo-west").show();
-
-    function compassSuccess(heading) {
-      if (heading.magneticHeading >= 250 && heading.magneticHeading <= 290)
-        $("#photo-west .take-photo").removeClass("ui-disabled");
-      else
-        $("#photo-west .take-photo").addClass("ui-disabled");
-    };
-    if (isApp)
-      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
-  });
-
-  $("#photo-south-next").click(function() {
-    $("#photo-south").hide();
     $("#photo-east").show();
-
-    imageSouth = image;
 
     function compassSuccess(heading) {
       if (heading.magneticHeading >= 70 && heading.magneticHeading <= 110)
@@ -526,6 +469,20 @@ function afterLangInit() {
 
   $("#photo-east-back").click(function() {
     $("#photo-east").hide();
+    $("#photo-north").show();
+
+    function compassSuccess(heading) {
+      if (heading.magneticHeading >= 340 || heading.magneticHeading <= 20)
+        $("#photo-north .take-photo").removeClass("ui-disabled");
+      else
+        $("#photo-north .take-photo").addClass("ui-disabled");
+    };
+    if (isApp)
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
+  });
+
+  $("#photo-east-next").click(function() {
+    $("#photo-east").hide();
     $("#photo-south").show();
 
     function compassSuccess(heading) {
@@ -538,11 +495,51 @@ function afterLangInit() {
       watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
   });
 
-  $("#photo-east-next").click(function() {
-    $("#photo-east").hide();
-    $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-about").removeClass("ui-disabled");
+  $("#photo-south-back").click(function() {
+    $("#photo-south").hide();
+    $("#photo-east").show();
 
-    imageEast = image;
+    function compassSuccess(heading) {
+      if (heading.magneticHeading >= 70 && heading.magneticHeading <= 110)
+        $("#photo-east .take-photo").removeClass("ui-disabled");
+      else
+        $("#photo-east .take-photo").addClass("ui-disabled");
+    };
+    if (isApp)
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
+  });
+
+  $("#photo-south-next").click(function() {
+    $("#photo-south").hide();
+    $("#photo-west").show();
+
+    function compassSuccess(heading) {
+      if (heading.magneticHeading >= 250 && heading.magneticHeading <= 290)
+        $("#photo-west .take-photo").removeClass("ui-disabled");
+      else
+        $("#photo-west .take-photo").addClass("ui-disabled");
+    };
+    if (isApp)
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
+  });
+
+  $("#photo-west-back").click(function() {
+    $("#photo-west").hide();
+    $("#photo-south").show();
+
+    function compassSuccess(heading) {
+      if (heading.magneticHeading >= 160 && heading.magneticHeading <= 200)
+        $("#photo-south .take-photo").removeClass("ui-disabled");
+      else
+        $("#photo-south .take-photo").addClass("ui-disabled");
+    };
+    if (isApp)
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
+  });
+
+  $("#photo-west-next").click(function() {
+    $("#photo-west").hide();
+    $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-about").removeClass("ui-disabled");
 
     var timestamp = new Date().toISOString();
     var poi = {
@@ -562,20 +559,20 @@ function afterLangInit() {
           content_type: "image\/png",
           data: imageNorth
         },
-        "photo-west.png":
+        "photo-east.png":
         {
           content_type: "image\/png",
-          data: imageWest
+          data: imageEast
         },
         "photo-south.png":
         {
           content_type: "image\/png",
           data: imageSouth
         },
-        "photo-east.png":
+        "photo-west.png":
         {
           content_type: "image\/png",
-          data: imageEast
+          data: imageWest
         }
       }
     };
@@ -650,16 +647,16 @@ function afterLangInit() {
   function renderImage(file) {
     var reader = new FileReader();
     reader.onload = function(event) {
-      var url = event.target.result;
-      // console.log(url);
-      image = url.substr(url.indexOf(",")+1);
-      // console.log(image);
-
       var activeDivId = ($("#add-bottompanel").children().filter(function() {
         return $(this).css("display") === "block" && $(this).attr("id") !== "input-file";
       }).attr("id"));
 
       $("#"+activeDivId+"-next").removeClass("ui-disabled");
+
+      var url = event.target.result;
+
+      var activeDirection = activeDivId.split("-")[1];
+      window["image"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)] = url.substr(url.indexOf(",")+1);
     }
 
     // when the file is read it triggers the onload event above
@@ -676,13 +673,14 @@ function afterLangInit() {
   });
 
   function getPictureSuccess(imageData) {
-    image = imageData;
-
     var activeDivId = ($("#add-bottompanel").children().filter(function() {
       return $(this).css("display") === "block";
     }).attr("id"));
 
     $("#"+activeDivId+"-next").removeClass("ui-disabled");
+
+    var activeDirection = activeDivId.split("-")[1];
+    window["image"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)] = imageData;
   }
 
   function getPictureFail(message) {
@@ -707,11 +705,11 @@ $("#map").on("click", ".popup-right-arrow", function(event) {
   var parentClassNameSplitted = $(this).parent().attr("class").split("-");
   var direction = parentClassNameSplitted[parentClassNameSplitted.length - 1];
   if (direction == "north")
-    $(this).parent().siblings(".popup-images-west").css("display", "block");
-  else if (direction == "west")
+    $(this).parent().siblings(".popup-images-east").css("display", "block");
+  else if (direction == "east")
     $(this).parent().siblings(".popup-images-south").css("display", "block");
   else if (direction == "south")
-    $(this).parent().siblings(".popup-images-east").css("display", "block");
+    $(this).parent().siblings(".popup-images-west").css("display", "block");
 });
 
 $("#map").on("click", ".popup-left-arrow", function(event) {
@@ -719,11 +717,11 @@ $("#map").on("click", ".popup-left-arrow", function(event) {
 
   var parentClassNameSplitted = $(this).parent().attr("class").split("-");
   var direction = parentClassNameSplitted[parentClassNameSplitted.length - 1];
-  if (direction == "east")
+  if (direction == "west")
     $(this).parent().siblings(".popup-images-south").css("display", "block");
   else if (direction == "south")
-    $(this).parent().siblings(".popup-images-west").css("display", "block");
-  else if (direction == "west")
+    $(this).parent().siblings(".popup-images-east").css("display", "block");
+  else if (direction == "east")
     $(this).parent().siblings(".popup-images-north").css("display", "block");
 });
 
@@ -741,19 +739,19 @@ popupLeftArrow.src = "img/leftTriangleSmall.png";
 var popupImagesNorth = document.createElement("div");
 popupImagesNorth.className = "popup-images-north";
 
-var popupImagesWest = document.createElement("div");
-popupImagesWest.className = "popup-images-west";
+var popupImagesEast = document.createElement("div");
+popupImagesEast.className = "popup-images-east";
 
 var popupImagesSouth = document.createElement("div");
 popupImagesSouth.className = "popup-images-south";
 
-var popupImagesEast = document.createElement("div");
-popupImagesEast.className = "popup-images-east";
+var popupImagesWest = document.createElement("div");
+popupImagesWest.className = "popup-images-west";
 
 popupImages.appendChild(popupImagesNorth);
-popupImages.appendChild(popupImagesWest);
-popupImages.appendChild(popupImagesSouth);
 popupImages.appendChild(popupImagesEast);
+popupImages.appendChild(popupImagesSouth);
+popupImages.appendChild(popupImagesWest);
 
 function addPopupImages(id) {
   window["imageNorth"+id] = document.createElement("img");
@@ -762,12 +760,12 @@ function addPopupImages(id) {
   popupImagesNorth.appendChild(window["imageNorth"+id]);
   popupImagesNorth.appendChild(popupRightArrow.cloneNode(true));
 
-  window["imageWest"+id] = document.createElement("img");
-  window["imageWest"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-west.png";
-  popupImagesWest.innerHTML = "";
-  popupImagesWest.appendChild(popupLeftArrow.cloneNode(true));
-  popupImagesWest.appendChild(window["imageWest"+id]);
-  popupImagesWest.appendChild(popupRightArrow.cloneNode(true));
+  window["imageEast"+id] = document.createElement("img");
+  window["imageEast"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-east.png";
+  popupImagesEast.innerHTML = "";
+  popupImagesEast.appendChild(popupLeftArrow.cloneNode(true));
+  popupImagesEast.appendChild(window["imageEast"+id]);
+  popupImagesEast.appendChild(popupRightArrow.cloneNode(true));
 
   window["imageSouth"+id] = document.createElement("img");
   window["imageSouth"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-south.png";
@@ -776,11 +774,11 @@ function addPopupImages(id) {
   popupImagesSouth.appendChild(window["imageSouth"+id]);
   popupImagesSouth.appendChild(popupRightArrow.cloneNode(true));
 
-  window["imageEast"+id] = document.createElement("img");
-  window["imageEast"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-east.png";
-  popupImagesEast.innerHTML = "";
-  popupImagesEast.appendChild(popupLeftArrow.cloneNode(true));
-  popupImagesEast.appendChild(window["imageEast"+id]);
+  window["imageWest"+id] = document.createElement("img");
+  window["imageWest"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-west.png";
+  popupImagesWest.innerHTML = "";
+  popupImagesWest.appendChild(popupLeftArrow.cloneNode(true));
+  popupImagesWest.appendChild(window["imageWest"+id]);
 
   return popupImages.outerHTML;
 }
@@ -819,7 +817,7 @@ function vizPOIs (map, ids, timestamps, locations, classes, certainties, comment
       popupAnchor: [0, -36]
     });
     marker = L.marker(locations[i], {icon: locationIcon});
-    marker.bindPopup("<b>" + i18n.t("popup.class") + ": </b>" + i18n.t("menu.classes."+classes[i]) + "<br><b>" + i18n.t("popup.date") + ": </b>" + new Date(timestamps[i]).toLocaleString() + "<br><b>" + i18n.t("popup.certainty") + ": </b>" + certainties[i] + "<br>" + isCommentEmpty(comments[i]) + addPopupImages(ids[i]));
+    marker.bindPopup("<b>" + i18n.t("popup.class") + ": </b>" + i18n.t("menu.classes."+classes[i]) + "<br><b>" + i18n.t("popup.north") + ": </b>" + new Date(timestamps[i]).toLocaleString() + "<br><b>" + i18n.t("popup.certainty") + ": </b>" + certainties[i] + "<br>" + isCommentEmpty(comments[i]) + addPopupImages(ids[i]));
     marker.mydata = classes[i];
     str = "markers" + classes[i].charAt(0).toUpperCase() + classes[i].slice(1);
     window[str].addLayer(marker);

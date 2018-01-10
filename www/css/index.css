@@ -127,13 +127,13 @@ select, option {
   margin: 12px;
 }
 
-#polimi-logo {
+.polimi-logo {
   padding-right: 10px;
-  max-height: 100px;
+  height: 100px;
 }
 
-#glc30-logo {
-  max-height: 45px;
+.glc30-logo {
+  height: 45px;
 }
 
 #legend-button {
@@ -206,7 +206,7 @@ select, option {
   display: block;
 }
 
-#class-next, #photo-north-next, #photo-west-next, #photo-south-next, #photo-east-next, #certainty-next, #comment-next {
+#class-next, #photo-north-next, #photo-east-next, #photo-south-next, #photo-west-next, #certainty-next, #comment-next {
   position: absolute;
   right: 0%;
 }
@@ -312,7 +312,7 @@ img.valign {
   text-align: right;
 }
 
-.popup-images-west, .popup-images-south, .popup-images-east {
+.popup-images-east, .popup-images-south, .popup-images-west {
   display: none;
 }
 

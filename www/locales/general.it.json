@@ -29,13 +29,13 @@
   {
     "comment": "Commenti?",
     "takePhotoNorth": "Scatta una foto del nord.",
-    "takePhotoWest": "Scatta una foto dell'ovest.",
-    "takePhotoSouth": "Scatta una foto del sud.",
     "takePhotoEast": "Scatta una foto dell'est.",
+    "takePhotoSouth": "Scatta una foto del sud.",
+    "takePhotoWest": "Scatta una foto dell'ovest.",
     "choosePhotoNorth": "Scegli un'immagine del nord.",
-    "choosePhotoWest": "Scegli un'immagine dell'ovest.",
-    "choosePhotoSouth": "Scegli un'immagine del sud.",
     "choosePhotoEast": "Scegli un'immagine dell'est.",
+    "choosePhotoSouth": "Scegli un'immagine del sud.",
+    "choosePhotoWest": "Scegli un'immagine dell'ovest.",
     "certainty":
     {
       "question": "Quanto sei sicuro?",
@@ -71,7 +71,11 @@
     "class": "Classe",
     "certainty": "Sicurezza",
     "comment": "Commento",
-    "date": "Data"
+    "date": "Data",
+    "north": "Nord",
+    "east": "Est",
+    "south": "Sud",
+    "west": "Ovest"
   },
   "messages":
   {

@@ -29,13 +29,13 @@
   {
     "comment": "Any comments?",
     "takePhotoNorth": "Take a picture of north.",
-    "takePhotoWest": "Take a picture of west.",
-    "takePhotoSouth": "Take a picture of south.",
     "takePhotoEast": "Take a picture of east.",
+    "takePhotoSouth": "Take a picture of south.",
+    "takePhotoWest": "Take a picture of west.",
     "choosePhotoNorth": "Choose an image of north.",
-    "choosePhotoWest": "Choose an image of west.",
-    "choosePhotoSouth": "Choose an image of south.",
     "choosePhotoEast": "Choose an image of east.",
+    "choosePhotoSouth": "Choose an image of south.",
+    "choosePhotoWest": "Choose an image of west.",
     "certainty":
     {
       "question": "How certain are you?",
@@ -71,7 +71,11 @@
     "class": "Class",
     "certainty": "Certainty",
     "comment": "Comment",
-    "date": "Date"
+    "date": "Date",
+    "north": "North",
+    "east": "East",
+    "south": "South",
+    "west": "West"
   },
   "messages":
   {
