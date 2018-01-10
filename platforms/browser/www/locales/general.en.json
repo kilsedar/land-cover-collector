@@ -72,10 +72,10 @@
     "certainty": "Certainty",
     "comment": "Comment",
     "date": "Date",
-    "north": "North",
-    "east": "East",
-    "south": "South",
-    "west": "West"
+    "northImage": "Image of north",
+    "eastImage": "Image of east",
+    "southImage": "Image of south",
+    "westImage": "Image of west"
   },
   "messages":
   {

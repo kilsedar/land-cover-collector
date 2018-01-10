@@ -736,6 +736,12 @@ var popupLeftArrow = document.createElement("img");
 popupLeftArrow.className = "popup-left-arrow";
 popupLeftArrow.src = "img/leftTriangleSmall.png";
 
+var popupTextNorth = document.createElement("span");
+popupTextNorth.className = "popup-text-north";
+var popupTextEast = document.createElement("span");
+var popupTextSouth = document.createElement("span");
+var popupTextWest = document.createElement("span");
+
 var popupImagesNorth = document.createElement("div");
 popupImagesNorth.className = "popup-images-north";
 
@@ -757,12 +763,16 @@ function addPopupImages(id) {
   window["imageNorth"+id] = document.createElement("img");
   window["imageNorth"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-north.png";
   popupImagesNorth.innerHTML = "";
+  popupTextNorth.innerHTML = "<b>" + i18n.t("popup.northImage") + ":</b><br>";
+  popupImagesNorth.appendChild(popupTextNorth.cloneNode(true));
   popupImagesNorth.appendChild(window["imageNorth"+id]);
   popupImagesNorth.appendChild(popupRightArrow.cloneNode(true));
 
   window["imageEast"+id] = document.createElement("img");
   window["imageEast"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-east.png";
   popupImagesEast.innerHTML = "";
+  popupTextEast.innerHTML = "<b>" + i18n.t("popup.eastImage") + ":</b><br>";
+  popupImagesEast.appendChild(popupTextEast.cloneNode(true));
   popupImagesEast.appendChild(popupLeftArrow.cloneNode(true));
   popupImagesEast.appendChild(window["imageEast"+id]);
   popupImagesEast.appendChild(popupRightArrow.cloneNode(true));
@@ -770,6 +780,8 @@ function addPopupImages(id) {
   window["imageSouth"+id] = document.createElement("img");
   window["imageSouth"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-south.png";
   popupImagesSouth.innerHTML = "";
+  popupTextSouth.innerHTML = "<b>" + i18n.t("popup.southImage") + ":</b><br>";
+  popupImagesSouth.appendChild(popupTextSouth.cloneNode(true));
   popupImagesSouth.appendChild(popupLeftArrow.cloneNode(true));
   popupImagesSouth.appendChild(window["imageSouth"+id]);
   popupImagesSouth.appendChild(popupRightArrow.cloneNode(true));
@@ -777,6 +789,8 @@ function addPopupImages(id) {
   window["imageWest"+id] = document.createElement("img");
   window["imageWest"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-west.png";
   popupImagesWest.innerHTML = "";
+  popupTextWest.innerHTML = "<b>" + i18n.t("popup.westImage") + ":</b><br>";
+  popupImagesWest.appendChild(popupTextWest.cloneNode(true));
   popupImagesWest.appendChild(popupLeftArrow.cloneNode(true));
   popupImagesWest.appendChild(window["imageWest"+id]);
 

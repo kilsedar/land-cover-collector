@@ -292,10 +292,6 @@ img.valign {
   vertical-align: middle;
 }
 
-.popup-images {
-  padding-top: 5px;
-}
-
 .popup-images img {
   width: 150px;
   padding: 0px 5px;
@@ -314,6 +310,11 @@ img.valign {
 
 .popup-images-east, .popup-images-south, .popup-images-west {
   display: none;
+}
+
+.popup-text-north {
+  text-align: left;
+  display: block;
 }
 
 .ui-slider input[type=number] {

@@ -72,10 +72,10 @@
     "certainty": "Sicurezza",
     "comment": "Commento",
     "date": "Data",
-    "north": "Nord",
-    "east": "Est",
-    "south": "Sud",
-    "west": "Ovest"
+    "northImage": "Immagine del nord",
+    "eastImage": "Immagine di est",
+    "southImage": "Immagine del sud",
+    "westImage": "Immagine di ovest"
   },
   "messages":
   {
