@@ -1,6 +1,6 @@
 {
-  "polimiLink": "<a href='http://www.polimi.it/en/english-version/' target='_blank'><img id='polimi-logo' class='logo' src='img/polimi3.png'></a>",
-  "glc30Link": "<a href='http://www.globallandcover.com/GLC30Download/index.aspx' target='_blank'><img id='glc30-logo' class='logo' src='img/glc30.png'></a>",
+  "polimiLink": "<a href='http://www.polimi.it/en/english-version/' target='_blank'><img class='logo polimi-logo' src='img/polimi3.png'></a>",
+  "glc30Link": "<a href='http://www.globallandcover.com/GLC30Download/index.aspx' target='_blank'><img class='logo glc30-logo' src='img/glc30.png'></a>",
   "registration":
   {
     "introduction": "Welcome! Please insert the following information:",
