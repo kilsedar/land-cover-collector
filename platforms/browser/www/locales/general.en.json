@@ -25,37 +25,37 @@
     "about": "About",
     "registration": "Register"
   },
+  "classes":
+  {
+    "artificialSurface": "Artificial surface",
+    "bareLand": "Bare land",
+    "cultivatedLand": "Cultivated land",
+    "forest": "Forest",
+    "grassland": "Grassland",
+    "permanentSnowAndIce": "Permanent snow and ice",
+    "shrubland": "Shrubland",
+    "tundra": "Tundra",
+    "waterBody": "Water body",
+    "wetland": "Wetland",
+    "bing": "Bing Aerial"
+  },
   "menu":
   {
+    "selectClassification": "Select the classification of your point.",
     "comment": "Any comments?",
-    "takePhotoNorth": "Take a picture of north.",
-    "takePhotoEast": "Take a picture of east.",
-    "takePhotoSouth": "Take a picture of south.",
-    "takePhotoWest": "Take a picture of west.",
-    "choosePhotoNorth": "Choose an image of north.",
-    "choosePhotoEast": "Choose an image of east.",
-    "choosePhotoSouth": "Choose an image of south.",
-    "choosePhotoWest": "Choose an image of west.",
+    "takePhotoNorth": "Take a photo of north.",
+    "takePhotoEast": "Take a photo of east.",
+    "takePhotoSouth": "Take a photo of south.",
+    "takePhotoWest": "Take a photo of west.",
+    "choosePhotoNorth": "Choose a photo of north.",
+    "choosePhotoEast": "Choose a photo of east.",
+    "choosePhotoSouth": "Choose a photo of south.",
+    "choosePhotoWest": "Choose a photo of west.",
     "certainty":
     {
       "question": "How certain are you?",
       "one": "not certain",
       "five": "absolutely certain"
-    },
-    "classes":
-    {
-      "select": "Select the classification of your point.",
-      "artificialSurface": "Artificial surface",
-      "bareLand": "Bare land",
-      "cultivatedLand": "Cultivated land",
-      "forest": "Forest",
-      "grassland": "Grassland",
-      "permanentSnowAndIce": "Permanent snow and ice",
-      "shrubland": "Shrubland",
-      "tundra": "Tundra",
-      "waterBody": "Water body",
-      "wetland": "Wetland",
-      "bing": "Bing Aerial"
     },
     "buttons":
     {
@@ -72,10 +72,10 @@
     "certainty": "Certainty",
     "comment": "Comment",
     "date": "Date",
-    "northImage": "Image of north",
-    "eastImage": "Image of east",
-    "southImage": "Image of south",
-    "westImage": "Image of west"
+    "northPhoto": "Photo of north",
+    "eastPhoto": "Photo of east",
+    "southPhoto": "Photo of south",
+    "westPhoto": "Photo of west"
   },
   "messages":
   {

@@ -292,7 +292,7 @@ img.valign {
   vertical-align: middle;
 }
 
-.popup-images img {
+.popup-photos img {
   width: 150px;
   padding: 0px 5px;
   vertical-align: middle;
@@ -303,12 +303,12 @@ img.valign {
   padding: 0px !important;
 }
 
-.popup-images-north {
+.popup-photos-north {
   display: block;
   text-align: right;
 }
 
-.popup-images-east, .popup-images-south, .popup-images-west {
+.popup-photos-east, .popup-photos-south, .popup-photos-west {
   display: none;
 }
 

@@ -25,37 +25,37 @@
     "about": "Informazioni",
     "registration": "Registrati"
   },
+  "classes":
+  {
+    "artificialSurface": "Superficie artificiale",
+    "bareLand": "Terreno non valorizzato",
+    "cultivatedLand": "Superficie agricola utilizzata",
+    "forest": "Foresta",
+    "grassland": "Prateria",
+    "permanentSnowAndIce": "Neve permanente e ghiaccio",
+    "shrubland": "Arbusti",
+    "tundra": "Tundra",
+    "waterBody": "Bacino idrico",
+    "wetland": "Zona umida",
+    "bing": "Bing Aereo"
+  },
   "menu":
   {
+    "selectClassification": "Seleziona la classificazione del punto.",
     "comment": "Commenti?",
     "takePhotoNorth": "Scatta una foto del nord.",
     "takePhotoEast": "Scatta una foto dell'est.",
     "takePhotoSouth": "Scatta una foto del sud.",
     "takePhotoWest": "Scatta una foto dell'ovest.",
-    "choosePhotoNorth": "Scegli un'immagine del nord.",
-    "choosePhotoEast": "Scegli un'immagine dell'est.",
-    "choosePhotoSouth": "Scegli un'immagine del sud.",
-    "choosePhotoWest": "Scegli un'immagine dell'ovest.",
+    "choosePhotoNorth": "Scegli una foto del nord.",
+    "choosePhotoEast": "Scegli una foto dell'est.",
+    "choosePhotoSouth": "Scegli una foto del sud.",
+    "choosePhotoWest": "Scegli una foto dell'ovest.",
     "certainty":
     {
       "question": "Quanto sei sicuro?",
       "one": "non sicuro",
       "five": "assolutamente sicuro"
-    },
-    "classes":
-    {
-      "select": "Seleziona la classificazione del punto.",
-      "artificialSurface": "Superficie artificiale",
-      "bareLand": "Terreno non valorizzato",
-      "cultivatedLand": "Superficie agricola utilizzata",
-      "forest": "Foresta",
-      "grassland": "Prateria",
-      "permanentSnowAndIce": "Neve permanente e ghiaccio",
-      "shrubland": "Arbusti",
-      "tundra": "Tundra",
-      "waterBody": "Bacino idrico",
-      "wetland": "Zona umida",
-      "bing": "Bing Aereo"
     },
     "buttons":
     {
@@ -72,10 +72,10 @@
     "certainty": "Sicurezza",
     "comment": "Commento",
     "date": "Data",
-    "northImage": "Immagine del nord",
-    "eastImage": "Immagine di est",
-    "southImage": "Immagine del sud",
-    "westImage": "Immagine di ovest"
+    "northPhoto": "Foto del nord",
+    "eastPhoto": "Foto di est",
+    "southPhoto": "Foto del sud",
+    "westPhoto": "Foto di ovest"
   },
   "messages":
   {

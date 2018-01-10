@@ -4,7 +4,7 @@ var networkState, legendHeight, watchCompassID, isApp;
 
 // initial values
 var curLatLng = [0, 0], curLatLngAccuracy = 0;
-var classification = "", imageNorth = "", imageEast = "", imageSouth = "", imageWest = "", certainty = 3, comment= "";
+var classification = "", photoNorth = "", photoEast = "", photoSouth = "", photoWest = "", certainty = 3, comment= "";
 
 function afterLangInit() {
 
@@ -206,7 +206,7 @@ function afterLangInit() {
 
     // set all forms to initial values
     $("#radio-choice-1, #radio-choice-2, #radio-choice-3, #radio-choice-4, #radio-choice-5, #radio-choice-6, #radio-choice-7, #radio-choice-8, #radio-choice-9, #radio-choice-10").prop("checked",false).checkboxradio("refresh");
-    $("#classes-select").text(i18n.t("menu.classes.select"));
+    $("#classes-select").text(i18n.t("menu.selectClassification"));
     $("#comment-input").val("");
     $("#slider").val(3).slider("refresh");
 
@@ -249,10 +249,10 @@ function afterLangInit() {
 
     // set all initial values
     classification = "";
-    imageNorth = "";
-    imageEast = "";
-    imageSouth = "";
-    imageWest = "";
+    photoNorth = "";
+    photoEast = "";
+    photoSouth = "";
+    photoWest = "";
     certainty = 3;
     comment= "";
   });
@@ -557,22 +557,22 @@ function afterLangInit() {
         "photo-north.png":
         {
           content_type: "image\/png",
-          data: imageNorth
+          data: photoNorth
         },
         "photo-east.png":
         {
           content_type: "image\/png",
-          data: imageEast
+          data: photoEast
         },
         "photo-south.png":
         {
           content_type: "image\/png",
-          data: imageSouth
+          data: photoSouth
         },
         "photo-west.png":
         {
           content_type: "image\/png",
-          data: imageWest
+          data: photoWest
         }
       }
     };
@@ -643,8 +643,8 @@ function afterLangInit() {
   /***
   photos - beginning
   ***/
-  // this function is called when the input loads an image
-  function renderImage(file) {
+  // this function is called when the input loads a photo
+  function renderPhoto(file) {
     var reader = new FileReader();
     reader.onload = function(event) {
       var activeDivId = ($("#add-bottompanel").children().filter(function() {
@@ -656,7 +656,7 @@ function afterLangInit() {
       var url = event.target.result;
 
       var activeDirection = activeDivId.split("-")[1];
-      window["image"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)] = url.substr(url.indexOf(",")+1);
+      window["photo"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)] = url.substr(url.indexOf(",")+1);
     }
 
     // when the file is read it triggers the onload event above
@@ -665,14 +665,14 @@ function afterLangInit() {
 
   // triggered when OK is clicked
   $("input[type='file']").change(function() {
-    renderImage(this.files[0]);
+    renderPhoto(this.files[0]);
   });
 
   $(".choose-photo").click(function() {
     $("input[type='file']").click();
   });
 
-  function getPictureSuccess(imageData) {
+  function getPhotoSuccess(photoData) {
     var activeDivId = ($("#add-bottompanel").children().filter(function() {
       return $(this).css("display") === "block";
     }).attr("id"));
@@ -680,15 +680,15 @@ function afterLangInit() {
     $("#"+activeDivId+"-next").removeClass("ui-disabled");
 
     var activeDirection = activeDivId.split("-")[1];
-    window["image"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)] = imageData;
+    window["photo"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)] = photoData;
   }
 
-  function getPictureFail(message) {
+  function getPhotoFail(message) {
     console.log("Failed getting photo. Message: " + message);
   }
 
   $(".take-photo").click(function() {
-    navigator.camera.getPicture(getPictureSuccess, getPictureFail, {
+    navigator.camera.getPhoto(getPhotoSuccess, getPhotoFail, {
       quality: 20,
       destinationType: Camera.DestinationType.DATA_URL,
       sourceType: Camera.PictureSourceType.CAMERA
@@ -705,11 +705,11 @@ $("#map").on("click", ".popup-right-arrow", function(event) {
   var parentClassNameSplitted = $(this).parent().attr("class").split("-");
   var direction = parentClassNameSplitted[parentClassNameSplitted.length - 1];
   if (direction == "north")
-    $(this).parent().siblings(".popup-images-east").css("display", "block");
+    $(this).parent().siblings(".popup-photos-east").css("display", "block");
   else if (direction == "east")
-    $(this).parent().siblings(".popup-images-south").css("display", "block");
+    $(this).parent().siblings(".popup-photos-south").css("display", "block");
   else if (direction == "south")
-    $(this).parent().siblings(".popup-images-west").css("display", "block");
+    $(this).parent().siblings(".popup-photos-west").css("display", "block");
 });
 
 $("#map").on("click", ".popup-left-arrow", function(event) {
@@ -718,15 +718,15 @@ $("#map").on("click", ".popup-left-arrow", function(event) {
   var parentClassNameSplitted = $(this).parent().attr("class").split("-");
   var direction = parentClassNameSplitted[parentClassNameSplitted.length - 1];
   if (direction == "west")
-    $(this).parent().siblings(".popup-images-south").css("display", "block");
+    $(this).parent().siblings(".popup-photos-south").css("display", "block");
   else if (direction == "south")
-    $(this).parent().siblings(".popup-images-east").css("display", "block");
+    $(this).parent().siblings(".popup-photos-east").css("display", "block");
   else if (direction == "east")
-    $(this).parent().siblings(".popup-images-north").css("display", "block");
+    $(this).parent().siblings(".popup-photos-north").css("display", "block");
 });
 
-var popupImages = document.createElement("div");
-popupImages.className = "popup-images";
+var popupPhotos = document.createElement("div");
+popupPhotos.className = "popup-photos";
 
 var popupRightArrow = document.createElement("img");
 popupRightArrow.className = "popup-right-arrow";
@@ -742,59 +742,59 @@ var popupTextEast = document.createElement("span");
 var popupTextSouth = document.createElement("span");
 var popupTextWest = document.createElement("span");
 
-var popupImagesNorth = document.createElement("div");
-popupImagesNorth.className = "popup-images-north";
+var popupPhotosNorth = document.createElement("div");
+popupPhotosNorth.className = "popup-photos-north";
 
-var popupImagesEast = document.createElement("div");
-popupImagesEast.className = "popup-images-east";
+var popupPhotosEast = document.createElement("div");
+popupPhotosEast.className = "popup-photos-east";
 
-var popupImagesSouth = document.createElement("div");
-popupImagesSouth.className = "popup-images-south";
+var popupPhotosSouth = document.createElement("div");
+popupPhotosSouth.className = "popup-photos-south";
 
-var popupImagesWest = document.createElement("div");
-popupImagesWest.className = "popup-images-west";
+var popupPhotosWest = document.createElement("div");
+popupPhotosWest.className = "popup-photos-west";
 
-popupImages.appendChild(popupImagesNorth);
-popupImages.appendChild(popupImagesEast);
-popupImages.appendChild(popupImagesSouth);
-popupImages.appendChild(popupImagesWest);
+popupPhotos.appendChild(popupPhotosNorth);
+popupPhotos.appendChild(popupPhotosEast);
+popupPhotos.appendChild(popupPhotosSouth);
+popupPhotos.appendChild(popupPhotosWest);
 
-function addPopupImages(id) {
-  window["imageNorth"+id] = document.createElement("img");
-  window["imageNorth"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-north.png";
-  popupImagesNorth.innerHTML = "";
-  popupTextNorth.innerHTML = "<b>" + i18n.t("popup.northImage") + ":</b><br>";
-  popupImagesNorth.appendChild(popupTextNorth.cloneNode(true));
-  popupImagesNorth.appendChild(window["imageNorth"+id]);
-  popupImagesNorth.appendChild(popupRightArrow.cloneNode(true));
+function addPopupPhotos(id) {
+  window["photoNorth"+id] = document.createElement("img");
+  window["photoNorth"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-north.png";
+  popupPhotosNorth.innerHTML = "";
+  popupTextNorth.innerHTML = "<b>" + i18n.t("popup.northPhoto") + ":</b><br>";
+  popupPhotosNorth.appendChild(popupTextNorth.cloneNode(true));
+  popupPhotosNorth.appendChild(window["photoNorth"+id]);
+  popupPhotosNorth.appendChild(popupRightArrow.cloneNode(true));
 
-  window["imageEast"+id] = document.createElement("img");
-  window["imageEast"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-east.png";
-  popupImagesEast.innerHTML = "";
-  popupTextEast.innerHTML = "<b>" + i18n.t("popup.eastImage") + ":</b><br>";
-  popupImagesEast.appendChild(popupTextEast.cloneNode(true));
-  popupImagesEast.appendChild(popupLeftArrow.cloneNode(true));
-  popupImagesEast.appendChild(window["imageEast"+id]);
-  popupImagesEast.appendChild(popupRightArrow.cloneNode(true));
+  window["photoEast"+id] = document.createElement("img");
+  window["photoEast"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-east.png";
+  popupPhotosEast.innerHTML = "";
+  popupTextEast.innerHTML = "<b>" + i18n.t("popup.eastPhoto") + ":</b><br>";
+  popupPhotosEast.appendChild(popupTextEast.cloneNode(true));
+  popupPhotosEast.appendChild(popupLeftArrow.cloneNode(true));
+  popupPhotosEast.appendChild(window["photoEast"+id]);
+  popupPhotosEast.appendChild(popupRightArrow.cloneNode(true));
 
-  window["imageSouth"+id] = document.createElement("img");
-  window["imageSouth"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-south.png";
-  popupImagesSouth.innerHTML = "";
-  popupTextSouth.innerHTML = "<b>" + i18n.t("popup.southImage") + ":</b><br>";
-  popupImagesSouth.appendChild(popupTextSouth.cloneNode(true));
-  popupImagesSouth.appendChild(popupLeftArrow.cloneNode(true));
-  popupImagesSouth.appendChild(window["imageSouth"+id]);
-  popupImagesSouth.appendChild(popupRightArrow.cloneNode(true));
+  window["photoSouth"+id] = document.createElement("img");
+  window["photoSouth"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-south.png";
+  popupPhotosSouth.innerHTML = "";
+  popupTextSouth.innerHTML = "<b>" + i18n.t("popup.southPhoto") + ":</b><br>";
+  popupPhotosSouth.appendChild(popupTextSouth.cloneNode(true));
+  popupPhotosSouth.appendChild(popupLeftArrow.cloneNode(true));
+  popupPhotosSouth.appendChild(window["photoSouth"+id]);
+  popupPhotosSouth.appendChild(popupRightArrow.cloneNode(true));
 
-  window["imageWest"+id] = document.createElement("img");
-  window["imageWest"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-west.png";
-  popupImagesWest.innerHTML = "";
-  popupTextWest.innerHTML = "<b>" + i18n.t("popup.westImage") + ":</b><br>";
-  popupImagesWest.appendChild(popupTextWest.cloneNode(true));
-  popupImagesWest.appendChild(popupLeftArrow.cloneNode(true));
-  popupImagesWest.appendChild(window["imageWest"+id]);
+  window["photoWest"+id] = document.createElement("img");
+  window["photoWest"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-west.png";
+  popupPhotosWest.innerHTML = "";
+  popupTextWest.innerHTML = "<b>" + i18n.t("popup.westPhoto") + ":</b><br>";
+  popupPhotosWest.appendChild(popupTextWest.cloneNode(true));
+  popupPhotosWest.appendChild(popupLeftArrow.cloneNode(true));
+  popupPhotosWest.appendChild(window["photoWest"+id]);
 
-  return popupImages.outerHTML;
+  return popupPhotos.outerHTML;
 }
 
 function isCommentEmpty(comment) {
@@ -831,7 +831,7 @@ function vizPOIs (map, ids, timestamps, locations, classes, certainties, comment
       popupAnchor: [0, -36]
     });
     marker = L.marker(locations[i], {icon: locationIcon});
-    marker.bindPopup("<b>" + i18n.t("popup.class") + ": </b>" + i18n.t("menu.classes."+classes[i]) + "<br><b>" + i18n.t("popup.date") + ": </b>" + new Date(timestamps[i]).toLocaleString() + "<br><b>" + i18n.t("popup.certainty") + ": </b>" + certainties[i] + "<br>" + isCommentEmpty(comments[i]) + addPopupImages(ids[i]));
+    marker.bindPopup("<b>" + i18n.t("popup.class") + ": </b>" + i18n.t("classes."+classes[i]) + "<br><b>" + i18n.t("popup.date") + ": </b>" + new Date(timestamps[i]).toLocaleString() + "<br><b>" + i18n.t("popup.certainty") + ": </b>" + certainties[i] + "<br>" + isCommentEmpty(comments[i]) + addPopupPhotos(ids[i]));
     marker.mydata = classes[i];
     str = "markers" + classes[i].charAt(0).toUpperCase() + classes[i].slice(1);
     window[str].addLayer(marker);
