@@ -9,7 +9,7 @@ It mainly uses PouchDB, CouchDB, Cordova and Leaflet.
 
 CouchDB version is 2.1.1. Installation instructions using the Apache CouchDB convenience binary packages for Unix-like systems can be found [here](http://docs.couchdb.org/en/2.1.1/install/unix.html).
 
-Cordova version is 7.1.0. Installation instructions can be found [here](https://cordova.apache.org/docs/en/latest/guide/cli/).
+Cordova version is 8.0.0. Installation instructions can be found [here](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 The packages and platforms used in this app are already in the repository.
 

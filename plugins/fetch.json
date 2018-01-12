@@ -42,10 +42,12 @@
   "cordova-plugin-geolocation": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-geolocation@3.0.0"
+      "id": "cordova-plugin-geolocation@^3.0.0"
     },
     "is_top_level": true,
-    "variables": {}
+    "variables": {
+      "GEOLOCATION_USAGE_DESCRIPTION": "Location is required to ease for you to add the land cover information at your position."
+    }
   },
   "cordova-plugin-network-information": {
     "source": {

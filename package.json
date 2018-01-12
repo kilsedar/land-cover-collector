@@ -28,7 +28,9 @@
       "cordova-plugin-device": {},
       "cordova-plugin-camera": {},
       "cordova-plugin-dialogs": {},
-      "cordova-plugin-geolocation": {},
+      "cordova-plugin-geolocation": {
+        "GEOLOCATION_USAGE_DESCRIPTION": "Location is required to ease for you to add the land cover information at your position."
+      },
       "cordova-plugin-network-information": {},
       "cordova-plugin-device-orientation": {}
     },
