@@ -1,6 +1,6 @@
 var map, bing, osm, markersMy, markersAll, marker;
 
-var networkState, legendHeight, watchCompassID, isApp;
+var networkState, legendHeight, watchCompassID, isApp, xOrientation;
 
 // initial values
 var curLatLng = [0, 0], curLatLngAccuracy = 0;
@@ -222,6 +222,12 @@ function afterLangInit() {
       $(".take-photo").remove();
     }
 
+    function handleOrientation(event) {
+      xOrientation = event.beta;
+    }
+    if (isApp)
+      window.addEventListener('deviceorientation', handleOrientation);
+
     if (navigator.geolocation) {
       var watchGeolocationID = navigator.geolocation.watchPosition(
         function(position) {
@@ -433,7 +439,7 @@ function afterLangInit() {
     $("#photo-north").show();
 
     function compassSuccess(heading) {
-      if (heading.magneticHeading >= 340 || heading.magneticHeading <= 20)
+      if ((heading.magneticHeading >= 340 || heading.magneticHeading <= 20) && (xOrientation >= 60 && xOrientation <= 120))
         $("#photo-north .take-photo").removeClass("ui-disabled");
       else
         $("#photo-north .take-photo").addClass("ui-disabled");
@@ -446,8 +452,10 @@ function afterLangInit() {
     $("#photo-north").hide();
     $("#comment").show();
 
-    if (isApp)
+    if (isApp) {
       navigator.compass.clearWatch(watchCompassID);
+      window.removeEventListener('deviceorientation', handleOrientation);
+    }
   });
 
   $("#photo-north-next").click(function() {
@@ -455,7 +463,7 @@ function afterLangInit() {
     $("#photo-east").show();
 
     function compassSuccess(heading) {
-      if (heading.magneticHeading >= 70 && heading.magneticHeading <= 110)
+      if ((heading.magneticHeading >= 70 && heading.magneticHeading <= 110) && (xOrientation >= 60 && xOrientation <= 120))
         $("#photo-east .take-photo").removeClass("ui-disabled");
       else
         $("#photo-east .take-photo").addClass("ui-disabled");
@@ -469,7 +477,7 @@ function afterLangInit() {
     $("#photo-north").show();
 
     function compassSuccess(heading) {
-      if (heading.magneticHeading >= 340 || heading.magneticHeading <= 20)
+      if ((heading.magneticHeading >= 340 || heading.magneticHeading <= 20) && (xOrientation >= 60 && xOrientation <= 120))
         $("#photo-north .take-photo").removeClass("ui-disabled");
       else
         $("#photo-north .take-photo").addClass("ui-disabled");
@@ -483,7 +491,7 @@ function afterLangInit() {
     $("#photo-south").show();
 
     function compassSuccess(heading) {
-      if (heading.magneticHeading >= 160 && heading.magneticHeading <= 200)
+      if ((heading.magneticHeading >= 160 && heading.magneticHeading <= 200) && (xOrientation >= 60 && xOrientation <= 120))
         $("#photo-south .take-photo").removeClass("ui-disabled");
       else
         $("#photo-south .take-photo").addClass("ui-disabled");
@@ -497,7 +505,7 @@ function afterLangInit() {
     $("#photo-east").show();
 
     function compassSuccess(heading) {
-      if (heading.magneticHeading >= 70 && heading.magneticHeading <= 110)
+      if ((heading.magneticHeading >= 70 && heading.magneticHeading <= 110) && (xOrientation >= 60 && xOrientation <= 120))
         $("#photo-east .take-photo").removeClass("ui-disabled");
       else
         $("#photo-east .take-photo").addClass("ui-disabled");
@@ -511,7 +519,7 @@ function afterLangInit() {
     $("#photo-west").show();
 
     function compassSuccess(heading) {
-      if (heading.magneticHeading >= 250 && heading.magneticHeading <= 290)
+      if ((heading.magneticHeading >= 250 && heading.magneticHeading <= 290) && (xOrientation >= 60 && xOrientation <= 120))
         $("#photo-west .take-photo").removeClass("ui-disabled");
       else
         $("#photo-west .take-photo").addClass("ui-disabled");
@@ -525,7 +533,7 @@ function afterLangInit() {
     $("#photo-south").show();
 
     function compassSuccess(heading) {
-      if (heading.magneticHeading >= 160 && heading.magneticHeading <= 200)
+      if ((heading.magneticHeading >= 160 && heading.magneticHeading <= 200) && (xOrientation >= 60 && xOrientation <= 120))
         $("#photo-south .take-photo").removeClass("ui-disabled");
       else
         $("#photo-south .take-photo").addClass("ui-disabled");
@@ -591,8 +599,10 @@ function afterLangInit() {
         navigator.notification.alert(i18n.t("messages.storageError"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
     });
 
-    if (isApp)
+    if (isApp) {
       navigator.compass.clearWatch(watchCompassID);
+      window.removeEventListener('deviceorientation', handleOrientation);
+    }
 
     navigator.geolocation.clearWatch(watchGeolocationID);
   });
