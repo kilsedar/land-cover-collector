@@ -222,12 +222,6 @@ function afterLangInit() {
       $(".take-photo").remove();
     }
 
-    function handleOrientation(event) {
-      xOrientation = event.beta;
-    }
-    if (isApp)
-      window.addEventListener('deviceorientation', handleOrientation);
-
     var popupOpened = false;
     if (navigator.geolocation) {
       var watchGeolocationID = navigator.geolocation.watchPosition(
@@ -442,6 +436,10 @@ function afterLangInit() {
     console.log("compass error: " + error.code);
   };
 
+  function handleOrientation(event) {
+    xOrientation = event.beta;
+  }
+
   $("#comment-next").click(function() {
     comment =  $("#comment-input").val();
     $("#comment").hide();
@@ -453,8 +451,10 @@ function afterLangInit() {
       else
         $("#photo-north .take-photo").addClass("ui-disabled");
     };
-    if (isApp)
+    if (isApp) {
       watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
+      window.addEventListener('deviceorientation', handleOrientation);
+    }
   });
 
   $("#photo-north-back").click(function() {
