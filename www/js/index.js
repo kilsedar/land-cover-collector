@@ -228,6 +228,7 @@ function afterLangInit() {
     if (isApp)
       window.addEventListener('deviceorientation', handleOrientation);
 
+    var popupOpened = false;
     if (navigator.geolocation) {
       var watchGeolocationID = navigator.geolocation.watchPosition(
         function(position) {
@@ -235,16 +236,24 @@ function afterLangInit() {
           curLatLngAccuracy = position.coords.accuracy;
           map.panTo(curLatLng);
           marker.setLatLng (curLatLng);
-          marker.bindPopup(i18n.t("messages.markerPopup")).openPopup();
-          marker.dragging.enable();
+          if (popupOpened == false) {
+            marker.bindPopup(i18n.t("messages.markerPopup")).openPopup();
+            popupOpened = true;
+
+            marker.dragging.enable();
+          }
         },
         function(error) {
           var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") && navigator.userAgent.toLowerCase().indexOf("mobile") > -1;
-          if(!isAndroid)
-            marker.bindPopup(i18n.t("messages.gpsError")).openPopup();
-          else
-            marker.bindPopup(i18n.t("messages.gpsErrorAndroid")).openPopup();
-          marker.dragging.enable();
+          if (popupOpened == false) {
+            if(!isAndroid)
+              marker.bindPopup(i18n.t("messages.gpsError")).openPopup();
+            else
+              marker.bindPopup(i18n.t("messages.gpsErrorAndroid")).openPopup();
+            popupOpened = true;
+
+            marker.dragging.enable();
+          }
         },
         {maximumAge: 3000, timeout: 5000, enableHighAccuracy: true}
       );
