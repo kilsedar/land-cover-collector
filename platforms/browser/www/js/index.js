@@ -879,6 +879,10 @@ $("#legend-button").on("vclick", function() {
   adjustLegendHeight();
 });
 
+$("#terms-and-conditions-link").click(function() {
+  $("#terms-and-conditions-text").slideToggle({"duration": 200});
+});
+
 function onResize() {
   // resize map to cover whole screen
   var mapEl = $("#map");

@@ -15,7 +15,16 @@
     "workUnemployed": "Disoccupato",
     "workRetired": "Pensionato",
     "workOther": "Altro",
-    "button": "Registrati"
+    "button": "Registrati",
+    "termsAndConditions": {
+      "noticeText": "Registrandoti accetti",
+      "noticeLink": "i termini e le condizioni",
+      "noticeFullStop": ".",
+      "listFirst": "Devi avere almeno 18 anni per utilizzare l'applicazione.",
+      "listSecond": "Le informazioni sulla copertura del terreno che fornite, comprese le foto, saranno utilizzate a fini scientifici e potrebbero essere rese disponibili al pubblico.",
+      "listThird": "Non è consentita alcuna forma di manipolazione dei dati.",
+      "listFourth": "Politecnico di Milano - GEOlab non potrà essere ritenuta responsabile per qualsiasi danno, lesione, perdita o spesa di alcun tipo."
+    }
   },
   "navbar":
   {

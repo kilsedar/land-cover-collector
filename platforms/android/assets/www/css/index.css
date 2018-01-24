@@ -220,6 +220,18 @@ select, option {
   margin-top: 0px;
 }
 
+#terms-and-conditions-text {
+  display: none;
+}
+
+#terms-and-conditions p {
+  margin: 10px 0px 5px 0px;
+}
+
+#terms-and-conditions-text ul {
+  margin: 0px 0px 10px 0px;
+}
+
 .top-bar {
   text-align: center;
 }

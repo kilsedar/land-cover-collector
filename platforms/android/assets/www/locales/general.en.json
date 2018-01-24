@@ -15,7 +15,16 @@
     "workUnemployed": "Unemployed and seeking work",
     "workRetired": "Retired",
     "workOther": "Other",
-    "button": "Register"
+    "button": "Register",
+    "termsAndConditions": {
+      "noticeText": "By registering you are accepting the",
+      "noticeLink": "terms and conditions",
+      "noticeFullStop": ".",
+      "listFirst": "You should be at least 18 years old to use the application.",
+      "listSecond": "The land cover information you provide, including the photos, will be used for scientific purposes and may be made publicly available.",
+      "listThird": "Any form of data manipulation is not allowed.",
+      "listFourth": "Politecnico di Milano - GEOlab shall not be held responsible for any damage, injury, loss or expense of any kind."
+    }
   },
   "navbar":
   {
