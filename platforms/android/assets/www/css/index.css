@@ -157,7 +157,7 @@ select, option {
 
 #legend {
   position: absolute;
-  width: 190px;
+  width: 210px;
   color: #555;
   background-color: rgba(255, 255, 255, 0.9);
   display: none;
@@ -166,8 +166,8 @@ select, option {
   right: 10px;
   text-shadow: none;
   z-index: 1000;
-  height: 288px;
   overflow-y: auto;
+  overflow-x: hidden;
   cursor: auto;
 }
 
@@ -320,7 +320,7 @@ select, option {
 }
 
 .legend-class-background {
-  width: 190px;
+  width: 210px;
 }
 
 .classes-menu-image {

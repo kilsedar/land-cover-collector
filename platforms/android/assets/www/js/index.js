@@ -869,20 +869,24 @@ $("#terms-and-conditions-button").click(function() {
   $("#terms-and-conditions-list").slideToggle({"duration": 200});
 });
 
+var legendHeight, guidelinesListHeight;
+
 function adjustLegendHeight() {
-  if (358 > $("#map").height())
+  if (legendHeight+70 > $("#map").height())
     $("#legend").css("height", ($("#map").height()-70) + "px");
   else
-    $("#legend").css("height", "288px");
+    $("#legend").css("height", "auto");
 }
 
 $("#legend-button").on("vclick", function() {
   $("#legend").toggle();
+  legendHeight = document.getElementById("legend").scrollHeight;
+
   adjustLegendHeight();
 });
 
 function adjustGuidelinesList() {
-  if (380 > $("#map").height())
+  if (guidelinesListHeight+140 > $("#map").height())
     $("#guidelines-list").css("height", ($("#map").height()-140) + "px");
   else
     $("#guidelines-list").css("height", "auto");
@@ -895,6 +899,8 @@ function adjustGuidelinesList() {
 
 $("#guidelines-button").on("vclick", function() {
   $("#guidelines-list").toggle();
+  guidelinesListHeight = document.getElementById("guidelines-list").scrollHeight;
+
   adjustGuidelinesList();
 });
 
