@@ -899,8 +899,7 @@ $("#guidelines-button").on("vclick", function() {
 });
 
 function onResize() {
-  var mapEl = $("#map");
-  mapEl.height($(document).height() - mapEl.offset().top);
+  $("#map").height($(window).height() - $("#map").offset().top);
 
   adjustLegendHeight();
   adjustGuidelinesList();
