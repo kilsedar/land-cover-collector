@@ -45,8 +45,20 @@
     "shrubland": "Arbusti",
     "tundra": "Tundra",
     "waterBody": "Bacino idrico",
-    "wetland": "Zona umida",
-    "bing": "Bing Aereo"
+    "wetland": "Zona umida"
+  },
+  "bing": "Bing Aereo",
+  "guidelines": {
+    "link": "Linee guida",
+    "listFirst": "Mentre scatti le foto segui le istruzioni di seguito.",
+    "listFirstFirst": "Rispetta la direzione nord, est, sud e ovest.",
+    "listFirstSecond": "Prova a tenere il tuo dispositivo verticale a terra.",
+    "listFirstThird": "Non scattare foto che violerebbero la privacy, come facce di persone e animali o targhe.",
+    "listFirstFourth": "Non ingrandire.",
+    "listFirstFifth": "Tieni il tuo dispositivo in modalità orizzontale.",
+    "listSecond": "Non oltrepassare.",
+    "listThird": "Non entrare nei campi con colture in crescita.",
+    "listFourth": "Sii consapevole dei pericoli che ti circondano e non entrare in aree potenzialmente pericolose."
   },
   "menu":
   {
@@ -97,23 +109,23 @@
     "registrationNoInternet": "La registrazione è fallita perché la connessione Internet è assente!",
     "gpsError":"Errore GPS! Ti preghiamo di spostare l’indicatore della posizione sull’area in cui ti trovi ora.",
     "gpsErrorAndroid":"Errore GPS! Attiva il servizio di geolocalizzazione o spostare l’indicatore della posizione sull’area in cui ti trovi ora.",
-    "contributionSuccessNoInternet":"Grazie per il tuo contributo. Nota: in questo momento non sei connesso ad Internet, ti preghiamo di chiudere e riaprire l’app non appena sarai connesso per condividere automaticamente i tuoi contributi.",
-    "photoUnavailable": "È possibile scattare una foto solo dalle app Android e iOS e non da browser.",
+    "contributionSuccessNoInternet":"Grazie per il tuo contributo. Nota: in questo momento non sei connesso ad Internet, ti preghiamo di chiudere e riaprire l’applicazione non appena sarai connesso per condividere automaticamente i tuoi contributi.",
+    "photoUnavailable": "È possibile scattare una foto solo dalle applicazione Android e iOS e non da browser.",
     "bingNoInternet": "Bing Aerial non può essere mostrata perché la connessione Internet è assente!",
     "osmNoInternet": "OpenStreetMap non può essere mostrata perché la connessione Internet è assente!",
-    "storageError": "Questo browser non supporta la memoria locale.",
     "error": "Errore!",
-    "privateMode": "Errore! Sei in modalità privata?"
+    "errorStorage": "Questo browser non supporta la memoria locale.",
+    "errorPrivateMode": "Errore! Sei in modalità privata?"
   },
   "stat":
   {
-    "totalMy": "In totale, hai ",
-    "contrMySingle": " contributo.",
-    "contrMyPlural": " contributi.",
-    "totalAllSingle": "In totale, c'è ",
-    "contrAllSingle": " contributo entro 5 km dalla tua posizione.",
-    "totalAllPlural": "In totale, ci sono ",
-    "contrAllPlural": " contributi entro 5 km dalla tua posizione.",
+    "totalMy": "In totale, hai",
+    "contrMySingle": "contributo.",
+    "contrMyPlural": "contributi.",
+    "totalAllSingle": "In totale, c'è",
+    "contrAllSingle": "contributo entro 5 km dalla tua posizione.",
+    "totalAllPlural": "In totale, ci sono",
+    "contrAllPlural": "contributi entro 5 km dalla tua posizione.",
     "noContrMy": "Non hai ancora fornito alcun contributo!",
     "noContrAll": "Nessuno ha fornito contributi in un raggio di 5 km dalla tua posizione."
   },

@@ -1,5 +1,5 @@
 * {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   font-family: 'Nunito', sans-serif !important;
 }
 
@@ -82,6 +82,10 @@ select, option {
   border: 0px;
 }
 
+.leaflet-container {
+  font-size: 14px;
+}
+
 #page {
   height: 100%;
 }
@@ -139,26 +143,29 @@ select, option {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: rgba(255,255,255,.5);
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 0px;
-  border: 3px solid rgba(51,136,204,.3);
+  border: 3px solid rgba(51, 136, 204, 0.5);
   line-height: 0.5;
   z-index: 1010;
   display: none;
+  cursor: pointer;
 }
 
 #legend {
   position: absolute;
   width: 190px;
   color: #555;
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   display: none;
   padding: 3px;
   top: 10px;
   right: 10px;
   text-shadow: none;
   z-index: 1000;
+  height: 288px;
   overflow-y: auto;
+  cursor: auto;
 }
 
 #legend-artificial-surface {
@@ -220,16 +227,64 @@ select, option {
   margin-top: 0px;
 }
 
-#terms-and-conditions-text {
-  display: none;
-}
-
 #terms-and-conditions p {
   margin: 10px 0px 5px 0px;
 }
 
-#terms-and-conditions-text ul {
+#terms-and-conditions-list {
+  display: none;
+}
+
+#terms-and-conditions-list ul {
   margin: 0px 0px 10px 0px;
+}
+
+#terms-and-conditions-button {
+  color: #3388cc;
+  font-weight: 900;
+}
+
+#terms-and-conditions-button:hover {
+  color: #005599;
+}
+
+#guidelines-button {
+  position: absolute;
+  color: rgba(255, 255, 255);
+  background-color: rgb(51, 136, 204);
+  font-weight: 900;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  z-index: 1000;
+  padding: 0px 3px;
+  text-shadow: none;
+  cursor: pointer;
+}
+
+#guidelines-button:hover {
+  background-color: rgb(0, 85, 153);
+}
+
+#guidelines-list {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.9);
+  top: 38px;
+  right: 10px;
+  z-index: 1000;
+  width: 320px;
+  color: #555;
+  padding: 10px 10px 6px 18px;
+  line-height: 1.2;
+  overflow: auto;
+  text-align: justify;
+  cursor: auto;
+  display: none;
+}
+
+#guidelines-list ul, #guidelines-list li {
+  padding-left: 5px;
+  margin: 0px;
 }
 
 .top-bar {
@@ -258,7 +313,6 @@ select, option {
 }
 
 .legend-radio-label {
-  font-size: 12px !important;
   display: inline !important;
 }
 
@@ -283,7 +337,7 @@ select, option {
   padding: 10px;
   margin: 0px;
   width: auto;
-  background-color: rgba(0,0,0,0.65);
+  background-color: rgba(0, 0, 0, 0.65);
   color: white;
   text-shadow: none;
   display: none;

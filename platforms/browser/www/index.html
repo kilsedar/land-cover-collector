@@ -65,8 +65,8 @@
           </fieldset>
 
           <div id="terms-and-conditions">
-            <p><span data-i18n="registration.termsAndConditions.noticeText">By registering you are accepting the</span> <a id="terms-and-conditions-link" data-i18n="registration.termsAndConditions.noticeLink">terms and conditions</a><span data-i18n="registration.termsAndConditions.noticeFullStop">.</span></p>
-            <div id="terms-and-conditions-text">
+            <p><span data-i18n="registration.termsAndConditions.noticeText">By registering you are accepting the</span> <span id="terms-and-conditions-button" data-i18n="registration.termsAndConditions.noticeLink">terms and conditions</span><span data-i18n="registration.termsAndConditions.noticeFullStop">.</span></p>
+            <div id="terms-and-conditions-list">
               <ul>
                 <li data-i18n="registration.termsAndConditions.listFirst">You should be at least 18 years old to use the application.</li>
                 <li data-i18n="registration.termsAndConditions.listSecond">The land cover information you provide, including the photos, will be used for scientific purposes and may be made publicly available.</li>
@@ -105,7 +105,7 @@
           <div id="legend">
             <form>
               <input id="osm" type="radio" name="basemap" data-role="none" checked><label class="legend-label legend-radio-label" for="osm">OpenStreetMap</label><br>
-              <input id="bing" type="radio" name="basemap" data-role="none"><label class="legend-label legend-radio-label" for="bing" data-i18n="classes.bing">Bing Aerial</label>
+              <input id="bing" type="radio" name="basemap" data-role="none"><label class="legend-label legend-radio-label" for="bing" data-i18n="bing">Bing Aerial</label>
             </form>
             <div id="legend-artificial-surface" class="legend-class-background"><img class="legend-images" src="img/classes/artificialSurfaceWhiteBackground.png"><span class="legend-label" data-i18n="classes.artificialSurface">Artificial surface</span><br></div>
             <div id="legend-bare-land" class="legend-class-background"><img class="legend-images" src="img/classes/bareLandWhiteBackground.png"><span class="legend-label" data-i18n="classes.bareLand">Bare land</span><br></div>
@@ -117,6 +117,25 @@
             <div id="legend-tundra" class="legend-class-background"><img class="legend-images" src="img/classes/tundraWhiteBackground.png"><span class="legend-label" data-i18n="classes.tundra">Tundra</span><br></div>
             <div id="legend-water-body" class="legend-class-background"><img class="legend-images" src="img/classes/waterBodyWhiteBackground.png"><span class="legend-label" data-i18n="classes.waterBody">Water body</span><br></div>
             <div id="legend-wetland" class="legend-class-background"><img class="legend-images" src="img/classes/wetlandWhiteBackground.png"><span class="legend-label" data-i18n="classes.wetland">Wetland</span></div>
+          </div>
+
+          <div id="guidelines">
+            <span id="guidelines-button" data-i18n="guidelines.link">Guidelines</span>
+            <div id="guidelines-list">
+              <ul>
+                <li data-i18n="guidelines.listFirst">While taking photos follow the instructions below.</li>
+                <ul>
+                  <li data-i18n="guidelines.listFirstFirst">Respect the direction north, east, south and west.</li>
+                  <li data-i18n="guidelines.listFirstSecond">Try to hold your device vertical to the ground.</li>
+                  <li data-i18n="guidelines.listFirstThird">Do not take pictures that would violate privacy, such as of people's and animals' faces or license plates.</li>
+                  <li data-i18n="guidelines.listFirstFourth">Do not zoom in.</li>
+                  <li data-i18n="guidelines.listFirstFifth">Hold your device in landscape mode.</li>
+                </ul>
+                <li data-i18n="guidelines.listSecond">Do not trespass.</li>
+                <li data-i18n="guidelines.listThird">Do not walk into fields with growing crops.</li>
+                <li data-i18n="guidelines.listFourth">Be aware of the dangers around you and do not go into possibly dangerous areas.</li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -205,12 +224,8 @@
           </div>
         </div>
 
-        <div id="mymap-stat" class="bottompanel">
-          <label id="mymap-stat-text" data-i18n="stat.total">In total, you have ...</label>
-        </div>
-        <div id="allmap-stat" class="bottompanel">
-          <label id="allmap-stat-text" data-i18n="stat.total">In total, you have ...</label>
-        </div>
+        <div id="mymap-stat" class="bottompanel"></div>
+        <div id="allmap-stat" class="bottompanel"></div>
 
         <div id="main-about">
           <p class="text-about" data-i18n="[html]about">abc</p>

@@ -1,6 +1,6 @@
 var map, bing, osm, markersMy, markersAll, marker;
 
-var networkState, legendHeight, watchCompassID, isApp, xOrientation;
+var networkState, watchCompassID, isApplication, xOrientation;
 
 // initial values
 var curLatLng = [0, 0], curLatLngAccuracy = 0;
@@ -78,6 +78,8 @@ function afterLangInit() {
   L.DomEvent.disableScrollPropagation(L.DomUtil.get("legend-button"));
   L.DomEvent.disableClickPropagation(L.DomUtil.get("legend"));
   L.DomEvent.disableScrollPropagation(L.DomUtil.get("legend"));
+  L.DomEvent.disableClickPropagation(L.DomUtil.get("guidelines"));
+  L.DomEvent.disableScrollPropagation(L.DomUtil.get("guidelines"));
 
   $("#navbar-registration").click(function() {
     $("#start-about").hide();
@@ -174,7 +176,7 @@ function afterLangInit() {
   }
 
   $("#navbar-add").click(function() {
-    $("#map, #add-menu").show();
+    $("#map, #add-menu, #guidelines").show();
     $("#main-about, #mymap-stat, #allmap-stat, #legend-button, #legend").hide();
 
     if (markersAll) {
@@ -203,7 +205,7 @@ function afterLangInit() {
     $("#comment-input").val("");
     $("#slider").val(3).slider("refresh");
 
-    isApp = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
+    isApplication = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
 
     function compassSuccess(heading) {
       console.log("compass heading: " + heading.magneticHeading);
@@ -212,7 +214,7 @@ function afterLangInit() {
       console.log("compass error: " + error.code);
     };
 
-    if (isApp) {
+    if (isApplication) {
       $("#input-file").remove();
       $(".choose-photo").remove();
 
@@ -264,7 +266,7 @@ function afterLangInit() {
   });
 
   $("#navbar-my").click(function() {
-    $("#main-about, #add-menu, #allmap-stat, #legend").hide();
+    $("#main-about, #add-menu, #allmap-stat, #legend, #guidelines").hide();
     $("#map, #legend-button").show();
 
     if (markersAll) {
@@ -287,7 +289,7 @@ function afterLangInit() {
     // read data from the local database
     localDB.allDocs({include_docs: true}, function(err, doc) {
       if (err) {
-        navigator.notification.alert(i18n.t("messages.privateMode"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
+        navigator.notification.alert(i18n.t("messages.errorPrivateMode"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
         return;
       }
       else {
@@ -314,9 +316,9 @@ function afterLangInit() {
         if (count == 0)
           $("#mymap-stat").html(i18n.t("stat.noContrMy") +"<br><br>");
         else if (count == 1)
-          $("#mymap-stat").html(i18n.t("stat.totalMy") + count + i18n.t("stat.contrMySingle") + "<br><br>");
+          $("#mymap-stat").html(i18n.t("stat.totalMy") + " " + count + " " + i18n.t("stat.contrMySingle") + "<br><br>");
         else
-          $("#mymap-stat").html(i18n.t("stat.totalMy") + count + i18n.t("stat.contrMyPlural") + "<br><br>");
+          $("#mymap-stat").html(i18n.t("stat.totalMy") + " " + count + " " + i18n.t("stat.contrMyPlural") + "<br><br>");
 
         $("#mymap-stat").show();
       }
@@ -324,7 +326,7 @@ function afterLangInit() {
   });
 
   $("#navbar-all").click(function() {
-    $("#main-about, #add-menu, #mymap-stat, #legend").hide();
+    $("#main-about, #add-menu, #mymap-stat, #legend, #guidelines").hide();
     $("#map, #legend-button").show();
 
     if (markersAll) {
@@ -389,9 +391,9 @@ function afterLangInit() {
           if (count == 0)
             $("#allmap-stat").html(i18n.t("stat.noContrAll") +"<br/><br/>");
           else if (count == 1)
-            $("#allmap-stat").html(i18n.t("stat.totalAllSingle") + count + i18n.t("stat.contrAllSingle") + "<br><br>");
+            $("#allmap-stat").html(i18n.t("stat.totalAllSingle") + " " + count + " " + i18n.t("stat.contrAllSingle") + "<br><br>");
           else
-            $("#allmap-stat").html(i18n.t("stat.totalAllPlural") + count + i18n.t("stat.contrAllPlural") + "<br><br>");
+            $("#allmap-stat").html(i18n.t("stat.totalAllPlural") + " " + count + " " + i18n.t("stat.contrAllPlural") + "<br><br>");
 
           $("#allmap-stat").show();
         }
@@ -451,7 +453,7 @@ function afterLangInit() {
       else
         $("#photo-north .take-photo").addClass("ui-disabled");
     };
-    if (isApp) {
+    if (isApplication) {
       watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
       window.addEventListener('deviceorientation', handleOrientation);
     }
@@ -461,7 +463,7 @@ function afterLangInit() {
     $("#photo-north").hide();
     $("#comment").show();
 
-    if (isApp) {
+    if (isApplication) {
       navigator.compass.clearWatch(watchCompassID);
       window.removeEventListener('deviceorientation', handleOrientation);
     }
@@ -477,7 +479,7 @@ function afterLangInit() {
       else
         $("#photo-east .take-photo").addClass("ui-disabled");
     };
-    if (isApp)
+    if (isApplication)
       watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
   });
 
@@ -491,7 +493,7 @@ function afterLangInit() {
       else
         $("#photo-north .take-photo").addClass("ui-disabled");
     };
-    if (isApp)
+    if (isApplication)
       watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
   });
 
@@ -505,7 +507,7 @@ function afterLangInit() {
       else
         $("#photo-south .take-photo").addClass("ui-disabled");
     };
-    if (isApp)
+    if (isApplication)
       watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
   });
 
@@ -519,7 +521,7 @@ function afterLangInit() {
       else
         $("#photo-east .take-photo").addClass("ui-disabled");
     };
-    if (isApp)
+    if (isApplication)
       watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
   });
 
@@ -533,7 +535,7 @@ function afterLangInit() {
       else
         $("#photo-west .take-photo").addClass("ui-disabled");
     };
-    if (isApp)
+    if (isApplication)
       watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
   });
 
@@ -547,7 +549,7 @@ function afterLangInit() {
       else
         $("#photo-south .take-photo").addClass("ui-disabled");
     };
-    if (isApp)
+    if (isApplication)
       watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
   });
 
@@ -605,10 +607,10 @@ function afterLangInit() {
           navigator.notification.alert(i18n.t("messages.contributionSuccess"), contributionSuccess, "GlobeLand30 Validation", i18n.t("messages.ok"));
       }
       else
-        navigator.notification.alert(i18n.t("messages.storageError"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
+        navigator.notification.alert(i18n.t("messages.errorStorage"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
     });
 
-    if (isApp) {
+    if (isApplication) {
       navigator.compass.clearWatch(watchCompassID);
       window.removeEventListener('deviceorientation', handleOrientation);
     }
@@ -863,32 +865,45 @@ function vizPOIs (map, ids, timestamps, locations, classes, certainties, comment
   return markerClusters;
 }
 
-function adjustLegendHeight() {
-  var mapH = $("#map").height();
+$("#terms-and-conditions-button").click(function() {
+  $("#terms-and-conditions-list").slideToggle({"duration": 200});
+});
 
-  if ((legendHeight+64) > mapH)
-    $("#legend").css("height", (mapH-70) + "px");
+function adjustLegendHeight() {
+  if (358 > $("#map").height())
+    $("#legend").css("height", ($("#map").height()-70) + "px");
   else
-    $("#legend").css("height", legendHeight);
+    $("#legend").css("height", "288px");
 }
 
 $("#legend-button").on("vclick", function() {
   $("#legend").toggle();
-  legendHeight = $("div#legend")[0].scrollHeight;
-
   adjustLegendHeight();
 });
 
-$("#terms-and-conditions-link").click(function() {
-  $("#terms-and-conditions-text").slideToggle({"duration": 200});
+function adjustGuidelinesList() {
+  if (380 > $("#map").height())
+    $("#guidelines-list").css("height", ($("#map").height()-140) + "px");
+  else
+    $("#guidelines-list").css("height", "auto");
+
+  if (410 > $("#map").width())
+    $("#guidelines-list").css("width", ($("#map").width()-90) + "px");
+  else
+    $("#guidelines-list").css("width", "320px");
+}
+
+$("#guidelines-button").on("vclick", function() {
+  $("#guidelines-list").toggle();
+  adjustGuidelinesList();
 });
 
 function onResize() {
-  // resize map to cover whole screen
   var mapEl = $("#map");
   mapEl.height($(document).height() - mapEl.offset().top);
 
   adjustLegendHeight();
+  adjustGuidelinesList();
 }
 
 function initialize() {
