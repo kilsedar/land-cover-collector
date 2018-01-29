@@ -133,15 +133,6 @@ select, option {
   margin: 12px;
 }
 
-.polimi-logo {
-  padding-right: 10px;
-  height: 60px;
-}
-
-.glc30-logo {
-  height: 30px;
-}
-
 #legend-button {
   position: absolute;
   top: 10px;
@@ -300,9 +291,9 @@ select, option {
 
 .logo {
   max-width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 8px;
   vertical-align: middle;
+  height: 60px;
 }
 
 .legend-images {
@@ -435,10 +426,7 @@ img.valign {
 }
 
 @media only screen and (min-width: 480px) {
-  .polimi-logo {
-    height: 100px;
-  }
-  .glc30-logo {
-    height: 45px;
+  .logo {
+    height: 90px;
   }
 }
