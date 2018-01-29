@@ -1,8 +1,8 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "GlobeLand30 Validation",
-  "short_name": "GlobeLand30 Validation",
+  "name": "Land Cover Collector",
+  "short_name": "Land Cover Collector",
   "version": "polimi.geolab.glc30",
   "description": "An Apache Cordova application that enables to collect data on land cover classification using the 10 classes of GLobeLand30.",
   "author": "Candan Eylül Kilsedar",

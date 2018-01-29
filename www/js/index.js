@@ -32,7 +32,7 @@ function afterLangInit() {
 
   $("#bing").click(function() {
     if (networkState == Connection.NONE || navigator.onLine == false)
-      navigator.notification.alert(i18n.t("messages.bingNoInternet"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
+      navigator.notification.alert(i18n.t("messages.bingNoInternet"), null, "Land Cover Collector", i18n.t("messages.ok"));
     else {
       map.removeLayer(osm);
       map.addLayer(bing);
@@ -41,7 +41,7 @@ function afterLangInit() {
 
   $("#osm").click(function() {
     if (networkState == Connection.NONE || navigator.onLine == false)
-      navigator.notification.alert(i18n.t("messages.osmNoInternet"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
+      navigator.notification.alert(i18n.t("messages.osmNoInternet"), null, "Land Cover Collector", i18n.t("messages.ok"));
     else {
       if (map.hasLayer(bing))
         map.removeLayer(bing);
@@ -112,12 +112,12 @@ function afterLangInit() {
     var workstatus = $("#workstatus").val();
 
     if (networkState == Connection.NONE || navigator.onLine == false) {
-      navigator.notification.alert(i18n.t("messages.registrationNoInternet"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
+      navigator.notification.alert(i18n.t("messages.registrationNoInternet"), null, "Land Cover Collector", i18n.t("messages.ok"));
       return;
     }
 
     if (gender == null || age == null || workstatus == null) {
-      navigator.notification.alert(i18n.t("messages.registrationFormEmpty"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
+      navigator.notification.alert(i18n.t("messages.registrationFormEmpty"), null, "Land Cover Collector", i18n.t("messages.ok"));
       return;
     }
 
@@ -135,9 +135,9 @@ function afterLangInit() {
       };
       remoteUsersDB.put(user, function callback(err, result) {
         if (!err)
-          navigator.notification.alert(i18n.t("messages.registrationSuccess"), registrationSuccess, "GlobeLand30 Validation", i18n.t("messages.ok"));
+          navigator.notification.alert(i18n.t("messages.registrationSuccess"), registrationSuccess, "Land Cover Collector", i18n.t("messages.ok"));
         else
-          navigator.notification.alert(i18n.t("messages.error") + " " + err, null, "GlobeLand30 Validation", i18n.t("messages.ok"));
+          navigator.notification.alert(i18n.t("messages.error") + " " + err, null, "Land Cover Collector", i18n.t("messages.ok"));
       });
     }).catch(function(err) {
       // if not exists, add the user
@@ -150,9 +150,9 @@ function afterLangInit() {
       };
       remoteUsersDB.put(user, function callback(err, result) {
         if (!err)
-          navigator.notification.alert(i18n.t("messages.registrationSuccess"), registrationSuccess, "GlobeLand30 Validation", i18n.t("messages.ok"));
+          navigator.notification.alert(i18n.t("messages.registrationSuccess"), registrationSuccess, "Land Cover Collector", i18n.t("messages.ok"));
         else
-          navigator.notification.alert(i18n.t("messages.error") + " " + err, null, "GlobeLand30 Validation", i18n.t("messages.ok"));
+          navigator.notification.alert(i18n.t("messages.error") + " " + err, null, "Land Cover Collector", i18n.t("messages.ok"));
       });
     });
   });
@@ -289,7 +289,7 @@ function afterLangInit() {
     // read data from the local database
     localDB.allDocs({include_docs: true}, function(err, doc) {
       if (err) {
-        navigator.notification.alert(i18n.t("messages.errorPrivateMode"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
+        navigator.notification.alert(i18n.t("messages.errorPrivateMode"), null, "Land Cover Collector", i18n.t("messages.ok"));
         return;
       }
       else {
@@ -347,14 +347,14 @@ function afterLangInit() {
     marker.setLatLng (curLatLng);
 
     if (networkState == Connection.NONE || navigator.onLine == false) {
-      navigator.notification.alert(i18n.t("messages.allNoInternet"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
+      navigator.notification.alert(i18n.t("messages.allNoInternet"), null, "Land Cover Collector", i18n.t("messages.ok"));
       return;
     }
     else {
       // read data from the server database
       remotePointsDB.allDocs({include_docs: true}, function(err, doc) {
         if (err) {
-          navigator.notification.alert(i18n.t("messages.error"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
+          navigator.notification.alert(i18n.t("messages.error"), null, "Land Cover Collector", i18n.t("messages.ok"));
           return;
         }
         else {
@@ -602,12 +602,12 @@ function afterLangInit() {
     localDB.put(poi, function callback(err, result) {
       if (!err) {
         if (networkState == Connection.NONE || navigator.onLine == false)
-          navigator.notification.alert(i18n.t("messages.contributionSuccessNoInternet"), contributionSuccess, "GlobeLand30 Validation", i18n.t("messages.ok"));
+          navigator.notification.alert(i18n.t("messages.contributionSuccessNoInternet"), contributionSuccess, "Land Cover Collector", i18n.t("messages.ok"));
         else
-          navigator.notification.alert(i18n.t("messages.contributionSuccess"), contributionSuccess, "GlobeLand30 Validation", i18n.t("messages.ok"));
+          navigator.notification.alert(i18n.t("messages.contributionSuccess"), contributionSuccess, "Land Cover Collector", i18n.t("messages.ok"));
       }
       else
-        navigator.notification.alert(i18n.t("messages.errorStorage"), null, "GlobeLand30 Validation", i18n.t("messages.ok"));
+        navigator.notification.alert(i18n.t("messages.errorStorage"), null, "Land Cover Collector", i18n.t("messages.ok"));
     });
 
     if (isApplication) {

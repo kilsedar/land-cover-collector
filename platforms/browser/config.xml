@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="polimi.geolab.glc30" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>GlobeLand30 Validation</name>
+    <name>Land Cover Collector</name>
     <description>
         An Apache Cordova application that enables to collect data on land cover classification using the 10 classes of GLobeLand30.
     </description>

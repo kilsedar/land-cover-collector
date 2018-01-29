@@ -1,6 +1,6 @@
 {
   "name": "glc30",
-  "displayName": "GlobeLand30 Validation",
+  "displayName": "Land Cover Collector",
   "version": "1.0.0",
   "description": "An Apache Cordova application that enables to collect data on land cover classification using the 10 classes of GLobeLand30.",
   "main": "index.js",
