@@ -10,11 +10,7 @@ body {
   padding: 0;
 
   font-size: 14px;
-  line-height: 1;
-
-  -webkit-touch-callout: none;
-  -webkit-text-size-adjust: none;
-  -webkit-user-select: none;
+  line-height: 1.2;
 }
 
 a {
@@ -78,6 +74,7 @@ select, option {
 .leaflet-popup-content {
   width: 200px;
   height: auto;
+  line-height: 1.2;
 }
 
 .leaflet-div-icon {
@@ -119,7 +116,7 @@ select, option {
   overflow-y: scroll;
 }
 
-#start-about, #main-about {
+#start-information, #main-information {
   display: none;
   margin: 14px;
   text-align: justify;
@@ -237,6 +234,7 @@ select, option {
 #terms-and-conditions-button {
   color: #3388cc;
   font-weight: 900;
+  cursor: pointer;
 }
 
 #terms-and-conditions-button:hover {

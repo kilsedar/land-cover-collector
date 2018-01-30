@@ -82,13 +82,13 @@ function afterLangInit() {
   L.DomEvent.disableScrollPropagation(L.DomUtil.get("guidelines"));
 
   $("#navbar-registration").click(function() {
-    $("#start-about").hide();
+    $("#start-information").hide();
     $("#registration").show();
   });
 
-  $("#navbar-start-about").click(function() {
+  $("#navbar-start-information").click(function() {
     $("#registration").hide();
-    $("#start-about").show();
+    $("#start-information").show();
   });
 
   $("#register").click(function() {
@@ -179,7 +179,7 @@ function afterLangInit() {
 
   $("#navbar-add").click(function() {
     $("#map, #add-menu, #guidelines").show();
-    $("#main-about, #mymap-stat, #allmap-stat, #legend-button, #legend").hide();
+    $("#main-information, #mymap-stat, #allmap-stat, #legend-button, #legend").hide();
     $("body").css("overflow-y", "hidden");
 
     if (markersAll) {
@@ -200,7 +200,7 @@ function afterLangInit() {
     $("#add-menu").hide();
     $("#classes-menu").show();
     $("#class-next, #certainty-next, #photo-north-next, #photo-east-next, #photo-south-next, #photo-west-next, #photo-north .take-photo, #photo-east .take-photo, #photo-south .take-photo, #photo-west .take-photo").addClass("ui-disabled");
-    $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-about").addClass("ui-disabled");
+    $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-information").addClass("ui-disabled");
 
     // set all forms to initial values
     $("#radio-choice-1, #radio-choice-2, #radio-choice-3, #radio-choice-4, #radio-choice-5, #radio-choice-6, #radio-choice-7, #radio-choice-8, #radio-choice-9, #radio-choice-10").prop("checked",false).checkboxradio("refresh");
@@ -269,7 +269,7 @@ function afterLangInit() {
   });
 
   $("#navbar-my").click(function() {
-    $("#main-about, #add-menu, #allmap-stat, #legend, #guidelines").hide();
+    $("#main-information, #add-menu, #allmap-stat, #legend, #guidelines").hide();
     $("#map, #legend-button").show();
     $("body").css("overflow-y", "hidden");
 
@@ -330,7 +330,7 @@ function afterLangInit() {
   });
 
   $("#navbar-all").click(function() {
-    $("#main-about, #add-menu, #mymap-stat, #legend, #guidelines").hide();
+    $("#main-information, #add-menu, #mymap-stat, #legend, #guidelines").hide();
     $("#map, #legend-button").show();
     $("body").css("overflow-y", "hidden");
 
@@ -406,16 +406,16 @@ function afterLangInit() {
     }
   });
 
-  $("#navbar-main-about").click(function() {
+  $("#navbar-main-information").click(function() {
     $("#add-menu, #mymap-stat, #allmap-stat, #map").hide();
-    $("#main-about").show();
+    $("#main-information").show();
     $("body").css("overflow-y", "visible");
   });
 
   $("#class-cancel").click(function() {
     $("#add-menu").show();
     $("#classes-menu").hide();
-    $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-about").removeClass("ui-disabled");
+    $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-information").removeClass("ui-disabled");
     marker.setIcon(setMarkerClassIcon());
     marker.dragging.disable();
   });
@@ -561,7 +561,7 @@ function afterLangInit() {
 
   $("#photo-west-next").click(function() {
     $("#photo-west").hide();
-    $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-about").removeClass("ui-disabled");
+    $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-information").removeClass("ui-disabled");
 
     var timestamp = new Date().toISOString();
     var poi = {
