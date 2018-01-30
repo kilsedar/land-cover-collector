@@ -1,0 +1,135 @@
+{
+  "polimiLink": "<a href='http://www.polimi.it/' target='_blank'><img class='logo polimi-logo' src='img/polimi.png'></a>",
+  "registration":
+  {
+    "introduction": "Benvenuto! Ti chiediamo di inserire le seguenti informazioni:",
+    "genderLabel": "Genere",
+    "genderMale": "Uomo",
+    "genderFemale": "Donna",
+    "genderUnknown": "Non specificato",
+    "age": "Età",
+    "workLabel": "Condizione lavorativa",
+    "workEmployed": "Occupato",
+    "workStudent": "Studente",
+    "workUnemployed": "Disoccupato",
+    "workRetired": "Pensionato",
+    "workOther": "Altro",
+    "button": "Registrati",
+    "termsAndConditions": {
+      "noticeText": "Registrandoti accetti",
+      "noticeLink": "i termini e le condizioni",
+      "noticeFullStop": ".",
+      "listFirst": "Devi avere almeno 18 anni per utilizzare l'applicazione.",
+      "listSecond": "Le informazioni sulla copertura del terreno che fornite, comprese le foto, saranno utilizzate a fini scientifici e potrebbero essere rese disponibili al pubblico.",
+      "listThird": "Non è consentita alcuna forma di manipolazione dei dati.",
+      "listFourth": "Politecnico di Milano - GEOlab non potrà essere ritenuta responsabile per qualsiasi danno, lesione, perdita o spesa di alcun tipo."
+    }
+  },
+  "navbar":
+  {
+    "add": "Aggiungi",
+    "my": "La mia mappa",
+    "all": "Mappa degli utenti",
+    "information": "Informazioni",
+    "registration": "Registrati"
+  },
+  "classes":
+  {
+    "artificialSurface": "Superficie artificiale",
+    "bareLand": "Terreno non valorizzato",
+    "cultivatedLand": "Superficie agricola utilizzata",
+    "forest": "Foresta",
+    "grassland": "Prateria",
+    "permanentSnowAndIce": "Neve permanente e ghiaccio",
+    "shrubland": "Arbusti",
+    "tundra": "Tundra",
+    "waterBody": "Bacino idrico",
+    "wetland": "Zona umida"
+  },
+  "bing": "Bing Aereo",
+  "guidelines": {
+    "link": "Linee guida",
+    "listFirst": "Mentre scatti le foto segui le istruzioni di seguito.",
+    "listFirstFirst": "Ruota il telefono per trovare la direzione corretta mostrata, in ordine nord, est, sud e ovest. Una volta trovata la direzione giusta e la fotocamera è aperta, non spostare il telefono.",
+    "listFirstSecond": "Prova a tenere il tuo dispositivo verticale a terra.",
+    "listFirstThird": "Non scattare foto che violerebbero la privacy, come facce di persone e animali o targhe.",
+    "listFirstFourth": "Non ingrandire.",
+    "listFirstFifth": "Tieni il tuo dispositivo in modalità orizzontale.",
+    "listSecond": "Non entrare in luoghi governativi/privati ​​e non accessibili al pubblico, come uffici, riserve naturali, terreni militari, ecc.",
+    "listThird": "Non entrare nei campi con colture in crescita.",
+    "listFourth": "Sii consapevole dei pericoli che ti circondano e non entrare in aree potenzialmente pericolose."
+  },
+  "menu":
+  {
+    "selectClassification": "Seleziona la classificazione del punto.",
+    "comment": "Commenti?",
+    "takePhotoNorth": "Scatta una foto del nord.",
+    "takePhotoEast": "Scatta una foto dell'est.",
+    "takePhotoSouth": "Scatta una foto del sud.",
+    "takePhotoWest": "Scatta una foto dell'ovest.",
+    "choosePhotoNorth": "Scegli una foto del nord.",
+    "choosePhotoEast": "Scegli una foto dell'est.",
+    "choosePhotoSouth": "Scegli una foto del sud.",
+    "choosePhotoWest": "Scegli una foto dell'ovest.",
+    "certainty":
+    {
+      "question": "Quanto sei sicuro?",
+      "one": "non sicuro",
+      "five": "assolutamente sicuro"
+    },
+    "buttons":
+    {
+      "contribute": "Inserisci il tuo punto di interesse!",
+      "cancel": "Annulla",
+      "next": "Avanti",
+      "back": "Indietro",
+      "submit": "Invia"
+    }
+  },
+  "popup":
+  {
+    "class": "Classe",
+    "certainty": "Sicurezza",
+    "comment": "Commento",
+    "date": "Data",
+    "northPhoto": "Foto del nord",
+    "eastPhoto": "Foto di est",
+    "southPhoto": "Foto del sud",
+    "westPhoto": "Foto di ovest"
+  },
+  "messages":
+  {
+    "registrationFormEmpty": "Completa i tuoi dati!",
+    "registrationSuccess": "Grazie! Ora puoi iniziare a contribuire all’applicazione!",
+    "markerPopup": "Non è la tua posizione corrente? Trascina l’icona per correggerla!",
+    "contributionSuccess": "Grazie per il tuo contributo!",
+    "allNoInternet": "L’opzione mappe ‘Mappa degli utenti’ non può essere mostrata perché la connessione Internet è assente!",
+    "ok": "OK",
+    "registrationNoInternet": "La registrazione è fallita perché la connessione Internet è assente!",
+    "gpsError":"Errore GPS! Ti preghiamo di spostare l’indicatore della posizione sull’area in cui ti trovi ora.",
+    "gpsErrorAndroid":"Errore GPS! Attiva il servizio di geolocalizzazione o spostare l’indicatore della posizione sull’area in cui ti trovi ora.",
+    "contributionSuccessNoInternet":"Grazie per il tuo contributo. Nota: in questo momento non sei connesso ad Internet, ti preghiamo di chiudere e riaprire l’applicazione non appena sarai connesso per condividere automaticamente i tuoi contributi.",
+    "photoUnavailable": "È possibile scattare una foto solo dalle applicazione Android e iOS e non da browser.",
+    "bingNoInternet": "Bing Aerial non può essere mostrata perché la connessione Internet è assente!",
+    "osmNoInternet": "OpenStreetMap non può essere mostrata perché la connessione Internet è assente!",
+    "error": "Errore!",
+    "errorStorage": "Questo browser non supporta la memoria locale.",
+    "errorPrivateMode": "Errore! Sei in modalità privata?"
+  },
+  "stat":
+  {
+    "totalMy": "In totale, hai",
+    "contrMySingle": "contributo.",
+    "contrMyPlural": "contributi.",
+    "totalAllSingle": "In totale, c'è",
+    "contrAllSingle": "contributo entro 5 km dalla tua posizione.",
+    "totalAllPlural": "In totale, ci sono",
+    "contrAllPlural": "contributi entro 5 km dalla tua posizione.",
+    "noContrMy": "Non hai ancora fornito alcun contributo!",
+    "noContrAll": "Nessuno ha fornito contributi in un raggio di 5 km dalla tua posizione."
+  },
+  "information":
+  {
+    "acknowledgements": "L'applicazione di GlobeLand30 Validation è stata sviluppata presso il <a href='http://geolab.como.polimi.it/' target='_blank'>GEOlab</a> del <a href='http://www.dica.polimi.it' target='_blank'>Dipartimento di Ingegneria Civile e Ambientale</a> del <a href='https://www.polimi.it/home/' target='_blank'>Politecnico di Milano</a>. Lo scopo dell'applicazione è raccogliere dati sulla classificazione della copertura del suolo utilizzando le 10 classi di <a href='http://www.globallandcover.com/GLC30Download/index.aspx' target='_blank'>GlobeLand30</a>. È disponibile in Inglese, Italiano, Arabo, Cinese, Spagnolo e Francese. È pubblicato come applicazioni Android e iOS e disponibile su <a href='http://131.175.143.84/land-cover-collector/' target='_blank'>web</a>.<br>È un progetto open source, disponibile su <a href='https://github.com/kilsedar/land-cover-collector' target='_blank'>GitHub</a>. Il progetto è protetto dalla <a href='https://github.com/kilsedar/land-cover-collector/blob/master/LICENSE' target='_blank'>licenza GLC-3.0</a>. L'applicazione riconosce i contributi del progetto <a href='https://github.com/cartogroup/emomap' target='_blank'>EmoMap</a>, sviluppato dal <a href='http://cartography.tuwien.ac.at/' target='_blank'>Research Group Cartography</a> del <a href='http://geo.tuwien.ac.at/' target='_blank'>Dipartimento di Geodesia e Geoinformazione</a> presso <a href='https://www.tuwien.ac.at/en/' target='_blank'>l'Università TU Wien</a>.<br>Questo lavoro è supportato da <a href='http://www.urbangeobigdata.it/' target='_blank'>URBAN GEOmatics for Bulk Information Generation, Data Assessment and Technology Awareness (URBAN GEO BIG DATA)</a>, un <a href='http://prin.miur.it/' target='_blank'>Progetto di Rilevante Interesse Nazionale (PRIN)</a> finanziato dal <a href='http://www.miur.gov.it/web/guest/home' target='_blank'>Ministero dell'Istruzione dell'Università e della Ricerca (MIUR)</a> - id. 20159CNLW8."
+  }
+}

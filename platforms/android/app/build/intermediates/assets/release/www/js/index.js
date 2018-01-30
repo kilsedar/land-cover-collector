@@ -27,7 +27,7 @@ function afterLangInit() {
 
   osm = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors",
-    errorTileUrl: "como_tiles/errorTile.png"
+    errorTileUrl: "img/errorTile.png"
   });
 
   $("#bing").click(function() {
