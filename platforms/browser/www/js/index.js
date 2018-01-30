@@ -95,6 +95,7 @@ function afterLangInit() {
     function registrationSuccess() {
       $("#start-page").hide();
       $("#main-page").show();
+      $("body").css("overflow-y", "hidden");
       onResize();
 
       map = L.map("map", {
@@ -161,6 +162,7 @@ function afterLangInit() {
   if (window.localStorage.getItem("isLaunch")) {
     $("#start-page").hide();
     $("#main-page").show();
+    $("body").css("overflow-y", "hidden");
     onResize();
 
     map = L.map("map", {
@@ -178,6 +180,7 @@ function afterLangInit() {
   $("#navbar-add").click(function() {
     $("#map, #add-menu, #guidelines").show();
     $("#main-about, #mymap-stat, #allmap-stat, #legend-button, #legend").hide();
+    $("body").css("overflow-y", "hidden");
 
     if (markersAll) {
       for (var i=0; i<markersAll.length; i++) {
@@ -268,6 +271,7 @@ function afterLangInit() {
   $("#navbar-my").click(function() {
     $("#main-about, #add-menu, #allmap-stat, #legend, #guidelines").hide();
     $("#map, #legend-button").show();
+    $("body").css("overflow-y", "hidden");
 
     if (markersAll) {
       for (var i=0; i<markersAll.length; i++) {
@@ -328,6 +332,7 @@ function afterLangInit() {
   $("#navbar-all").click(function() {
     $("#main-about, #add-menu, #mymap-stat, #legend, #guidelines").hide();
     $("#map, #legend-button").show();
+    $("body").css("overflow-y", "hidden");
 
     if (markersAll) {
       for (var i=0; i<markersAll.length; i++) {
@@ -404,6 +409,7 @@ function afterLangInit() {
   $("#navbar-main-about").click(function() {
     $("#add-menu, #mymap-stat, #allmap-stat, #map").hide();
     $("#main-about").show();
+    $("body").css("overflow-y", "visible");
   });
 
   $("#class-cancel").click(function() {

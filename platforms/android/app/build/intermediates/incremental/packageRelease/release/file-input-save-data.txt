@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Jan 30 11:09:54 CET 2018
+#Tue Jan 30 14:25:05 CET 2018
 210.set=ASSET
 282.file=/var/www/html/land-cover-collector/platforms/android/app/build/intermediates/assets/release/www/css/lib/images/icons-svg/check-white.svg
 14.set=ASSET

@@ -3,7 +3,7 @@
   font-family: 'Nunito', sans-serif !important;
 }
 
-html, body {
+body {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -41,7 +41,7 @@ select, option {
 }
 
 .ui-tabs {
-  padding: 0.1em 0.2em 0.0em 0.2em;
+  padding: 0.0em 0.2em 0.0em 0.2em;
 }
 
 .ui-checkbox input, .ui-radio input {
@@ -65,6 +65,10 @@ select, option {
   font-size: 14px;
 }
 
+.ui-mobile .ui-page {
+  min-height: 0px;
+}
+
 .leaflet-control-attribution {
   line-height: 0.9;
   padding: 1px;
@@ -85,19 +89,11 @@ select, option {
   font-size: 14px;
 }
 
-#page {
-  height: 100%;
-}
-
 #start-page, #main-page {
   display: none;
   padding: 0px;
   margin: 0px;
   width: 100%;
-}
-
-#main-page {
-  height: 100%;
 }
 
 #map {
