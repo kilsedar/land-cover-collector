@@ -2,7 +2,7 @@
   "_args": [
     [
       "cordova-plugin-device-orientation@1.0.7",
-      "/var/www/html/glc30"
+      "/var/www/html/land-cover-collector"
     ]
   ],
   "_from": "cordova-plugin-device-orientation@1.0.7",
@@ -36,7 +36,7 @@
   "_shasum": "ac8c798be8edb0e55b61fec68eda9093e486bf0b",
   "_shrinkwrap": null,
   "_spec": "cordova-plugin-device-orientation@1.0.7",
-  "_where": "/var/www/html/glc30",
+  "_where": "/var/www/html/land-cover-collector",
   "author": {
     "name": "Apache Software Foundation"
   },

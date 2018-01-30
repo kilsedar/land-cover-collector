@@ -8,28 +8,28 @@
   },
   "installed_plugins": {
     "cordova-plugin-camera": {
-      "PACKAGE_NAME": "polimi.geolab.glc30"
+      "PACKAGE_NAME": "polimi.geolab.lcc"
     },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "polimi.geolab.glc30"
-    },
-    "cordova-plugin-dialogs": {
-      "PACKAGE_NAME": "polimi.geolab.glc30"
-    },
-    "cordova-plugin-geolocation": {
-      "PACKAGE_NAME": "polimi.geolab.glc30"
-    },
-    "cordova-plugin-globalization": {
-      "PACKAGE_NAME": "polimi.geolab.glc30"
-    },
-    "cordova-plugin-network-information": {
-      "PACKAGE_NAME": "polimi.geolab.glc30"
-    },
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "polimi.geolab.glc30"
+      "PACKAGE_NAME": "polimi.geolab.lcc"
     },
     "cordova-plugin-device-orientation": {
-      "PACKAGE_NAME": "polimi.geolab.glc30"
+      "PACKAGE_NAME": "polimi.geolab.lcc"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "polimi.geolab.lcc"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "polimi.geolab.lcc"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "polimi.geolab.lcc"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "polimi.geolab.lcc"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "polimi.geolab.lcc"
     }
   },
   "dependent_plugins": {}

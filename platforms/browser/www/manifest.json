@@ -3,7 +3,7 @@
   "display": "standalone",
   "name": "Land Cover Collector",
   "short_name": "Land Cover Collector",
-  "version": "polimi.geolab.glc30",
+  "version": "polimi.geolab.lcc",
   "description": "An Apache Cordova application that enables to collect data on land cover classification using the 10 classes of GLobeLand30.",
   "author": "Candan Eylül Kilsedar",
   "icons": [

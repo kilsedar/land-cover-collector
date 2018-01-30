@@ -2,7 +2,7 @@
   "_args": [
     [
       "cordova-plugin-camera@3.0.0",
-      "/var/www/html/glc30"
+      "/var/www/html/land-cover-collector"
     ]
   ],
   "_from": "cordova-plugin-camera@3.0.0",
@@ -36,7 +36,7 @@
   "_shasum": "9212ff0e2a211ee840d8a83f051d37d0dec0bd1f",
   "_shrinkwrap": null,
   "_spec": "cordova-plugin-camera@3.0.0",
-  "_where": "/var/www/html/glc30",
+  "_where": "/var/www/html/land-cover-collector",
   "author": {
     "name": "Apache Software Foundation"
   },

@@ -2,7 +2,7 @@
   "_args": [
     [
       "cordova-plugin-geolocation@3.0.0",
-      "/var/www/html/glc30"
+      "/var/www/html/land-cover-collector"
     ]
   ],
   "_from": "cordova-plugin-geolocation@3.0.0",
@@ -36,7 +36,7 @@
   "_shasum": "e63e0d457c1a2fbab0dc029ddea65b8f04921410",
   "_shrinkwrap": null,
   "_spec": "cordova-plugin-geolocation@3.0.0",
-  "_where": "/var/www/html/glc30",
+  "_where": "/var/www/html/land-cover-collector",
   "author": {
     "name": "Apache Software Foundation"
   },

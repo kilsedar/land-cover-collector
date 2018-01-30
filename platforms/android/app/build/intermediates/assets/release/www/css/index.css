@@ -1,0 +1,432 @@
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-family: 'Nunito', sans-serif !important;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  font-size: 14px;
+  line-height: 1;
+
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;
+  -webkit-user-select: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input[type="radio"] {
+  margin: 2px;
+  vertical-align: middle;
+}
+
+select option[disabled]:first-child {
+  display: none;
+}
+
+select, option {
+  text-align: center;
+}
+
+.ui-focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.ui-tabs {
+  padding: 0.1em 0.2em 0.0em 0.2em;
+}
+
+.ui-checkbox input, .ui-radio input {
+  z-index: -2;
+}
+
+.ui-content {
+  overflow-y: hidden;
+}
+
+.ui-navbar li .ui-btn {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.ui-select .ui-btn {
+  font-size: 14px;
+}
+
+.ui-mobile label, div.ui-controlgroup-label {
+  font-size: 14px;
+}
+
+.leaflet-control-attribution {
+  line-height: 0.9;
+  padding: 1px;
+  z-index: 1000;
+}
+
+.leaflet-popup-content {
+  width: 200px;
+  height: auto;
+}
+
+.leaflet-div-icon {
+  background: transparent;
+  border: 0px;
+}
+
+.leaflet-container {
+  font-size: 14px;
+}
+
+#page {
+  height: 100%;
+}
+
+#start-page, #main-page {
+  display: none;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+}
+
+#main-page {
+  height: 100%;
+}
+
+#map {
+  width: 100%;
+  position: relative;
+}
+
+#blue-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 54px;
+}
+
+#class-blue-marker {
+  position: absolute;
+  top: 13%;
+  left: 20%;
+  width: 32px;
+}
+
+#classes-menu-list {
+  overflow-y: scroll;
+}
+
+#start-about, #main-about {
+  display: none;
+  padding: 5px;
+}
+
+#registration {
+  padding: 5px;
+  margin: 12px;
+}
+
+#legend-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 0px;
+  border: 3px solid rgba(51, 136, 204, 0.5);
+  line-height: 0.5;
+  z-index: 1010;
+  display: none;
+  cursor: pointer;
+}
+
+#legend {
+  position: absolute;
+  width: 210px;
+  color: #555;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: none;
+  padding: 3px;
+  top: 10px;
+  right: 10px;
+  text-shadow: none;
+  z-index: 1000;
+  overflow-y: auto;
+  overflow-x: hidden;
+  cursor: auto;
+}
+
+#legend-artificial-surface {
+  background-color: rgba(147, 47, 20, 0.6);
+}
+
+#legend-bare-land {
+  background-color: rgba(202, 202, 202, 0.6);
+}
+
+#legend-cultivated-land {
+  background-color: rgba(249, 243, 193, 0.6);
+}
+
+#legend-forest {
+  background-color: rgba(20, 119, 73, 0.6);
+}
+
+#legend-grassland {
+  background-color: rgba(169, 208, 95, 0.6);
+}
+
+#legend-permanent-snow-and-ice {
+  background-color: rgba(211, 237, 251, 0.6);
+}
+
+#legend-shrubland {
+  background-color: rgba(62, 179, 112, 0.6);
+}
+
+#legend-tundra {
+  background-color: rgba(100, 100, 50, 0.6);
+}
+
+#legend-water-body {
+  background-color: rgba(0, 68, 154, 0.6);
+}
+
+#legend-wetland {
+  background-color: rgba(126, 206, 244, 0.6);
+}
+
+#add-menu {
+  display: block;
+}
+
+#class-next, #photo-north-next, #photo-east-next, #photo-south-next, #photo-west-next, #certainty-next, #comment-next {
+  position: absolute;
+  right: 0%;
+}
+
+#input-file {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+#classes-menu-list > form > fieldset {
+  margin-top: 0px;
+}
+
+#terms-and-conditions p {
+  margin: 10px 0px 5px 0px;
+}
+
+#terms-and-conditions-list {
+  display: none;
+}
+
+#terms-and-conditions-list ul {
+  margin: 0px 0px 10px 0px;
+}
+
+#terms-and-conditions-button {
+  color: #3388cc;
+  font-weight: 900;
+}
+
+#terms-and-conditions-button:hover {
+  color: #005599;
+}
+
+#guidelines-button {
+  position: absolute;
+  color: rgb(255, 255, 255);
+  background-color: rgb(51, 136, 204);
+  font-weight: 900;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  z-index: 1000;
+  padding: 0px 3px;
+  text-shadow: none;
+  cursor: pointer;
+}
+
+#guidelines-button:hover {
+  background-color: rgb(0, 85, 153);
+}
+
+#guidelines-list {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.9);
+  top: 38px;
+  right: 10px;
+  z-index: 1000;
+  width: 320px;
+  color: #555;
+  padding: 10px 10px 6px 18px;
+  line-height: 1.2;
+  overflow: auto;
+  text-align: justify;
+  cursor: auto;
+  display: none;
+}
+
+#guidelines-list ul, #guidelines-list li {
+  padding-left: 5px;
+  margin: 0px;
+}
+
+.top-bar {
+  text-align: center;
+}
+
+.text-about {
+  margin: 12px;
+}
+
+.logo {
+  max-width: 100%;
+  padding: 10px 8px;
+  vertical-align: middle;
+  height: 60px;
+}
+
+.legend-images {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+.legend-label {
+  padding-left: 5px;
+}
+
+.legend-radio-label {
+  display: inline !important;
+}
+
+.legend-class-background {
+  width: 210px;
+}
+
+.classes-menu-image {
+  width: 30px;
+  height: 30px;
+}
+
+.classes-menu-label {
+  padding-left: 10px;
+}
+
+.bottompanel {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  padding: 10px;
+  margin: 0px;
+  width: auto;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  text-shadow: none;
+  display: none;
+  z-index: 900;
+}
+
+.bottompanel label, .bottompanel .label {
+  color: white;
+  font-weight: bold;
+}
+
+img.valign {
+  margin-bottom: 2px;
+}
+
+.valign {
+  vertical-align: middle;
+}
+
+.popup-photos img {
+  width: 150px;
+  padding: 0px 5px;
+  vertical-align: middle;
+}
+
+.popup-right-arrow, .popup-left-arrow {
+  width: 20px !important;
+  padding: 0px !important;
+}
+
+.popup-photos-north {
+  display: block;
+  text-align: right;
+}
+
+.popup-photos-east, .popup-photos-south, .popup-photos-west {
+  display: none;
+}
+
+.popup-text-north {
+  text-align: left;
+  display: block;
+}
+
+.ui-slider input[type=number] {
+  display: none;
+}
+.ui-slider .ui-slider-track {
+  margin: 0 15px;
+}
+#slider-ticks {
+  position: relative;
+  height: 8px;
+  margin: -8px 18px 2px;
+}
+#slider-ticks .tick {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border: 1px solid white;
+}
+#slider-ticks .tick-1 {
+  left: 0%;
+}
+#slider-ticks .tick-2 {
+  left: 25%;
+}
+#slider-ticks .tick-3 {
+  left: 50%;
+}
+#slider-ticks .tick-4 {
+  left: 75%;
+}
+#slider-ticks .tick-5 {
+  left: 100%;
+}
+.slider-labels {
+  position: relative;
+  height: 16px;
+  margin: 0 15px 5px;
+}
+.slider-labels .label {
+  position: absolute;
+  top: 0;
+}
+.slider-labels .label-1 {
+  left: 0%;
+}
+.slider-labels .label-5 {
+  text-align: right;
+  right: 0%;
+}
+
+@media only screen and (min-width: 480px) {
+  .logo {
+    height: 90px;
+  }
+}

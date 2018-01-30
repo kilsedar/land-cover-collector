@@ -2,7 +2,7 @@
   "_args": [
     [
       "cordova-plugin-whitelist@1",
-      "/var/www/html/glc30"
+      "/var/www/html/land-cover-collector"
     ]
   ],
   "_from": "cordova-plugin-whitelist@>=1.0.0 <2.0.0",
@@ -36,7 +36,7 @@
   "_shasum": "b5e85ecdbbfe5aeded40a1bf4ee2372e67d96fb4",
   "_shrinkwrap": null,
   "_spec": "cordova-plugin-whitelist@1",
-  "_where": "/var/www/html/glc30",
+  "_where": "/var/www/html/land-cover-collector",
   "author": {
     "name": "Apache Software Foundation"
   },

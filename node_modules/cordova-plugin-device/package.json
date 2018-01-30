@@ -2,7 +2,7 @@
   "_args": [
     [
       "cordova-plugin-device",
-      "/var/www/html/glc30"
+      "/var/www/html/land-cover-collector"
     ]
   ],
   "_from": "cordova-plugin-device@latest",
@@ -36,7 +36,7 @@
   "_shasum": "fc94111be6932628c66868938ddf3dc82c9fbfe6",
   "_shrinkwrap": null,
   "_spec": "cordova-plugin-device",
-  "_where": "/var/www/html/glc30",
+  "_where": "/var/www/html/land-cover-collector",
   "author": {
     "name": "Apache Software Foundation"
   },

@@ -2,7 +2,7 @@
   "_args": [
     [
       "cordova-plugin-globalization",
-      "/var/www/html/glc30"
+      "/var/www/html/land-cover-collector"
     ]
   ],
   "_from": "cordova-plugin-globalization@latest",
@@ -36,7 +36,7 @@
   "_shasum": "faec53b495362ade9d70ab9048959fde26821b43",
   "_shrinkwrap": null,
   "_spec": "cordova-plugin-globalization",
-  "_where": "/var/www/html/glc30",
+  "_where": "/var/www/html/land-cover-collector",
   "author": {
     "name": "Apache Software Foundation"
   },

@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/var/www/html/land-cover-collector/platforms/android/app/build/intermediates/res/merged/release/values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "/var/www/html/land-cover-collector/platforms/android/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "4,2,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "172,55,113",
+                        "endColumns": "63,57,58",
+                        "endOffsets": "231,108,167"
+                    },
+                    "to": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,119,177",
+                        "endColumns": "63,57,58",
+                        "endOffsets": "114,172,231"
+                    }
+                }
+            ]
+        }
+    ]
+}

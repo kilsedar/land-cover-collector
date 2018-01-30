@@ -781,7 +781,7 @@ popupPhotos.appendChild(popupPhotosWest);
 
 function addPopupPhotos(id) {
   window["photoNorth"+id] = document.createElement("img");
-  window["photoNorth"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-north.png";
+  window["photoNorth"+id].src = "http://131.175.143.84/couchdb/lcc_points/" + id + "/photo-north.png";
   popupPhotosNorth.innerHTML = "";
   popupTextNorth.innerHTML = "<b>" + i18n.t("popup.northPhoto") + ":</b><br>";
   popupPhotosNorth.appendChild(popupTextNorth.cloneNode(true));
@@ -789,7 +789,7 @@ function addPopupPhotos(id) {
   popupPhotosNorth.appendChild(popupRightArrow.cloneNode(true));
 
   window["photoEast"+id] = document.createElement("img");
-  window["photoEast"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-east.png";
+  window["photoEast"+id].src = "http://131.175.143.84/couchdb/lcc_points/" + id + "/photo-east.png";
   popupPhotosEast.innerHTML = "";
   popupTextEast.innerHTML = "<b>" + i18n.t("popup.eastPhoto") + ":</b><br>";
   popupPhotosEast.appendChild(popupTextEast.cloneNode(true));
@@ -798,7 +798,7 @@ function addPopupPhotos(id) {
   popupPhotosEast.appendChild(popupRightArrow.cloneNode(true));
 
   window["photoSouth"+id] = document.createElement("img");
-  window["photoSouth"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-south.png";
+  window["photoSouth"+id].src = "http://131.175.143.84/couchdb/lcc_points/" + id + "/photo-south.png";
   popupPhotosSouth.innerHTML = "";
   popupTextSouth.innerHTML = "<b>" + i18n.t("popup.southPhoto") + ":</b><br>";
   popupPhotosSouth.appendChild(popupTextSouth.cloneNode(true));
@@ -807,7 +807,7 @@ function addPopupPhotos(id) {
   popupPhotosSouth.appendChild(popupRightArrow.cloneNode(true));
 
   window["photoWest"+id] = document.createElement("img");
-  window["photoWest"+id].src = "http://131.175.143.84/couchdb/glc30_points/" + id + "/photo-west.png";
+  window["photoWest"+id].src = "http://131.175.143.84/couchdb/lcc_points/" + id + "/photo-west.png";
   popupPhotosWest.innerHTML = "";
   popupTextWest.innerHTML = "<b>" + i18n.t("popup.westPhoto") + ":</b><br>";
   popupPhotosWest.appendChild(popupTextWest.cloneNode(true));
