@@ -119,6 +119,47 @@ select, option {
 #start-information, #main-information {
   display: none;
   margin: 14px;
+}
+
+#start-information img, #main-information img {
+  max-height: 400px;
+  max-width: 100%;
+}
+
+#start-information ol li, #main-information ol li {
+  font-size: 14px;
+  color: #3388cc;
+  font-weight: 900;
+  cursor: pointer;
+  padding: 4px;
+}
+
+#start-information ol li:hover, #main-information ol li:hover {
+  color: #005599;
+}
+
+#start-information ol, #main-information ol {
+  padding-left: 1.8em;
+}
+
+#start-instructions-applications, #start-instructions-browsers, #start-acknowledgements, #main-instructions-applications, #main-instructions-browsers, #main-acknowledgements {
+  display: none;
+  margin: 10px 0px;
+}
+
+#start-instructions-applications, #start-instructions-browsers, #main-instructions-applications, #main-instructions-browsers {
+  text-align: center;
+}
+
+#start-instructions-applications .instruction, #start-instructions-browsers .instruction, #main-instructions-applications .instruction, #main-instructions-browsers .instruction {
+  background-color: #d6e7f5;
+  padding: 4px;
+  display: inline-block;
+  margin: 10px;
+}
+
+#start-acknowledgements, #main-acknowledgements {
+  margin-bottom: 30px;
   text-align: justify;
 }
 

@@ -1,6 +1,6 @@
 var map, bing, osm, markersMy, markersAll, marker;
 
-var networkState, watchCompassID, isApplication, xOrientation;
+var networkState, watchGeolocationID, watchCompassID, isApplication, xOrientation;
 
 // initial values
 var curLatLng = [0, 0], curLatLngAccuracy = 0;
@@ -229,7 +229,7 @@ function afterLangInit() {
 
     var popupOpened = false;
     if (navigator.geolocation) {
-      var watchGeolocationID = navigator.geolocation.watchPosition(
+      watchGeolocationID = navigator.geolocation.watchPosition(
         function(position) {
           curLatLng = [position.coords.latitude, position.coords.longitude];
           curLatLngAccuracy = position.coords.accuracy;
@@ -418,6 +418,7 @@ function afterLangInit() {
     $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-information").removeClass("ui-disabled");
     marker.setIcon(setMarkerClassIcon());
     marker.dragging.disable();
+    navigator.geolocation.clearWatch(watchGeolocationID);
   });
 
   $("#class-next").click(function() {
@@ -460,7 +461,7 @@ function afterLangInit() {
         $("#photo-north .take-photo").addClass("ui-disabled");
     };
     if (isApplication) {
-      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 2000});
       window.addEventListener('deviceorientation', handleOrientation);
     }
   });
@@ -486,7 +487,7 @@ function afterLangInit() {
         $("#photo-east .take-photo").addClass("ui-disabled");
     };
     if (isApplication)
-      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 2000});
   });
 
   $("#photo-east-back").click(function() {
@@ -500,7 +501,7 @@ function afterLangInit() {
         $("#photo-north .take-photo").addClass("ui-disabled");
     };
     if (isApplication)
-      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 2000});
   });
 
   $("#photo-east-next").click(function() {
@@ -514,7 +515,7 @@ function afterLangInit() {
         $("#photo-south .take-photo").addClass("ui-disabled");
     };
     if (isApplication)
-      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 2000});
   });
 
   $("#photo-south-back").click(function() {
@@ -528,7 +529,7 @@ function afterLangInit() {
         $("#photo-east .take-photo").addClass("ui-disabled");
     };
     if (isApplication)
-      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 2000});
   });
 
   $("#photo-south-next").click(function() {
@@ -542,7 +543,7 @@ function afterLangInit() {
         $("#photo-west .take-photo").addClass("ui-disabled");
     };
     if (isApplication)
-      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 2000});
   });
 
   $("#photo-west-back").click(function() {
@@ -556,7 +557,7 @@ function afterLangInit() {
         $("#photo-south .take-photo").addClass("ui-disabled");
     };
     if (isApplication)
-      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 1000});
+      watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError, {frequency: 2000});
   });
 
   $("#photo-west-next").click(function() {
@@ -870,6 +871,30 @@ function vizPOIs (map, ids, timestamps, locations, classes, certainties, comment
 
   return markerClusters;
 }
+
+$("#start-instructions-applications-button").click(function() {
+  $("#start-instructions-applications").slideToggle({"duration": 200});
+});
+
+$("#start-instructions-browsers-button").click(function() {
+  $("#start-instructions-browsers").slideToggle({"duration": 200});
+});
+
+$("#start-acknowledgements-button").click(function() {
+  $("#start-acknowledgements").slideToggle({"duration": 200});
+});
+
+$("#main-instructions-applications-button").click(function() {
+  $("#main-instructions-applications").slideToggle({"duration": 200});
+});
+
+$("#main-instructions-browsers-button").click(function() {
+  $("#main-instructions-browsers").slideToggle({"duration": 200});
+});
+
+$("#main-acknowledgements-button").click(function() {
+  $("#main-acknowledgements").slideToggle({"duration": 200});
+});
 
 $("#terms-and-conditions-button").click(function() {
   $("#terms-and-conditions-list").slideToggle({"duration": 200});
