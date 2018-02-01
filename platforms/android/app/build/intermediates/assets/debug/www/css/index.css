@@ -461,11 +461,19 @@ img.valign {
   top: 0;
 }
 .slider-labels .label-1 {
-  left: 0%;
+  left: -1%;
+}
+.slider-labels .label-2 {
+  left: 24%;
+}
+.slider-labels .label-3 {
+  left: 49%;
+}
+.slider-labels .label-4 {
+  left: 74%;
 }
 .slider-labels .label-5 {
-  text-align: right;
-  right: 0%;
+  right: -1%;
 }
 
 @media only screen and (min-width: 480px) {

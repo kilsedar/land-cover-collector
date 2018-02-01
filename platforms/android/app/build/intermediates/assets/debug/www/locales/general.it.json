@@ -71,12 +71,7 @@
     "choosePhotoEast": "Scegli una foto dell'est.",
     "choosePhotoSouth": "Scegli una foto del sud.",
     "choosePhotoWest": "Scegli una foto dell'ovest.",
-    "certainty":
-    {
-      "question": "Quanto sei sicuro?",
-      "one": "non sicuro",
-      "five": "assolutamente sicuro"
-    },
+    "certainty": "Quanto sei certo?",
     "buttons":
     {
       "contribute": "Inserisci il tuo punto di copertura del suolo!",
@@ -89,7 +84,7 @@
   "popup":
   {
     "class": "Classe",
-    "certainty": "Sicurezza",
+    "certainty": "Certezza",
     "comment": "Commento",
     "date": "Data",
     "northPhoto": "Foto del nord",
@@ -143,7 +138,7 @@
       "takePhotoEastSouthWest": "Scatta una foto di est, sud e ovest.",
       "choosePhotoNorth": "Scegli una foto del nord. Fai attenzione a caricare effettivamente una foto a nord, dove la foto mostra la parte frontale (non diretta verso il cielo o il terreno). Lo stesso vale per tutte le seguenti direzioni.",
       "choosePhotoEastSouthWest": "Scegli una foto di est, sud e ovest.",
-      "submission": "Invia le informazioni che hai inserito.",
+      "submission": "Invia le informazioni che hai inserito. Aggiungendo il punto, se si desidera annullare, è necessario fare clic su 'Indietro' fino a quando appare il pulsante 'Annulla', quindi 'Annulla'.",
       "myMap": "Il punto che hai aggiunto sarà visibile nella 'La mia mappa' come un marker, con un'icona della relativa classificazione. Il punto può essere interrogato per vedere le informazioni inserite.",
       "everyone": "Nella sezione 'Mappa degli utenti'. i punti inseriti da tutti possono essere visti. I punti appartenenti alla stessa classificazione e abbastanza vicini tra loro saranno aggregati e verrà dato un colore della loro classificazione. La mappa di base può essere modificata da OpenStreetMap a Bing Aereo, sia in 'La mia mappa' che in 'Mappa degli utenti'."
     },
