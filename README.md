@@ -1,5 +1,5 @@
 # Land Cover Collector
-The application "Land Cover Collector" is developed to collect data on land cover classification using the 10 classes of [GlobeLand30](http://www.globallandcover.com/GLC30Download/index.aspx).
+The application "Land Cover Collector" is developed to collect data on land cover classification using the 10 classes of [GlobeLand30](http://www.globallandcover.com/GLC30Download/index.aspx). It will be published as Android and iOS applications and it is available on [web](http://131.175.143.84/land-cover-collector/).
 
 Points of interest added by everyone:
 ![everyonePois](screenshots/everyonePois.jpg)
@@ -17,3 +17,5 @@ It may be necessary to point the application to your CouchDB instance in the "ww
 
 ## Credits
 The application uses [EmoMap](https://github.com/cartogroup/emomap). The developer acknowledges its contributions to the development.
+
+This work is supported by [URBAN GEOmatics for Bulk Information Generation, Data Assessment and Technology Awareness (URBAN GEO BIG DATA)](http://www.urbangeobigdata.it/), a [Project of National Interest (PRIN)](http://prin.miur.it/) funded by the [Italian Ministry of Education, University and Research (MIUR)](http://www.miur.gov.it/web/guest/home) - id. 20159CNLW8.
