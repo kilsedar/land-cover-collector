@@ -2,7 +2,7 @@
 The application "Land Cover Collector" is developed to collect data on land cover classification using the 10 classes of [GlobeLand30](http://www.globallandcover.com/GLC30Download/index.aspx).
 
 Points of interest added by everyone:
-![everyonePois](screenshots/everyonePois.png)
+![everyonePois](screenshots/everyonePois.jpg)
 
 ## Configuration
 It mainly uses PouchDB, CouchDB, Cordova and Leaflet.
