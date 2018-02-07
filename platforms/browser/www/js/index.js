@@ -302,7 +302,7 @@ function afterLangInit() {
         var comments=[];
         var count=0;
         doc.rows.forEach(function(todo) {
-          if (todo.doc.location!=null&&todo.doc.classification!=null) {
+          if (todo.doc.location!=null && todo.doc.classification!=null) {
             ids.push(todo.doc._id);
             timestamps.push(todo.doc.timestamp);
             locations.push(todo.doc.location);
@@ -368,7 +368,7 @@ function afterLangInit() {
           var comments=[];
           var count=0;
           doc.rows.forEach(function(todo) {
-            if (todo.doc.location!=null&&todo.doc.classification!=null) {
+            if (todo.doc.location!=null && todo.doc.classification!=null) {
               ids.push(todo.doc._id);
               locations.push(todo.doc.location);
               timestamps.push(todo.doc.timestamp);
@@ -460,7 +460,7 @@ function afterLangInit() {
     };
 
     navigator.compass.clearWatch(watchCompassID);
-    if (isApplication & compassSupported) {
+    if (isApplication && compassSupported) {
       watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError);
       window.addEventListener('deviceorientation', handleOrientation);
     }
@@ -470,7 +470,7 @@ function afterLangInit() {
     $("#photo-north").hide();
     $("#comment").show();
 
-    if (isApplication & compassSupported)
+    if (isApplication && compassSupported)
       window.removeEventListener('deviceorientation', handleOrientation);
   });
 
@@ -484,7 +484,7 @@ function afterLangInit() {
       else
         $("#photo-east .take-photo").addClass("ui-disabled");
     };
-    if (isApplication & compassSupported) {
+    if (isApplication && compassSupported) {
       navigator.compass.clearWatch(watchCompassID);
       watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError);
     }
@@ -500,7 +500,7 @@ function afterLangInit() {
       else
         $("#photo-north .take-photo").addClass("ui-disabled");
     };
-    if (isApplication & compassSupported) {
+    if (isApplication && compassSupported) {
       navigator.compass.clearWatch(watchCompassID);
       watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError);
     }
@@ -516,7 +516,7 @@ function afterLangInit() {
       else
         $("#photo-south .take-photo").addClass("ui-disabled");
     };
-    if (isApplication & compassSupported) {
+    if (isApplication && compassSupported) {
       navigator.compass.clearWatch(watchCompassID);
       watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError);
     }
@@ -532,7 +532,7 @@ function afterLangInit() {
       else
         $("#photo-east .take-photo").addClass("ui-disabled");
     };
-    if (isApplication & compassSupported) {
+    if (isApplication && compassSupported) {
       navigator.compass.clearWatch(watchCompassID);
       watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError);
     }
@@ -548,7 +548,7 @@ function afterLangInit() {
       else
         $("#photo-west .take-photo").addClass("ui-disabled");
     };
-    if (isApplication & compassSupported) {
+    if (isApplication && compassSupported) {
       navigator.compass.clearWatch(watchCompassID);
       watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError);
     }
@@ -564,7 +564,7 @@ function afterLangInit() {
       else
         $("#photo-south .take-photo").addClass("ui-disabled");
     };
-    if (isApplication & compassSupported) {
+    if (isApplication && compassSupported) {
       navigator.compass.clearWatch(watchCompassID);
       watchCompassID = navigator.compass.watchHeading(compassSuccess, compassError);
     }
@@ -627,7 +627,7 @@ function afterLangInit() {
         navigator.notification.alert(i18n.t("messages.errorStorage"), null, "Land Cover Collector", i18n.t("messages.ok"));
     });
 
-    if (isApplication & compassSupported) {
+    if (isApplication && compassSupported) {
       navigator.compass.clearWatch(watchCompassID);
       window.removeEventListener('deviceorientation', handleOrientation);
     }
