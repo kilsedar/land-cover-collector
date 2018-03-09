@@ -1,6 +1,6 @@
 var map, bing, osm, markersMy, markersAll, marker;
 
-var networkState, watchGeolocationID, watchCompassID, xOrientation, isApplication, compassSupported = false;
+var networkState, watchCompassID, xOrientation, isApplication, compassSupported = false;
 
 // initial values
 var curLatLng = [0, 0], curLatLngAccuracy = 0;
@@ -224,32 +224,24 @@ function afterLangInit() {
     };
     watchCompassID = navigator.compass.watchHeading(compassSuccess, compassErrorInitial);
 
-    var popupOpened = false;
     if (navigator.geolocation) {
-      watchGeolocationID = navigator.geolocation.watchPosition(
+      navigator.geolocation.getCurrentPosition(
         function(position) {
           curLatLng = [position.coords.latitude, position.coords.longitude];
           curLatLngAccuracy = position.coords.accuracy;
           map.panTo(curLatLng);
           marker.setLatLng (curLatLng);
-          if (popupOpened == false) {
-            marker.bindPopup(i18n.t("messages.markerPopup")).openPopup();
-            popupOpened = true;
-
-            marker.dragging.enable();
-          }
+          marker.bindPopup(i18n.t("messages.markerPopup")).openPopup();
+          marker.dragging.enable();
         },
         function(error) {
           var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") && navigator.userAgent.toLowerCase().indexOf("mobile") > -1;
-          if (popupOpened == false) {
-            if(!isAndroid)
-              marker.bindPopup(i18n.t("messages.gpsError")).openPopup();
-            else
-              marker.bindPopup(i18n.t("messages.gpsErrorAndroid")).openPopup();
-            popupOpened = true;
+          if(!isAndroid)
+            marker.bindPopup(i18n.t("messages.gpsError")).openPopup();
+          else
+            marker.bindPopup(i18n.t("messages.gpsErrorAndroid")).openPopup();
 
-            marker.dragging.enable();
-          }
+          marker.dragging.enable();
         },
         {maximumAge: 3000, timeout: 5000, enableHighAccuracy: true}
       );
@@ -415,7 +407,6 @@ function afterLangInit() {
     $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-information").removeClass("ui-disabled");
     marker.setIcon(setMarkerClassIcon());
     marker.dragging.disable();
-    navigator.geolocation.clearWatch(watchGeolocationID);
     navigator.compass.clearWatch(watchCompassID);
   });
 
@@ -631,8 +622,6 @@ function afterLangInit() {
       navigator.compass.clearWatch(watchCompassID);
       window.removeEventListener('deviceorientation', handleOrientation);
     }
-
-    navigator.geolocation.clearWatch(watchGeolocationID);
   });
 
   $("#slider").bind("slidestop", function() {
