@@ -614,7 +614,7 @@ function afterLangInit() {
         else
           navigator.notification.alert(i18n.t("messages.contributionSuccess"), contributionSuccess, "Land Cover Collector", i18n.t("messages.ok"));
       }
-      else
+      else {
         navigator.notification.alert(i18n.t("messages.errorStorage"), null, "Land Cover Collector", i18n.t("messages.ok"));
 
         remotePointsDB.put(poi, function callback(err) {
@@ -623,7 +623,11 @@ function afterLangInit() {
           else
             navigator.notification.alert(i18n.t("messages.error") + " " + err, null, "Land Cover Collector", i18n.t("messages.ok"));
         });
+      }
     });
+
+    marker.closePopup();
+    marker.unbindPopup();
 
     if (isApplication && compassSupported) {
       navigator.compass.clearWatch(watchCompassID);
