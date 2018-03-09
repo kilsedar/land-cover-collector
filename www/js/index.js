@@ -134,7 +134,7 @@ function afterLangInit() {
         age: age,
         workstatus: workstatus
       };
-      remoteUsersDB.put(user, function callback(err, result) {
+      remoteUsersDB.put(user, function callback(err) {
         if (!err)
           navigator.notification.alert(i18n.t("messages.registrationSuccess"), registrationSuccess, "Land Cover Collector", i18n.t("messages.ok"));
         else
@@ -149,7 +149,7 @@ function afterLangInit() {
         age: age,
         workstatus: workstatus
       };
-      remoteUsersDB.put(user, function callback(err, result) {
+      remoteUsersDB.put(user, function callback(err) {
         if (!err)
           navigator.notification.alert(i18n.t("messages.registrationSuccess"), registrationSuccess, "Land Cover Collector", i18n.t("messages.ok"));
         else
@@ -607,7 +607,7 @@ function afterLangInit() {
       marker.dragging.disable();
     }
 
-    localDB.put(poi, function callback(err, result) {
+    localDB.put(poi, function callback(err) {
       if (!err) {
         if (networkState == Connection.NONE || navigator.onLine == false)
           navigator.notification.alert(i18n.t("messages.contributionSuccessNoInternet"), contributionSuccess, "Land Cover Collector", i18n.t("messages.ok"));
@@ -616,6 +616,13 @@ function afterLangInit() {
       }
       else
         navigator.notification.alert(i18n.t("messages.errorStorage"), null, "Land Cover Collector", i18n.t("messages.ok"));
+
+        remotePointsDB.put(poi, function callback(err) {
+          if (!err)
+            navigator.notification.alert(i18n.t("messages.contributionSuccess"), contributionSuccess, "Land Cover Collector", i18n.t("messages.ok"));
+          else
+            navigator.notification.alert(i18n.t("messages.error") + " " + err, null, "Land Cover Collector", i18n.t("messages.ok"));
+        });
     });
 
     if (isApplication && compassSupported) {
