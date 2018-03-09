@@ -1,0 +1,152 @@
+{
+  "polimiLink": "<a href='http://www.polimi.it/en/' target='_blank'><img class='logo' src='img/polimi.png'></a>",
+  "registration":
+  {
+    "introduction": "Добро пожаловать! Пожалуйста, заполните следующую информацию:",
+    "genderLabel": "Пол",
+    "genderMale": "Мужской",
+    "genderFemale": "Женский",
+    "genderUnknown": "Не указан",
+    "age": "Возраст",
+    "workLabel": "Работа",
+    "workEmployed": "Работаю",
+    "workStudent": "Студент",
+    "workUnemployed": "Без работы",
+    "workRetired": "Пенсионер",
+    "workOther": "Другое",
+    "button": "Зарегистрироваться",
+    "termsAndConditions": {
+      "noticeText": "Регистрируюясь, вы соглашаетесь с",
+      "noticeLink": "правилами и условиями",
+      "noticeFullStop": ".",
+      "listFirst": "Вам должно быть не меньше 18 лет, чтобы пользоваться приложением.",
+      "listSecond": "Информация о поверхности земли, которую вы предоставляете, включая фотографии, будет использована в научных целях и может стать общедоступной.",
+      "listThird": "Любая обработка данных запрещена.",
+      "listFourth": "Politecnico di Milano - GEOlab не несет ответственность за любой ущерб, травмы, потери и расходы."
+    }
+  },
+  "navbar":
+  {
+    "add": "Добавить",
+    "my": "Моя карта",
+    "all": "Общая карта",
+    "information": "Информация",
+    "registration": "Регистрация"
+  },
+  "classes":
+  {
+    "artificialSurface": "Искусственное покрытие",
+    "bareLand": "Голая земля",
+    "cultivatedLand": "Сельскохозяйственные угодья",
+    "forest": "Лес",
+    "grassland": "Луг",
+    "permanentSnowAndIce": "Вечные снега и лед",
+    "shrubland": "Кустарник",
+    "tundra": "Тундра",
+    "waterBody": "Водоем",
+    "wetland": "Болото"
+  },
+  "basemaps":
+  {
+    "osm": "OpenStreetMap",
+    "bing": "Bing Aerial"
+  },  
+  "guidelines": {
+    "link": "Правила",
+    "listFirst": "Делая фотографии, руководствуясь инструкциями, приведенными ниже.",
+    "listFirstFirst": "Поверните телефон, чтобы найти правльное положение, указанное вам, в порядке Север, Восток, Юг, Запад. Когда вы нашли правльное положение (напрмер, Север) и камера открыта, не двигайте телефон.",
+    "listFirstSecond": "Старайтесь держать телефон прямо относительно земли.",
+    "listFirstThird": "Не делайте фотографии, содержащие личную информацию, такую как лицо человека, животного, номерные знаки и т.п.",
+    "listFirstFourth": "Не используйте приближение",
+    "listFirstFifth": "Используйте телефон в альбомном режиме.",
+    "listSecond": "Не заходите в государственные, частные и не общедоступные места, такие как офисы, природные заповедники, военные части и т.д.",
+    "listThird": "Не заходите в поля с растущим урожаем.",
+    "listFourth": "Соблюдайте осторожность и не ходите в потенциально опасные места."
+  },
+  "menu":
+  {
+    "selectClassification": "Выберите класс вашей точки.",
+    "comment": "Комментарии?",
+    "takePhotoNorth": "Сделайте фото Севера.",
+    "takePhotoEast": "Сделайте фото Востока.",
+    "takePhotoSouth": "Сделайте фото Юга.",
+    "takePhotoWest": "Сделайте фото Запада.",
+    "choosePhotoNorth": "Выберите фото Севера.",
+    "choosePhotoEast": "Выберите фото Востока.",
+    "choosePhotoSouth": "Выберите фото Юга.",
+    "choosePhotoWest": "Выберите фото Запада.",
+    "certainty": "Насколько вы уверены?",
+    "buttons":
+    {
+      "contribute": "Внесите вашу точку земной поверхности!",
+      "cancel": "Отмена",
+      "next": "Далее",
+      "back": "Назад",
+      "submit": "Отправить"
+    }
+  },
+  "popup":
+  {
+    "class": "Класс",
+    "certainty": "Уверенность в классификации",
+    "comment": "Комментарий",
+    "date": "Дата",
+    "northPhoto": "Фото Севера",
+    "eastPhoto": "Фото Востока",
+    "southPhoto": "Фото Юга",
+    "westPhoto": "Фото Запада"
+  },
+  "messages":
+  {
+    "registrationFormEmpty": "Пожалуйста, заполните форму регистрации!",
+    "registrationSuccess": "Спасибо! Теперь вы можете участвовать!",
+    "markerPopup": "Не ваша локация? Перетащите маркер в нужное место!",
+    "contributionSuccess": "Спасибо за участие!",
+    "allNoInternet": "Не удается показать общую карту из-за отсутствия соединения!",
+    "ok": "OK",
+    "registrationNoInternet": "Регистрация не удалась из-за отсутствия соединения!",
+    "gpsError":"Ошибка GPS! Пожалуйста, перетащите маркер на вашу текущую позицию.",
+    "gpsErrorAndroid":"Ошибка GPS! Включите геолокацию или перетащите маркер на вашу текущую позицию.",
+    "contributionSuccessNoInternet":"Спасибо за участие. Обратите внимание, что сейчас вы офлайн, пожалуйста запустите приложение, когда вы будете в сети, чтобы опубликовать ваши записи.",
+    "photoUnavailable": "Сделать фото можно с Android или iOS, но не из браузера.",
+    "bingNoInternet": "Bing Aerial не удается показать из-за отсутствия соединения!",
+    "osmNoInternet": "OpenStreetMap не удается показать из-за отсутствия соединения!",
+    "error": "Ошибка!",
+    "errorStorage": "Этот браузер не поддерживает локальное хранение.",
+    "errorPrivateMode": "Ошибка! Вы в личном режиме?"
+  },
+  "stat":
+  {
+    "totalMy": "Всего у вас",
+    "contrMySingle": "запись.",
+    "contrMyPlural": "записей.",
+    "totalAllSingle": "Всего",
+    "contrAllSingle": "запись в 5 км от вас.",
+    "totalAllPlural": "Всего",
+    "contrAllPlural": "записей в 5 км от вас.",
+    "noContrMy": "У вас еще нет записей!",
+    "noContrAll": "Никто не добавил запись в 5 км от вас"
+  },
+  "information":
+  {
+    "instructions":
+    {
+      "applicationsButton": "Инструкции для приложения",
+      "browsersButton": "Инструкции для браузера",
+      "registration": "Ознакомившись с правилами и условиями, зарегистрируйтесь, заполнив свой пол, возраст и работу.",
+      "guidelines": "Перед тем как добавить точку, ознакомьтесь с инструкциями.",
+      "location": "Дайте приложению доступ к местоположению устройства, чтобы установить маркер.",
+      "classification": "Выберите класс вашей точки.",
+      "certaintyAndComment": "Внесите степень уверенности и при желании добавьте комментарий.",
+      "takePhotoNorth": "Сделайте фото Севера. Кнопка станет доступна, когда вы найдете нужное направление (Север) и расположите телефон прямо относительно земли (это правило одинаково для всех остальных направлений).",
+      "takePhotoEastSouthWest": "Сделайте фото Востока, Юга и Запада.",
+      "choosePhotoNorth": "Выберите фото Севера. Будьте внимательны, выберите фото, направленное именно на Север (не в небо или в землю). То же самое относительно всех остальных направлений.",
+      "choosePhotoEastSouthWest": "Выберите фото Востока, Юга и Запада.",
+      "submission": "Отправьте вашу запись. Добавляя вашу точку, если хотите отменить, нажимайте 'Назад', пока не появится кнопка 'Отмена', затем нажмите 'Отмена'.",
+      "myMap": "Точку, которую вы добавили, можно будет увидеть в личной секции в виде маркера с иконкой, соответствующей выбранному классу. Нажав на точку, можно увидеть интересующую информацию.",
+      "everyone": "В общей секции можно увидеть точки всех участников. Точки одного класса, находящиеся близко друг к другу, будут объединены и обозначены цветом, соответствующим классу. Базовую карту можно выбрать между OpenStreetMap и Bing Aerial как для личной, так и для общей секции."
+    },
+    "acknowledgementsButton": "Разработчики",
+    "acknowledgements": "Приложение Land Cover Collector было разработано в <a href='http://geolab.como.polimi.it/' target='_blank'>GEOlab</a> - <a href='http://www.dica.polimi.it/en/' target='_blank'>Департаменте Гражданской и Экологической Инженерии</a> <a href='https://www.polimi.it/en/home/' target='_blank'>Politecnico di Milano</a>. Задача приложения - собрать данные о классификации земной поверхности, используя 10 классов <a href='http://www.globallandcover.com/GLC30Download/index.aspx' target='_blank'>GlobeLand30</a>. Приложение доступно на Английском, Итальянском, Арабском, Китайском, Испанском и Французском языках. Его можно скачать на Android или iOS по <a href='http://131.175.143.84/land-cover-collector/' target='_blank'>ссылке</a>.<br>Это проект с открытым кодом, доступный на <a href='https://github.com/kilsedar/land-cover-collector' target='_blank'>GitHub</a>. Проект защищен <a href='https://github.com/kilsedar/land-cover-collector/blob/master/LICENSE' target='_blank'>лицензией GLC-3.0</a>. Приложение отчасти является развитием проекта <a href='https://github.com/cartogroup/emomap' target='_blank'>EmoMap</a>, разработанным <a href='http://cartography.tuwien.ac.at' target='_blank'>Research Group Cartography</a> в <a href='http://geo.tuwien.ac.at/' target='_blank'>Департаменте Геодезии и Геоинформации</a> в <a href='https://www.tuwien.ac.at/en/' target='_blank'>TU Wien University</a>.<br>Этот проект поддерживается <a href='http://www.urbangeobigdata.it/' target='_blank'>URBAN GEOmatics for Bulk Information Generation, Data Assessment and Technology Awareness (URBAN GEO BIG DATA)</a>, <a href='http://prin.miur.it/' target='_blank'>Проектом Национальных Интересов (PRIN)</a>, который финансируется <a href='http://www.miur.gov.it/web/guest/home' target='_blank'>Итальянским Министерством Образования, Университетов и Исследований (MIUR)</a> - id. 20159CNLW8."
+  }
+}

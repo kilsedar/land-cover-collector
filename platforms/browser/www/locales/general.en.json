@@ -1,5 +1,5 @@
 {
-  "polimiLink": "<a href='http://www.polimi.it/en/english-version/' target='_blank'><img class='logo polimi-logo' src='img/polimi.png'></a>",
+  "polimiLink": "<a href='http://www.polimi.it/en/' target='_blank'><img class='logo' src='img/polimi.png'></a>",
   "registration":
   {
     "introduction": "Welcome! Please insert the following information:",
@@ -46,7 +46,11 @@
     "waterBody": "Water body",
     "wetland": "Wetland"
   },
-  "bing": "Bing Aerial",
+  "basemaps":
+  {
+    "osm": "OpenStreetMap",
+    "bing": "Bing Aerial"
+  },
   "guidelines": {
     "link": "Guidelines",
     "listFirst": "While taking photos follow the instructions below.",

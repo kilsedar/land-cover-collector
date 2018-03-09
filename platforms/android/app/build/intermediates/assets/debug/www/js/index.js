@@ -580,7 +580,7 @@ function afterLangInit() {
       user: uuid,
       location: curLatLng,
       locationAccuracy: curLatLngAccuracy,
-      lang: ln.language.code,
+      lang: ln.language,
       timestamp: timestamp,
       classification: classification,
       certainty: certainty,
@@ -838,7 +838,7 @@ function isCommentEmpty(comment) {
   if (comment == "")
     return "";
   else
-    return "<b>" + i18n.t("popup.comment") + ": </b>" + comment + "<br>";
+    return "<b>" + i18n.t("popup.comment") + ":</b> " + comment + "<br>";
 }
 
 function onlyUnique(value, index, self) {
@@ -868,7 +868,7 @@ function vizPOIs (map, ids, timestamps, locations, classes, certainties, comment
       popupAnchor: [0, -36]
     });
     marker = L.marker(locations[i], {icon: locationIcon});
-    marker.bindPopup("<b>" + i18n.t("popup.class") + ": </b>" + i18n.t("classes."+classes[i]) + "<br><b>" + i18n.t("popup.date") + ": </b>" + new Date(timestamps[i]).toLocaleString() + "<br><b>" + i18n.t("popup.certainty") + ": </b>" + certainties[i] + "<br>" + isCommentEmpty(comments[i]) + addPopupPhotos(ids[i]));
+    marker.bindPopup("<b>" + i18n.t("popup.class") + ":</b> " + i18n.t("classes."+classes[i]) + "<br><b>" + i18n.t("popup.date") + ":</b> " + new Date(timestamps[i]).toLocaleString() + "<br><b>" + i18n.t("popup.certainty") + ":</b> " + certainties[i] + "<br>" + isCommentEmpty(comments[i]) + addPopupPhotos(ids[i]));
     marker.mydata = classes[i];
     str = "markers" + classes[i].charAt(0).toUpperCase() + classes[i].slice(1);
     window[str].addLayer(marker);

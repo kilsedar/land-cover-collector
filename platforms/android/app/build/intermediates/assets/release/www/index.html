@@ -15,11 +15,11 @@
   <title>Land Cover Collector</title>
 </head>
 <body onresize="onResize()" onload="onLoad()">
-  <div data-role="page" id="page">
+  <div data-role="page" id="page" dir="auto">
     <div data-role="main" id="start-page" class="ui-content">
       <div class="top-bar">
         <img class="logo" src="img/landCoverCollectorWithText.png">
-        <span data-i18n="[html]polimiLink"><a href="http://www.polimi.it/en/english-version/" target="_blank"><img class="logo" src="img/polimi.png"></a></span>
+        <span data-i18n="[html]polimiLink"><a href="http://www.polimi.it/en/" target="_blank"><img class="logo" src="img/polimi.png"></a></span>
         <a href="http://www.urbangeobigdata.it/" target="_blank"><img class="logo" src="img/urbanGeoBigData.png"></a>
       </div>
       <div data-role="tabs" id="tabs-start">
@@ -202,7 +202,7 @@
     <div id="main-page" data-role="main" class="ui-content">
       <div class="top-bar">
         <img class="logo" src="img/landCoverCollectorWithText.png">
-        <span data-i18n="[html]polimiLink"><a href="http://www.polimi.it/en/english-version/" target="_blank"><img class="logo" src="img/polimi.png"></a></span>
+        <span data-i18n="[html]polimiLink"><a href="http://www.polimi.it/en/" target="_blank"><img class="logo" src="img/polimi.png"></a></span>
         <a href="http://www.urbangeobigdata.it/" target="_blank"><img class="logo" src="img/urbanGeoBigData.png"></a>
       </div>
       <div data-role="tabs" id="tabs-main">
@@ -219,8 +219,8 @@
           <div id="legend-button"><img src="img/layers.png"></img></div>
           <div id="legend">
             <form>
-              <input id="osm" type="radio" name="basemap" data-role="none" checked><label class="legend-label legend-radio-label" for="osm">OpenStreetMap</label><br>
-              <input id="bing" type="radio" name="basemap" data-role="none"><label class="legend-label legend-radio-label" for="bing" data-i18n="bing">Bing Aerial</label>
+              <input id="osm" type="radio" name="basemap" data-role="none" checked><label class="legend-label legend-radio-label" for="osm" data-i18n="basemaps.osm">OpenStreetMap</label><br>
+              <input id="bing" type="radio" name="basemap" data-role="none"><label class="legend-label legend-radio-label" for="bing" data-i18n="basemaps.bing">Bing Aerial</label>
             </form>
             <div id="legend-artificial-surface" class="legend-class-background"><img class="legend-images" src="img/classes/artificialSurfaceWhiteBackground.png"><span class="legend-label" data-i18n="classes.artificialSurface">Artificial surface</span><br></div>
             <div id="legend-bare-land" class="legend-class-background"><img class="legend-images" src="img/classes/bareLandWhiteBackground.png"><span class="legend-label" data-i18n="classes.bareLand">Bare land</span><br></div>

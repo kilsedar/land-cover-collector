@@ -1,5 +1,5 @@
 {
-  "polimiLink": "<a href='http://www.polimi.it/' target='_blank'><img class='logo polimi-logo' src='img/polimi.png'></a>",
+  "polimiLink": "<a href='http://www.polimi.it/' target='_blank'><img class='logo' src='img/polimi.png'></a>",
   "registration":
   {
     "introduction": "Benvenuto! Ti chiediamo di inserire le seguenti informazioni:",
@@ -46,7 +46,11 @@
     "waterBody": "Bacino idrico",
     "wetland": "Zona umida"
   },
-  "bing": "Bing Aereo",
+  "basemaps":
+  {
+    "osm": "OpenStreetMap",
+    "bing": "Bing Aereo"
+  },
   "guidelines": {
     "link": "Linee guida",
     "listFirst": "Mentre scatti le foto segui le istruzioni di seguito.",
