@@ -1,0 +1,152 @@
+{
+  "polimiLink": "<a href='http://www.chinese.polimi.it/' target='_blank'><img class='logo' src='img/polimi.png'></a>",
+  "registration":
+  {
+    "introduction": "欢迎使用！请填写如下信息：",
+    "genderLabel": "性别",
+    "genderMale": "男",
+    "genderFemale": "女",
+    "genderUnknown": "保密",
+    "age": "年龄",
+    "workLabel": "职业状态",
+    "workEmployed": "雇员",
+    "workStudent": "学生",
+    "workUnemployed": "无业",
+    "workRetired": "退休",
+    "workOther": "其他",
+    "button": "注册",
+    "termsAndConditions": {
+      "noticeText": "注册前已同意以下",
+      "noticeLink": "条款和条件",
+      "noticeFullStop": "",
+      "listFirst": "应用程序使用者需年满18周岁",
+      "listSecond": "您提供的地表覆盖信息（包括照片等）将被用于科学研究并允许公众访问",
+      "listThird": "不允许对数据进行任何形式的加工处理",
+      "listFourth": "意大利米兰理工大学 GEOlab对由此引发的任何损害、伤害、损失或费用不承担任何责任"
+    }
+  },
+  "navbar":
+  {
+    "add": "添加",
+    "my": "我的地图",
+    "all": "任何人",
+    "information": "信息",
+    "registration": "注册"
+  },
+  "classes":
+  {
+    "artificialSurface": "人造地表",
+    "bareLand": "裸地",
+    "cultivatedLand": "耕地",
+    "forest": "森林",
+    "grassland": "草地",
+    "permanentSnowAndIce": "永久冰雪",
+    "shrubland": "灌丛地",
+    "tundra": "苔原",
+    "waterBody": "水体",
+    "wetland": "湿地"
+  },
+  "basemaps":
+  {
+    "osm": "OpenStreetMap",
+    "bing": "Bing航空影像"
+  },
+  "guidelines": {
+    "link": "向导",
+    "listFirst": "请参阅以下说明拍摄照片",
+    "listFirstFirst": "请确保手机与您转动时面对的方向一致，依次为：北向、东向、南向和西向。当旋转至正确方向时（例如：北向），请打开手机照相功能，不要晃动。",
+    "listFirstSecond": "请保持设备与地面垂直",
+    "listFirstThird": "请不要拍摄涉涉嫌侵犯个人隐私的照片，如包含人和动物面部、车辆牌照等内容的照片。",
+    "listFirstFourth": "请勿放大地图",
+    "listFirstFifth": "请保持设备处于横向模式",
+    "listSecond": "请不要输入政府、私人以及和其他非公开的场所，如办公场所、自然保护区、军事场所等",
+    "listThird": "请勿踩踏正在生长的农作物",
+    "listFourth": "请留意周边潜在的危险，不要走进危险区域"
+  },
+  "menu":
+  {
+    "selectClassification": "请选择当前位置的地表覆盖类型",
+    "comment": "是否添加评论？",
+    "takePhotoNorth": "请拍摄一张北向的照片",
+    "takePhotoEast": "请拍摄一张东向的照片",
+    "takePhotoSouth": "请拍摄一张南向的照片",
+    "takePhotoWest": "请拍摄一张西向的照片",
+    "choosePhotoNorth": "请选择一张北向的照片",
+    "choosePhotoEast": "请选择一张东向面的照片",
+    "choosePhotoSouth": "请选择一张南向的照片",
+    "choosePhotoWest": "请选择一张西向的照片",
+    "certainty": "请选择确信度",
+    "buttons":
+    {
+      "contribute": "输入当前位置的地表覆盖类型",
+      "cancel": "取消",
+      "next": "前进",
+      "back": "后退",
+      "submit": "提交"
+    }
+  },
+  "popup":
+  {
+    "class": "类型",
+    "certainty": "对当前地表覆盖类型的确信度",
+    "comment": "评论",
+    "date": "日期",
+    "northPhoto": "北向的照片",
+    "eastPhoto": "东向的照片",
+    "southPhoto": "南向的照片",
+    "westPhoto": "西向的照片"
+  },
+  "messages":
+  {
+    "registrationFormEmpty": "请完成所有注册信息！",
+    "registrationSuccess": "谢谢！您可以开始使用应用程序！",
+    "markerPopup": "当前位置有误？请拖动标记以更正位置！",
+    "contributionSuccess": "谢谢您的贡献！",
+    "allNoInternet": "由于当前没有接入互联网，无法在地图中显示所有用户提交的信息",
+    "ok": "完成",
+    "registrationNoInternet": "网络连接失败，无法注册",
+    "gpsError":"GPS信号弱！请拖动标注以选择您当前位置。",
+    "gpsErrorAndroid":"GPS信号弱！请打开定位服务或者拖动标记以设置当前位置。",
+    "contributionSuccessNoInternet":"感谢您的贡献。但由于您当前处理离线状态，请在恢复互联网连接后重启应用程序以提交您的信息。",
+    "photoUnavailable": "拍摄照片功能仅支持安卓或IOS应用程序，无法在浏览器中使用。",
+    "bingNoInternet": "由于没有接入互联网，无法显示Bing航空影像",
+    "osmNoInternet": "由于没有接入互联网，无法显示OpenStreetMap数据",
+    "error": "错误！",
+    "errorStorage": "当前浏览器不支持本地存储",
+    "errorPrivateMode": "错误！请检查当前是否处于个人模式？"
+  },
+  "stat":
+  {
+    "totalMy": "总体来说，您已经",
+    "contrMySingle": "信息",
+    "contrMyPlural": "信息",
+    "totalAllSingle": "总体来说，这是",
+    "contrAllSingle": "您当前5公里内的信息",
+    "totalAllPlural": "总体来说，这是",
+    "contrAllPlural": "您当前5公里内的信息",
+    "noContrMy": "您当前尚无任何贡献！",
+    "noContrAll": "您当前所在位置5公里内尚无其他用户提交信息"
+  },
+  "information":
+  {
+    "instructions":
+    {
+      "applicationsButton": "应用程序介绍",
+      "browsersButton": "浏览器介绍",
+      "registration": "在认真阅读条款和条件后，提交性别、年龄和工作状态等注册信息",
+      "guidelines": "在添加地表覆盖信息前请认真阅读向导信息",
+      "location": "允许应用程序获取位置信息以标注您的所在位置",
+      "classification": "请选择当前位置的地表覆盖类型",
+      "certaintyAndComment": "请设置您的确信度，并添加评论（可选）",
+      "takePhotoNorth": "请拍摄一张北向的照片。一旦你找到了正确的方向（朝北），并将你的设备与地面保持垂直，按钮就会启动。（其他方向的操作与此相同）",
+      "takePhotoEastSouthWest": "请拍摄东向、南向和西向的照片。",
+      "choosePhotoNorth": "请确认并选择一张北向的正面照片（不能朝向天空或地面）。其他方向的操作与此相同",
+      "choosePhotoEastSouthWest": "请选择东向、南向和西向的照片。",
+      "submission": "提交您输入的信息。如若取消，请点击“后退”按键，直至出现“取消”键，并点击“取消”。",
+      "myMap": "您添加的信息将在“我的地图”页面以标记点的形式显示，通过图标可显示该点的地表覆盖类型，点击该图标可进一步查询详细信息。",
+      "everyone": "标记为“任何人”的点将可被任意用户查看。具有相同或相近地表覆盖类型的点将会合并显示，并通过该类型对应的颜色进行标识。用户可在“我的地图”和“任何人”两个栏目中切换OpenStreetMap和Bing航空影像作为底图。"
+    },
+    "acknowledgementsButton": "致谢",
+    "acknowledgements": "Land Cover Collector应用程序由米兰理工大学(<a href='http://www.chinese.polimi.it/' target='_blank'>http://www.chinese.polimi.it/</a>)土木与环境工程系(<a href='http://www.dica.polimi.it/en/' target='_blank'>http://www.dica.polimi.it/en/</a>)GEOlab (<a href='http://geolab.como.polimi.it/' target='_blank'>http://geolab.como.polimi.it/</a>)研发，可支持英语、意大利语、阿拉伯语、中文、西班牙语和发育等多种语言。研发该应用程序的主要目的是以GlobeLand30的10种地表覆盖类型为基础收集地表覆盖信息。该应用程序在研发过程中得到了开源软件项目支持，受GLC-3.0 license (<a href='https://github.com/kilsedar/land-cover-collector/blob/master/LICENSE' target='_blank'>https://github.com/kilsedar/land-cover-collector/blob/master/LICENSE</a>)保护，相关详细信息请访问GitHub (<a href='https://github.com/kilsedar/land-cover-collector' target='_blank'>https://github.com/kilsedar/land-cover-collector</a>)。此外，本应用程序是在由维也纳工业大学 (<a href='https://www.tuwien.ac.at/en/' target='_blank'>https://www.tuwien.ac.at/en/</a>)大地测量学和地理信息系 (<a href='http://geo.tuwien.ac.at/' target='_blank'>http://geo.tuwien.ac.at/</a>) 制图研究小组完成的iEmoMap (<a href='https://github.com/cartogroup/emomap' target='_blank'>https://github.com/cartogroup/emomap</a>)项目成果的基础上进行改进而研发形成的。相关工作得到了意大利教育部、University and Research (MIUR) (<a href='http://www.miur.gov.it/web/guest/home' target='_blank'>http://www.miur.gov.it/web/guest/home</a>) - id. 20159CNLW8等提供的资金支持，具体项目包括URBAN GEOmatics for Bulk Information Generation, Data Assessment and Technology Awareness (URBAN GEO BIG DATA) (<a href='http://www.urbangeobigdata.it/' target='_blank'>http://www.urbangeobigdata.it/</a>)和 National Interest (PRIN) (<a href='http://prin.miur.it/' target='_blank'>http://prin.miur.it/</a>)等。"
+  }
+}

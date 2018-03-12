@@ -912,19 +912,24 @@ $("#terms-and-conditions-button").click(function() {
 
 var legendHeight, guidelinesListHeight;
 
-function adjustLegendHeight() {
-  if (legendHeight+70 > $("#map").height())
-    $("#legend").css("height", ($("#map").height()-70) + "px");
-  else
-    $("#legend").css("height", "auto");
-}
-
-$("#legend-button").on("vclick", function() {
-  $("#legend").toggle();
-  legendHeight = document.getElementById("legend").scrollHeight;
-
-  adjustLegendHeight();
-});
+$("#legend-button, #legend").hover(
+  function() {
+    $("#legend-button").hide();
+    $("#legend").show();
+    legendHeight = document.getElementById("legend").scrollHeight;
+    if (legendHeight+70 > $("#map").height()) {
+      $("#legend").css("height", ($("#map").height()-70) + "px");
+      $("#legend").css("width", ($("#legend").width()+10) + "px");
+    }
+    else
+      $("#legend").css("height", "auto");
+  }, function() {
+    $("#legend-button").show();
+    $("#legend").hide();
+    if (legendHeight+70 > $("#map").height())
+      $("#legend").css("width", ($("#legend").width()-10) + "px");
+  }
+);
 
 function adjustGuidelinesList() {
   if (guidelinesListHeight+140 > $("#map").height())
@@ -947,8 +952,6 @@ $("#guidelines-button").on("vclick", function() {
 
 function onResize() {
   $("#map").height($(window).height() - $("#map").offset().top);
-
-  adjustLegendHeight();
   adjustGuidelinesList();
 }
 
