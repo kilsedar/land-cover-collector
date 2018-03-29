@@ -1,6 +1,6 @@
 var map, bing, osm, markersMy, markersAll, marker;
 
-var networkState, watchCompassID, xOrientation, isApplication, compassSupported = false;
+var networkState, watchCompassID, xOrientation = 0, yOrientation = 0, isApplication, compassSupported = false;
 
 // initial values
 var curLatLng = [0, 0], curLatLngAccuracy = 0;
@@ -74,6 +74,31 @@ function afterLangInit() {
     curLatLngAccuracy = 0;
   });
 
+  function getCurrentPosition() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          curLatLng = [position.coords.latitude, position.coords.longitude];
+          curLatLngAccuracy = position.coords.accuracy;
+          map.panTo(curLatLng);
+          marker.setLatLng (curLatLng);
+          marker.bindPopup(i18n.t("messages.markerPopup")).openPopup();
+          marker.dragging.enable();
+        },
+        function(error) {
+          var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") && navigator.userAgent.toLowerCase().indexOf("mobile") > -1;
+          if(!isAndroid)
+            marker.bindPopup(i18n.t("messages.gpsError")).openPopup();
+          else
+            marker.bindPopup(i18n.t("messages.gpsErrorAndroid")).openPopup();
+
+          marker.dragging.enable();
+        },
+        {maximumAge: 3000, timeout: 5000, enableHighAccuracy: true}
+      );
+    }
+  }
+
   L.DomEvent.disableClickPropagation(L.DomUtil.get("legend-button"));
   L.DomEvent.disableScrollPropagation(L.DomUtil.get("legend-button"));
   L.DomEvent.disableClickPropagation(L.DomUtil.get("legend"));
@@ -104,6 +129,8 @@ function afterLangInit() {
       });
       osm.addTo(map);
       marker.addTo(map);
+
+      getCurrentPosition();
 
       window.localStorage.setItem("isLaunch",true);
     }
@@ -171,6 +198,8 @@ function afterLangInit() {
     });
     osm.addTo(map);
     marker.addTo(map);
+
+    getCurrentPosition();
   }
   else {
     $("#start-page").show();
@@ -223,29 +252,6 @@ function afterLangInit() {
       $(".take-photo").remove();
     };
     watchCompassID = navigator.compass.watchHeading(compassSuccess, compassErrorInitial);
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        function(position) {
-          curLatLng = [position.coords.latitude, position.coords.longitude];
-          curLatLngAccuracy = position.coords.accuracy;
-          map.panTo(curLatLng);
-          marker.setLatLng (curLatLng);
-          marker.bindPopup(i18n.t("messages.markerPopup")).openPopup();
-          marker.dragging.enable();
-        },
-        function(error) {
-          var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") && navigator.userAgent.toLowerCase().indexOf("mobile") > -1;
-          if(!isAndroid)
-            marker.bindPopup(i18n.t("messages.gpsError")).openPopup();
-          else
-            marker.bindPopup(i18n.t("messages.gpsErrorAndroid")).openPopup();
-
-          marker.dragging.enable();
-        },
-        {maximumAge: 3000, timeout: 5000, enableHighAccuracy: true}
-      );
-    }
 
     // set all initial values
     classification = "";
@@ -436,6 +442,7 @@ function afterLangInit() {
 
   function handleOrientation(event) {
     xOrientation = event.beta;
+    yOrientation = event.gamma;
   }
 
   $("#comment-next").click(function() {
@@ -444,7 +451,7 @@ function afterLangInit() {
     $("#photo-north").show();
 
     function compassSuccess(heading) {
-      if ((heading.magneticHeading >= 330 || heading.magneticHeading <= 30) && (xOrientation >= 60 && xOrientation <= 120))
+      if ((heading.magneticHeading >= 330 || heading.magneticHeading <= 30) && ((xOrientation >= 60 && xOrientation <= 120) || ((yOrientation >= 45 && yOrientation <= 90) || (yOrientation >= -90 && yOrientation <= -45))))
         $("#photo-north .take-photo").removeClass("ui-disabled");
       else
         $("#photo-north .take-photo").addClass("ui-disabled");
@@ -470,7 +477,7 @@ function afterLangInit() {
     $("#photo-east").show();
 
     function compassSuccess(heading) {
-      if ((heading.magneticHeading >= 60 && heading.magneticHeading <= 120) && (xOrientation >= 60 && xOrientation <= 120))
+      if ((heading.magneticHeading >= 60 && heading.magneticHeading <= 120) && ((xOrientation >= 60 && xOrientation <= 120) || ((yOrientation >= 45 && yOrientation <= 90) || (yOrientation >= -90 && yOrientation <= -45))))
         $("#photo-east .take-photo").removeClass("ui-disabled");
       else
         $("#photo-east .take-photo").addClass("ui-disabled");
@@ -486,7 +493,7 @@ function afterLangInit() {
     $("#photo-north").show();
 
     function compassSuccess(heading) {
-      if ((heading.magneticHeading >= 330 || heading.magneticHeading <= 30) && (xOrientation >= 60 && xOrientation <= 120))
+      if ((heading.magneticHeading >= 330 || heading.magneticHeading <= 30) && ((xOrientation >= 60 && xOrientation <= 120) || ((yOrientation >= 45 && yOrientation <= 90) || (yOrientation >= -90 && yOrientation <= -45))))
         $("#photo-north .take-photo").removeClass("ui-disabled");
       else
         $("#photo-north .take-photo").addClass("ui-disabled");
@@ -502,7 +509,7 @@ function afterLangInit() {
     $("#photo-south").show();
 
     function compassSuccess(heading) {
-      if ((heading.magneticHeading >= 150 && heading.magneticHeading <= 210) && (xOrientation >= 60 && xOrientation <= 120))
+      if ((heading.magneticHeading >= 150 && heading.magneticHeading <= 210) && ((xOrientation >= 60 && xOrientation <= 120) || ((yOrientation >= 45 && yOrientation <= 90) || (yOrientation >= -90 && yOrientation <= -45))))
         $("#photo-south .take-photo").removeClass("ui-disabled");
       else
         $("#photo-south .take-photo").addClass("ui-disabled");
@@ -518,7 +525,7 @@ function afterLangInit() {
     $("#photo-east").show();
 
     function compassSuccess(heading) {
-      if ((heading.magneticHeading >= 60 && heading.magneticHeading <= 120) && (xOrientation >= 60 && xOrientation <= 120))
+      if ((heading.magneticHeading >= 60 && heading.magneticHeading <= 120) && ((xOrientation >= 60 && xOrientation <= 120) || ((yOrientation >= 45 && yOrientation <= 90) || (yOrientation >= -90 && yOrientation <= -45))))
         $("#photo-east .take-photo").removeClass("ui-disabled");
       else
         $("#photo-east .take-photo").addClass("ui-disabled");
@@ -534,7 +541,7 @@ function afterLangInit() {
     $("#photo-west").show();
 
     function compassSuccess(heading) {
-      if ((heading.magneticHeading >= 240 && heading.magneticHeading <= 300) && (xOrientation >= 60 && xOrientation <= 120))
+      if ((heading.magneticHeading >= 240 && heading.magneticHeading <= 300) && ((xOrientation >= 60 && xOrientation <= 120) || ((yOrientation >= 45 && yOrientation <= 90) || (yOrientation >= -90 && yOrientation <= -45))))
         $("#photo-west .take-photo").removeClass("ui-disabled");
       else
         $("#photo-west .take-photo").addClass("ui-disabled");
@@ -550,7 +557,7 @@ function afterLangInit() {
     $("#photo-south").show();
 
     function compassSuccess(heading) {
-      if ((heading.magneticHeading >= 150 && heading.magneticHeading <= 210) && (xOrientation >= 60 && xOrientation <= 120))
+      if ((heading.magneticHeading >= 150 && heading.magneticHeading <= 210) && ((xOrientation >= 60 && xOrientation <= 120) || ((yOrientation >= 45 && yOrientation <= 90) || (yOrientation >= -90 && yOrientation <= -45))))
         $("#photo-south .take-photo").removeClass("ui-disabled");
       else
         $("#photo-south .take-photo").addClass("ui-disabled");

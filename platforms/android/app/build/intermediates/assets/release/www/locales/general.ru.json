@@ -50,7 +50,7 @@
   {
     "osm": "OpenStreetMap",
     "bing": "Bing Aerial"
-  },  
+  },
   "guidelines": {
     "link": "Правила",
     "listFirst": "Делая фотографии, руководствуясь инструкциями, приведенными ниже.",
@@ -105,9 +105,9 @@
     "allNoInternet": "Не удается показать общую карту из-за отсутствия соединения!",
     "ok": "OK",
     "registrationNoInternet": "Регистрация не удалась из-за отсутствия соединения!",
-    "gpsError":"Ошибка GPS! Пожалуйста, перетащите маркер на вашу текущую позицию.",
-    "gpsErrorAndroid":"Ошибка GPS! Включите геолокацию или перетащите маркер на вашу текущую позицию.",
-    "contributionSuccessNoInternet":"Спасибо за участие. Обратите внимание, что сейчас вы офлайн, пожалуйста запустите приложение, когда вы будете в сети, чтобы опубликовать ваши записи.",
+    "gpsError": "Ошибка GPS! Пожалуйста, перетащите маркер на вашу текущую позицию.",
+    "gpsErrorAndroid": "Ошибка GPS! Включите геолокацию или перетащите маркер на вашу текущую позицию.",
+    "contributionSuccessNoInternet": "Спасибо за участие. Обратите внимание, что сейчас вы офлайн, пожалуйста запустите приложение, когда вы будете в сети, чтобы опубликовать ваши записи.",
     "photoUnavailable": "Сделать фото можно с Android или iOS, но не из браузера.",
     "bingNoInternet": "Bing Aerial не удается показать из-за отсутствия соединения!",
     "osmNoInternet": "OpenStreetMap не удается показать из-за отсутствия соединения!",
@@ -147,6 +147,6 @@
       "everyone": "В общей секции можно увидеть точки всех участников. Точки одного класса, находящиеся близко друг к другу, будут объединены и обозначены цветом, соответствующим классу. Базовую карту можно выбрать между OpenStreetMap и Bing Aerial как для личной, так и для общей секции."
     },
     "acknowledgementsButton": "Разработчики",
-    "acknowledgements": "Приложение Land Cover Collector было разработано в <a href='http://geolab.como.polimi.it/' target='_blank'>GEOlab</a> - <a href='http://www.dica.polimi.it/en/' target='_blank'>Департаменте Гражданской и Экологической Инженерии</a> <a href='https://www.polimi.it/en/home/' target='_blank'>Politecnico di Milano</a>. Задача приложения - собрать данные о классификации земной поверхности, используя 10 классов <a href='http://www.globallandcover.com/GLC30Download/index.aspx' target='_blank'>GlobeLand30</a>. Приложение доступно на Английском, Итальянском, Арабском, Китайском, Испанском и Французском языках. Его можно скачать на Android или iOS по <a href='http://131.175.143.84/land-cover-collector/' target='_blank'>ссылке</a>.<br>Это проект с открытым кодом, доступный на <a href='https://github.com/kilsedar/land-cover-collector' target='_blank'>GitHub</a>. Проект защищен <a href='https://github.com/kilsedar/land-cover-collector/blob/master/LICENSE' target='_blank'>лицензией GLC-3.0</a>. Приложение отчасти является развитием проекта <a href='https://github.com/cartogroup/emomap' target='_blank'>EmoMap</a>, разработанным <a href='http://cartography.tuwien.ac.at' target='_blank'>Research Group Cartography</a> в <a href='http://geo.tuwien.ac.at/' target='_blank'>Департаменте Геодезии и Геоинформации</a> в <a href='https://www.tuwien.ac.at/en/' target='_blank'>TU Wien University</a>.<br>Этот проект поддерживается <a href='http://www.urbangeobigdata.it/' target='_blank'>URBAN GEOmatics for Bulk Information Generation, Data Assessment and Technology Awareness (URBAN GEO BIG DATA)</a>, <a href='http://prin.miur.it/' target='_blank'>Проектом Национальных Интересов (PRIN)</a>, который финансируется <a href='http://www.miur.gov.it/web/guest/home' target='_blank'>Итальянским Министерством Образования, Университетов и Исследований (MIUR)</a> - id. 20159CNLW8."
+    "acknowledgements": "Приложение Land Cover Collector было разработано в <a href='http://geolab.como.polimi.it/' target='_blank'>GEOlab</a> - <a href='http://www.dica.polimi.it/en/' target='_blank'>Департаменте Гражданской и Экологической Инженерии</a> <a href='https://www.polimi.it/en/home/' target='_blank'>Politecnico di Milano</a>. Задача приложения - собрать данные о классификации земной поверхности, используя 10 классов <a href='http://www.globallandcover.com/GLC30Download/index.aspx' target='_blank'>GlobeLand30</a>. Приложение доступно на английском, итальянском, арабском, китайском, испанском, русском, португальском и французском языках. Его можно скачать на Android или iOS по <a href='http://131.175.143.84/land-cover-collector/' target='_blank'>ссылке</a>.<br>Это проект с открытым кодом, доступный на <a href='https://github.com/kilsedar/land-cover-collector' target='_blank'>GitHub</a>. Проект защищен <a href='https://github.com/kilsedar/land-cover-collector/blob/master/LICENSE' target='_blank'>лицензией GLC-3.0</a>. Приложение отчасти является развитием проекта <a href='https://github.com/cartogroup/emomap' target='_blank'>EmoMap</a>, разработанным <a href='http://cartography.tuwien.ac.at' target='_blank'>Research Group Cartography</a> в <a href='http://geo.tuwien.ac.at/' target='_blank'>Департаменте Геодезии и Геоинформации</a> в <a href='https://www.tuwien.ac.at/en/' target='_blank'>TU Wien University</a>.<br>Этот проект поддерживается <a href='http://www.urbangeobigdata.it/' target='_blank'>URBAN GEOmatics for Bulk Information Generation, Data Assessment and Technology Awareness (URBAN GEO BIG DATA)</a>, <a href='http://prin.miur.it/' target='_blank'>Проектом Национальных Интересов (PRIN)</a>, который финансируется <a href='http://www.miur.gov.it/web/guest/home' target='_blank'>Итальянским Министерством Образования, Университетов и Исследований (MIUR)</a> - id. 20159CNLW8."
   }
 }

@@ -240,6 +240,10 @@ select, option {
   display: block;
 }
 
+#class-cancel, #certainty-back, #comment-back, #photo-north-back, #photo-east-back, #photo-south-back, #photo-west-back  {
+  float: left;
+}
+
 #class-next, #photo-north-next, #photo-east-next, #photo-south-next, #photo-west-next, #certainty-next, #comment-next {
   position: absolute;
   right: 0%;
