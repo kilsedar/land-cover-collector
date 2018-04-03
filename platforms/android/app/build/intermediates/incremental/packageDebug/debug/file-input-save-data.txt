@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Apr 03 18:06:48 CEST 2018
+#Tue Apr 03 18:22:19 CEST 2018
 20.base=/var/www/html/land-cover-collector/platforms/android/app/build/intermediates/assets/debug
 143.base=/var/www/html/land-cover-collector/platforms/android/app/build/intermediates/assets/debug
 493.base=/var/www/html/land-cover-collector/platforms/android/app/build/intermediates/assets/debug

@@ -17,7 +17,7 @@ function afterLangInit() {
 
     for (var i = 0; i < imageIdArray.length; i++) {
       var image = document.createElement("img");
-      image.src = "../img/screenshots/" + type + "/" + ln.language + "/" + imageIdArray[i] + ".jpg";
+      image.src = "img/screenshots/" + type + "/" + ln.language + "/" + imageIdArray[i] + ".jpg";
       instructionImages.appendChild(image);
     }
 

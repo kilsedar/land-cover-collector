@@ -1,4 +1,4 @@
-#Tue Apr 03 18:06:47 CEST 2018
+#Tue Apr 03 18:22:19 CEST 2018
 base.0=/var/www/html/land-cover-collector/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
 renamed.0=classes.dex
 file.0=/var/www/html/land-cover-collector/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex
