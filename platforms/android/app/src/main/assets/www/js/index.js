@@ -83,7 +83,7 @@ function afterLangInit() {
     return icon;
   }
 
-  marker = L.marker(curLatLng, {icon: setMarkerClassIcon(), draggable: false});
+  marker = L.marker(curLatLng, {icon: setMarkerClassIcon(), draggable: true});
 
   marker.on("dragend", function(event) {
     var latLng = event.target.getLatLng();
@@ -100,7 +100,6 @@ function afterLangInit() {
           map.panTo(curLatLng);
           marker.setLatLng (curLatLng);
           marker.bindPopup(i18n.t("messages.markerPopup")).openPopup();
-          marker.dragging.enable();
         },
         function(error) {
           var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") && navigator.userAgent.toLowerCase().indexOf("mobile") > -1;
@@ -108,8 +107,6 @@ function afterLangInit() {
             marker.bindPopup(i18n.t("messages.gpsError")).openPopup();
           else
             marker.bindPopup(i18n.t("messages.gpsErrorAndroid")).openPopup();
-
-          marker.dragging.enable();
         },
         {maximumAge: 3000, timeout: 5000, enableHighAccuracy: true}
       );
@@ -248,6 +245,9 @@ function afterLangInit() {
     $("#main-information, #mymap-stat, #allmap-stat, #legend-button, #legend").hide();
     $("body").css("overflow-y", "hidden");
 
+    map.panTo(curLatLng);
+    marker.setLatLng (curLatLng);
+
     if (markersAll) {
       for (var i=0; i<markersAll.length; i++) {
         map.removeLayer(markersAll[i]);
@@ -319,9 +319,6 @@ function afterLangInit() {
     if (map.hasLayer(marker))
       map.removeLayer(marker);
 
-    map.panTo(curLatLng);
-    marker.setLatLng (curLatLng);
-
     // read data from the local database
     localDB.allDocs({include_docs: true}, function(err, doc) {
       if (err) {
@@ -379,9 +376,6 @@ function afterLangInit() {
 
     if (map.hasLayer(marker))
       map.removeLayer(marker);
-
-    map.panTo(curLatLng);
-    marker.setLatLng (curLatLng);
 
     if (networkState == Connection.NONE || navigator.onLine == false) {
       navigator.notification.alert(i18n.t("messages.allNoInternet"), null, "Land Cover Collector", i18n.t("messages.ok"));
@@ -469,7 +463,6 @@ function afterLangInit() {
     $("#classes-menu").hide();
     $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-information").removeClass("ui-disabled");
     marker.setIcon(setMarkerClassIcon());
-    marker.dragging.disable();
     navigator.compass.clearWatch(watchCompassID);
   });
 
@@ -658,7 +651,6 @@ function afterLangInit() {
     function contributionSuccess() {
       $("#add-menu").show();
       marker.setIcon(setMarkerClassIcon());
-      marker.dragging.disable();
     }
 
     localDB.put(poi, function callback(err) {
