@@ -124,6 +124,7 @@ select, option {
 #start-information img, #main-information img {
   max-height: 400px;
   max-width: 100%;
+  margin: 0px 5px;
 }
 
 #start-information ol li, #main-information ol li {

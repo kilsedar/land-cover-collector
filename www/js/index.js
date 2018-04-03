@@ -7,6 +7,23 @@ var curLatLng = [0, 0], curLatLngAccuracy = 0;
 var classification = "", photoNorth = "", photoEast = "", photoSouth = "", photoWest = "", certainty = "60%", comment= "";
 
 function afterLangInit() {
+  function addInstructions(parent, instructionText, imageIdArray, type) {
+    var instruction = document.createElement("div");
+    instruction.className = "instruction";
+    instruction.innerHTML = instructionText;
+    document.getElementById(parent + "-instructions-" + type + "s").appendChild(instruction);
+
+    var instructionImages = document.createElement("div");
+
+    for (var i = 0; i < imageIdArray.length; i++) {
+      var image = document.createElement("img");
+      image.src = "../img/screenshots/" + type + "/" + ln.language + "/" + imageIdArray[i] + ".jpg";
+      instructionImages.appendChild(image);
+    }
+
+    document.getElementById(parent + "-instructions-" + type + "s").appendChild(instructionImages);
+  }
+
   var uuid = device.uuid;
   if (uuid == null)
     uuid = new Fingerprint().get().toString() + "-PC";
@@ -113,6 +130,26 @@ function afterLangInit() {
 
   $("#navbar-start-information").click(function() {
     $("#registration").hide();
+    addInstructions("start", i18n.t("information.instructions.registration"), [1, 2, 3], "application");
+    addInstructions("start", i18n.t("information.instructions.registration"), [1, 2, 3], "browser");
+    addInstructions("start", i18n.t("information.instructions.location"), [4, 5], "application");
+    addInstructions("start", i18n.t("information.instructions.location"), [4, 5], "browser");
+    addInstructions("start", i18n.t("information.instructions.guidelines"), [6], "application");
+    addInstructions("start", i18n.t("information.instructions.guidelines"), [6], "browser");
+    addInstructions("start", i18n.t("information.instructions.classification"), [7, 8], "application");
+    addInstructions("start", i18n.t("information.instructions.classification"), [7, 8], "browser");
+    addInstructions("start", i18n.t("information.instructions.certaintyAndComment"), [9, 10], "application");
+    addInstructions("start", i18n.t("information.instructions.certaintyAndComment"), [9, 10], "browser");
+    addInstructions("start", i18n.t("information.instructions.takePhotoNorth"), [11, 12], "application");
+    addInstructions("start", i18n.t("information.instructions.choosePhotoNorth"), [11, 12], "browser");
+    addInstructions("start", i18n.t("information.instructions.takePhotoEastSouthWest"), [13, 14, 15], "application");
+    addInstructions("start", i18n.t("information.instructions.choosePhotoEastSouthWest"), [13, 14, 15], "browser");
+    addInstructions("start", i18n.t("information.instructions.submission"), [16, 17], "application");
+    addInstructions("start", i18n.t("information.instructions.submission"), [16, 17], "browser");
+    addInstructions("start", i18n.t("information.instructions.myMap"), [18, 19], "application");
+    addInstructions("start", i18n.t("information.instructions.myMap"), [18, 19], "browser");
+    addInstructions("start", i18n.t("information.instructions.everyone"), [20, 21], "application");
+    addInstructions("start", i18n.t("information.instructions.everyone"), [20, 21], "browser");
     $("#start-information").show();
   });
 
@@ -403,6 +440,26 @@ function afterLangInit() {
 
   $("#navbar-main-information").click(function() {
     $("#add-menu, #mymap-stat, #allmap-stat, #map").hide();
+    addInstructions("main", i18n.t("information.instructions.registration"), [1, 2, 3], "application");
+    addInstructions("main", i18n.t("information.instructions.registration"), [1, 2, 3], "browser");
+    addInstructions("main", i18n.t("information.instructions.location"), [4, 5], "application");
+    addInstructions("main", i18n.t("information.instructions.location"), [4, 5], "browser");
+    addInstructions("main", i18n.t("information.instructions.guidelines"), [6], "application");
+    addInstructions("main", i18n.t("information.instructions.guidelines"), [6], "browser");
+    addInstructions("main", i18n.t("information.instructions.classification"), [7, 8], "application");
+    addInstructions("main", i18n.t("information.instructions.classification"), [7, 8], "browser");
+    addInstructions("main", i18n.t("information.instructions.certaintyAndComment"), [9, 10], "application");
+    addInstructions("main", i18n.t("information.instructions.certaintyAndComment"), [9, 10], "browser");
+    addInstructions("main", i18n.t("information.instructions.takePhotoNorth"), [11, 12], "application");
+    addInstructions("main", i18n.t("information.instructions.choosePhotoNorth"), [11, 12], "browser");
+    addInstructions("main", i18n.t("information.instructions.takePhotoEastSouthWest"), [13, 14, 15], "application");
+    addInstructions("main", i18n.t("information.instructions.choosePhotoEastSouthWest"), [13, 14, 15], "browser");
+    addInstructions("main", i18n.t("information.instructions.submission"), [16, 17], "application");
+    addInstructions("main", i18n.t("information.instructions.submission"), [16, 17], "browser");
+    addInstructions("main", i18n.t("information.instructions.myMap"), [18, 19], "application");
+    addInstructions("main", i18n.t("information.instructions.myMap"), [18, 19], "browser");
+    addInstructions("main", i18n.t("information.instructions.everyone"), [20, 21], "application");
+    addInstructions("main", i18n.t("information.instructions.everyone"), [20, 21], "browser");
     $("#main-information").show();
     $("body").css("overflow-y", "visible");
   });
