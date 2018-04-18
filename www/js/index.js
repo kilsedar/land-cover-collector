@@ -108,7 +108,7 @@ function afterLangInit() {
           else
             marker.bindPopup(i18n.t("messages.gpsErrorAndroid")).openPopup();
         },
-        {maximumAge: 3000, timeout: 5000, enableHighAccuracy: true}
+        {maximumAge: 3000, timeout: 8000, enableHighAccuracy: true}
       );
     }
   }
