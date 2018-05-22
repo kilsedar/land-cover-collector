@@ -106,7 +106,7 @@
     "ok": "OK",
     "registrationNoInternet": "¡El registro ha fallado porque la conexión a Internet está ausente!",
     "gpsError": "Error de GPS! Mueve el marcador de ubicación a donde te encuentras ahora.",
-    "gpsErrorAndroid": "Error de GPS! Activa el servicio de geolocalización o mueve el indicador de posición hacia donde estás ahora.",
+    "gpsErrorMobile": "Error de GPS! Activa el servicio de geolocalización o mueve el indicador de posición hacia donde estás ahora.",
     "contributionSuccessNoInternet": "Gracias por tu contribución. Nota: en este momento no estás conectado a Internet, cierra y vuelve a abrir la aplicación tan pronto como se conecte para compartir automáticamente tus contribuciones.",
     "photoUnavailable": "Puedes tomar una foto solo desde las aplicaciones de Android e iOS y no desde el navegador.",
     "bingNoInternet": "No se puede mostrar Bing Aereo porque falta la conexión a Internet.",

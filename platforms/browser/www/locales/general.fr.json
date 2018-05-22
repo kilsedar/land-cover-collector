@@ -106,7 +106,7 @@
     "ok": "OK",
     "registrationNoInternet": "L’inscription à échouée du à un problème de connexion Internet.",
     "gpsError": "Erreur GPS ! Merci de déplacer le marqueur à votre position actuelle.",
-    "gpsErrorAndroid": "Erreur GPS ! Merci d’activer le service de géolocalisation de votre téléphone afin de déterminer votre position actuelle.",
+    "gpsErrorMobile": "Erreur GPS ! Merci d’activer le service de géolocalisation de votre téléphone afin de déterminer votre position actuelle.",
     "contributionSuccessNoInternet": "Merci pour votre contribution.  Vous êtes actuellement deconnecté, merci de relancer l’application une fois connecté à nouveau.",
     "photoUnavailable": "Il est possible de prendre des photos avec les applications Android ou iOS. L’application web ne le permet pas.",
     "bingNoInternet": "La couche Bing Aérien ne peut être affichée car votre connection Internet est inactive.",

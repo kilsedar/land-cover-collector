@@ -5,6 +5,7 @@ var networkState, watchCompassID, isApplication, compassSupported = false;
 // initial values
 var curLatLng = [0, 0], curLatLngAccuracy = 0;
 var classification = "", photoNorth = "", photoEast = "", photoSouth = "", photoWest = "", certainty = "60%", comment= "";
+var countPopup = 0;
 
 function afterLangInit() {
   function addInstructions(parent, instructionText, imageIdArray, type) {
@@ -91,7 +92,10 @@ function afterLangInit() {
     curLatLngAccuracy = 0;
   });
 
-  function getCurrentPosition() {
+  var activeWatch;
+  var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+
+  function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         function(position) {
@@ -100,15 +104,21 @@ function afterLangInit() {
           map.panTo(curLatLng);
           marker.setLatLng (curLatLng);
           marker.bindPopup(i18n.t("messages.markerPopup")).openPopup();
+          clearInterval(activeWatch);
         },
         function(error) {
-          var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") && navigator.userAgent.toLowerCase().indexOf("mobile") > -1;
-          if(!isAndroid)
+          if(!isMobile) {
             marker.bindPopup(i18n.t("messages.gpsError")).openPopup();
-          else
-            marker.bindPopup(i18n.t("messages.gpsErrorAndroid")).openPopup();
+            clearInterval(activeWatch);
+          }
+          else {
+            if (countPopup == 0) {
+              marker.bindPopup(i18n.t("messages.gpsErrorMobile")).openPopup();
+              countPopup++;
+            }
+          }
         },
-        {maximumAge: 3000, timeout: 8000, enableHighAccuracy: true}
+        {timeout: 3000, enableHighAccuracy: true}
       );
     }
   }
@@ -164,7 +174,7 @@ function afterLangInit() {
       osm.addTo(map);
       marker.addTo(map);
 
-      getCurrentPosition();
+      activeWatch = setInterval(getLocation, 4000);
 
       window.localStorage.setItem("isLaunch",true);
     }
@@ -233,7 +243,7 @@ function afterLangInit() {
     osm.addTo(map);
     marker.addTo(map);
 
-    getCurrentPosition();
+    activeWatch = setInterval(getLocation, 4000);
   }
   else {
     $("#start-page").show();

@@ -106,7 +106,7 @@
     "ok": "OK",
     "registrationNoInternet": "Falha durante o registro devido à falta de conexão com a Internet!",
     "gpsError": "Erro no GPS! Por favor, arraste o marcador para sua posição atual.",
-    "gpsErrorAndroid": "Erro no GPS! Ative sua localização ou arraste o marcado para sua posição atual.",
+    "gpsErrorMobile": "Erro no GPS! Ative sua localização ou arraste o marcado para sua posição atual.",
     "contributionSuccessNoInternet": "Obrigado pela sua contribuição. Note que neste momento você está no mode offline. Por favor, quando possuir conexão abra o aplicativo novamente, a fim de compartilhar suas contribuições.",
     "photoUnavailable": "Tirar fotos é um recurso disponível apenas para Android e iOS, sendo indisponível para navegadores.",
     "bingNoInternet": "Bing Aerial não pode ser exibido devido à ausência de conexão com a Internet.",

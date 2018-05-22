@@ -106,7 +106,7 @@
     "ok": "OK",
     "registrationNoInternet": "La registrazione è fallita perché la connessione Internet è assente!",
     "gpsError": "Errore GPS! Ti preghiamo di spostare l'indicatore della posizione nel punto in cui ti trovi ora.",
-    "gpsErrorAndroid": "Errore GPS! Attiva il servizio di geolocalizzazione o sposta l'indicatore della posizione nel punto in cui ti trovi ora.",
+    "gpsErrorMobile": "Errore GPS! Attiva il servizio di geolocalizzazione o sposta l'indicatore della posizione nel punto in cui ti trovi ora.",
     "contributionSuccessNoInternet": "Grazie per il tuo contributo. Nota: in questo momento non sei connesso ad Internet, ti preghiamo di chiudere e riaprire l'applicazione non appena sarai connesso per condividere automaticamente i tuoi contributi.",
     "photoUnavailable": "È possibile scattare una foto solo dalle applicazione Android e iOS e non da browser.",
     "bingNoInternet": "Bing Aerial non può essere mostrata perché la connessione Internet è assente!",

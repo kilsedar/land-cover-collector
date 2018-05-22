@@ -106,7 +106,7 @@
     "ok": "OK",
     "registrationNoInternet": "Registration fails due to no Internet connection!",
     "gpsError": "GPS error! Please drag the marker to set your current location.",
-    "gpsErrorAndroid": "GPS error! Turn on your geolocation service or drag the marker to set your current location.",
+    "gpsErrorMobile": "GPS error! Turn on your geolocation service or drag the marker to set your current location.",
     "contributionSuccessNoInternet": "Thank you for the contribution. Note that you are currently in offline mode, please re-open the application once you have Internet connection to share your contributions.",
     "photoUnavailable": "Taking photo is available only on Android and iOS applications, and not from browsers.",
     "bingNoInternet": "Bing Aerial cannot be displayed due to no Internet connection!",
