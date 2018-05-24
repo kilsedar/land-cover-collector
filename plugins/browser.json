@@ -27,9 +27,6 @@
     },
     "cordova-plugin-network-information": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
-    },
-    "cordova-plugin-device-orientation": {
-      "PACKAGE_NAME": "polimi.geolab.lcc"
     }
   },
   "dependent_plugins": {}

@@ -13,9 +13,6 @@
     "cordova-plugin-device": {
       "PACKAGE_NAME": "polimi.geolab.lcc"
     },
-    "cordova-plugin-device-orientation": {
-      "PACKAGE_NAME": "polimi.geolab.lcc"
-    },
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "polimi.geolab.lcc"
     },
