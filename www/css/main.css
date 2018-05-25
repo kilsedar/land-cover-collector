@@ -332,6 +332,20 @@ select, option {
   padding-left: 20px;
 }
 
+#orientation {
+  left: 60px;
+  position: absolute;
+  color: rgb(255, 255, 255);
+  background-color: rgb(51, 136, 204);
+  font-weight: 900;
+  top: 10px;
+  font-size: 16px;
+  z-index: 1000;
+  padding: 0px 3px;
+  text-shadow: none;
+  margin: 0px;
+}
+
 .top-bar {
   text-align: center;
 }

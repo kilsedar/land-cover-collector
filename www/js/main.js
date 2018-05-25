@@ -1,13 +1,18 @@
-var map, bing, osm, markersMy, markersAll, marker;
-
-var networkState, isMobile, realHeading = 0;
-
-// initial values
-var curLatLng = [0, 0], curLatLngAccuracy = 0;
-var classification = "", photoNorth = "", photoEast = "", photoSouth = "", photoWest = "", photoNorthThumbnail = "", photoEastThumbnail = "", photoSouthThumbnail = "", photoWestThumbnail = "", directionNorth = "-", directionEast = "-", directionSouth = "-", directionWest = "-", certainty = "60%", comment= "";
+var photoNorth = "", photoEast = "", photoSouth = "", photoWest = "", photoNorthThumbnail = "", photoEastThumbnail = "", photoSouthThumbnail = "", photoWestThumbnail = "";
 
 function afterLangInit() {
-  isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+  var map, bing, osm, markersMy, markersAll, marker;
+
+  var networkState, uuid, localDB, remoteUsersDB, remotePointsDB;
+
+  var activeLocationWatch, countLocationPopup = 0;
+
+  var orientationData, compassHeading, watchNorthDirection, watchEastDirection, watchSouthDirection, watchWestDirection;
+
+  var curLatLng = [0, 0], curLatLngAccuracy = 0;
+  var classification = "", certainty = "60%", comment= "", directionNorth = "-", directionEast = "-", directionSouth = "-", directionWest = "-";
+
+  var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 
   function addInstructions(parent, instructionText, imageIdArray, type) {
     var instruction = document.createElement("div");
@@ -26,16 +31,16 @@ function afterLangInit() {
     document.getElementById(parent + "-instructions-" + type + "s").appendChild(instructionImages);
   }
 
-  var uuid = device.uuid;
+  uuid = device.uuid;
   if (uuid == null)
     uuid = new Fingerprint().get().toString() + "-PC";
 
   networkState = navigator.connection.type;
 
   // pouchdb & couchdb settings
-  var localDB = new PouchDB("db_local", {auto_compaction: true});
-  var remoteUsersDB = new PouchDB(SETTINGS.db_users_url, {size: 100});
-  var remotePointsDB = new PouchDB(SETTINGS.db_points_url, {size: 100});
+  localDB = new PouchDB("db_local", {auto_compaction: true});
+  remoteUsersDB = new PouchDB(SETTINGS.db_users_url, {size: 100});
+  remotePointsDB = new PouchDB(SETTINGS.db_points_url, {size: 100});
   function syncError(err) {
     console.log("sync error: " + err);
   }
@@ -93,7 +98,6 @@ function afterLangInit() {
     curLatLngAccuracy = 0;
   });
 
-  var activeWatch, countPopup = 0;
   function getLocation() {
     navigator.geolocation.getCurrentPosition(
       function(position) {
@@ -102,17 +106,17 @@ function afterLangInit() {
         map.panTo(curLatLng);
         marker.setLatLng (curLatLng);
         marker.bindPopup(i18n.t("messages.markerPopup")).openPopup();
-        clearInterval(activeWatch);
+        clearInterval(activeLocationWatch);
       },
       function(error) {
         if(!isMobile) {
           marker.bindPopup(i18n.t("messages.gpsError")).openPopup();
-          clearInterval(activeWatch);
+          clearInterval(activeLocationWatch);
         }
         else {
-          if (countPopup == 0) {
+          if (countLocationPopup == 0) {
             marker.bindPopup(i18n.t("messages.gpsErrorMobile")).openPopup();
-            countPopup++;
+            countLocationPopup++;
           }
         }
       },
@@ -171,7 +175,7 @@ function afterLangInit() {
       osm.addTo(map);
       marker.addTo(map);
 
-      activeWatch = setInterval(getLocation, 4000);
+      activeLocationWatch = setInterval(getLocation, 4000);
 
       window.localStorage.setItem("isLaunch",true);
     }
@@ -240,7 +244,7 @@ function afterLangInit() {
     osm.addTo(map);
     marker.addTo(map);
 
-    activeWatch = setInterval(getLocation, 4000);
+    activeLocationWatch = setInterval(getLocation, 4000);
   }
   else {
     $("#start-page").show();
@@ -491,28 +495,23 @@ function afterLangInit() {
     $("#certainty-slider").show();
   });
 
-  function getDeviceOrientation(event) {
-    var heading = 360-Math.round(event.alpha);
-
-    if (window.screen.orientation.type == "landscape-primary") {
-      realHeading = (heading+90)%360;
-    }
-    else if (window.screen.orientation.type == "landscape-secondary") {
-      realHeading = (heading-90)%360;
-    }
-  }
-
-  var watchNorthDirection, watchEastDirection, watchSouthDirection, watchWestDirection;
-
   $("#comment-next").click(function() {
     comment =  $("#comment-input").val();
     $("#comment").hide();
     $("#photo-north").show();
 
     if (isMobile) {
-      window.addEventListener("deviceorientation", getDeviceOrientation, true);
+      orientationData = new FULLTILT.DeviceOrientation({"type": "world"});
+
+      orientationData.start(function() {
+        var currentOrientation = orientationData.getScreenAdjustedEuler();
+        compassHeading = 360 - currentOrientation.alpha;
+        $("#orientation").css("display", "block");
+        $("#orientation").text(Math.round(compassHeading));
+      });
+
       watchNorthDirection = setInterval(function() {
-        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (realHeading >= 330 || realHeading <= 30))
+        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 330 || compassHeading <= 30))
           $("#photo-north .take-photo").removeClass("ui-disabled");
         else
           $("#photo-north .take-photo").addClass("ui-disabled");
@@ -524,8 +523,11 @@ function afterLangInit() {
     $("#photo-north").hide();
     $("#comment").show();
 
-    if (isMobile)
+    if (isMobile) {
       clearInterval(watchNorthDirection);
+      orientationData.stop();
+      $("#orientation").css("display", "none");
+    }
   });
 
   $("#photo-north-next").click(function() {
@@ -536,7 +538,7 @@ function afterLangInit() {
       clearInterval(watchNorthDirection);
 
       watchEastDirection = setInterval(function() {
-        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (realHeading >= 60 && realHeading <= 120))
+        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 60 && compassHeading <= 120))
           $("#photo-east .take-photo").removeClass("ui-disabled");
         else
           $("#photo-east .take-photo").addClass("ui-disabled");
@@ -552,7 +554,7 @@ function afterLangInit() {
       clearInterval(watchEastDirection);
 
       watchNorthDirection = setInterval(function() {
-        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (realHeading >= 330 || realHeading <= 30))
+        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 330 || compassHeading <= 30))
           $("#photo-north .take-photo").removeClass("ui-disabled");
         else
           $("#photo-north .take-photo").addClass("ui-disabled");
@@ -568,7 +570,7 @@ function afterLangInit() {
       clearInterval(watchEastDirection);
 
       watchSouthDirection = setInterval(function() {
-        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (realHeading >= 150 && realHeading <= 210))
+        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 150 && compassHeading <= 210))
           $("#photo-south .take-photo").removeClass("ui-disabled");
         else
           $("#photo-south .take-photo").addClass("ui-disabled");
@@ -584,7 +586,7 @@ function afterLangInit() {
       clearInterval(watchSouthDirection);
 
       watchEastDirection = setInterval(function() {
-        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (realHeading >= 60 && realHeading <= 120))
+        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 60 && compassHeading <= 120))
           $("#photo-east .take-photo").removeClass("ui-disabled");
         else
           $("#photo-east .take-photo").addClass("ui-disabled");
@@ -600,7 +602,7 @@ function afterLangInit() {
       clearInterval(watchSouthDirection);
 
       watchWestDirection = setInterval(function() {
-        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (realHeading >= 240 && realHeading <= 300))
+        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 240 && compassHeading <= 300))
           $("#photo-west .take-photo").removeClass("ui-disabled");
         else
           $("#photo-west .take-photo").addClass("ui-disabled");
@@ -616,7 +618,7 @@ function afterLangInit() {
       clearInterval(watchWestDirection);
 
       watchSouthDirection = setInterval(function() {
-        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (realHeading >= 150 && realHeading <= 210))
+        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 150 && compassHeading <= 210))
           $("#photo-south .take-photo").removeClass("ui-disabled");
         else
           $("#photo-south .take-photo").addClass("ui-disabled");
@@ -717,7 +719,8 @@ function afterLangInit() {
 
     if (isMobile) {
       clearInterval(watchWestDirection);
-      window.removeEventListener("deviceorientation", getDeviceOrientation);
+      orientationData.stop();
+      $("#orientation").css("display", "none");
     }
   });
 
@@ -795,7 +798,7 @@ function afterLangInit() {
       img.onload = function (e) {
         window["photo"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)] = img.src.substr(img.src.indexOf(",")+1);
         window["photo"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)+"Thumbnail"] = resizeImage(img);
-      }      
+      }
     }
 
     // when the file is read it triggers the onload event above
@@ -820,7 +823,7 @@ function afterLangInit() {
 
     var activeDirection = activeDivId.split("-")[1];
     window["photo"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)] = pictureData;
-    window["direction"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)] = realHeading;
+    window["direction"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)] = compassHeading;
 
     var img = new Image();
     img.src = "data:image/png;base64,"+pictureData;
