@@ -1,4 +1,4 @@
-var photoNorth = "", photoEast = "", photoSouth = "", photoWest = "", photoNorthThumbnail = "", photoEastThumbnail = "", photoSouthThumbnail = "", photoWestThumbnail = "";
+var photoNorth = "", photoEast = "", photoSouth = "", photoWest = "", photoNorthThumbnail = "", photoEastThumbnail = "", photoSouthThumbnail = "", photoWestThumbnail = "", directionNorth = "-", directionEast = "-", directionSouth = "-", directionWest = "-";
 
 function afterLangInit() {
   var map, bing, osm, markersMy, markersAll, marker;
@@ -7,12 +7,43 @@ function afterLangInit() {
 
   var activeLocationWatch, countLocationPopup = 0;
 
-  var compassHeading, watchNorthDirection, watchEastDirection, watchSouthDirection, watchWestDirection;
+  var orientationSupported, takePhotoEnabled = false, compassHeading, watchNorthDirection, watchEastDirection, watchSouthDirection, watchWestDirection;
 
   var curLatLng = [0, 0], curLatLngAccuracy = 0;
-  var classification = "", certainty = "60%", comment= "", directionNorth = "-", directionEast = "-", directionSouth = "-", directionWest = "-";
+  var classification = "", certainty = "60%", comment = "";
 
   var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+  var isApp = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
+
+  function handleOrientation(event) {
+    if (event.absolute) {
+      orientationSupported = true;
+      compassHeading = Math.round(event.alpha);
+      if (window.screen.orientation.type == "landscape-primary")
+        compassHeading = (compassHeading+270)%360;
+      else if (window.screen.orientation.type == "landscape-secondary")
+        compassHeading = (compassHeading+90)%360;
+      $("#orientation").text(compassHeading);
+    }
+    else if (event.hasOwnProperty("webkitCompassHeading")) {
+      orientationSupported = true;
+      compassHeading = 360 - Math.round(event.webkitCompassHeading);
+      if (window.screen.orientation.type == "landscape-primary")
+        compassHeading = (compassHeading+270)%360;
+      else if (window.screen.orientation.type == "landscape-secondary")
+        compassHeading = (compassHeading+90)%360;
+      $("#orientation").text(compassHeading);
+    }
+    else
+      orientationSupported = false;
+
+    if (takePhotoEnabled == false && orientationSupported == true && isApp == true) {
+      $("#input-file").hide();
+      $(".choose-photo").hide();
+      $(".take-photo").show();
+      takePhotoEnabled = true;
+    }
+  }
 
   function addInstructions(parent, instructionText, imageIdArray, type) {
     var instruction = document.createElement("div");
@@ -285,12 +316,14 @@ function afterLangInit() {
     $("#comment-input").val("");
     $("#slider").val(3).slider("refresh");
 
-    if (isMobile) {
-      $("#input-file").remove();
-      $(".choose-photo").remove();
+    $(".take-photo").hide();
+
+    if ("ondeviceorientationabsolute" in window) {
+      window.addEventListener("deviceorientationabsolute", handleOrientation);
     }
-    else
-      $(".take-photo").remove();
+    else if ("ondeviceorientation" in window) {
+      window.addEventListener("deviceorientation", handleOrientation);
+    }
 
     // set all initial values
     classification = "";
@@ -473,6 +506,11 @@ function afterLangInit() {
     $("#classes-menu").hide();
     $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-information").removeClass("ui-disabled");
     marker.setIcon(setMarkerClassIcon());
+
+    if ("ondeviceorientationabsolute" in window)
+      window.removeEventListener("deviceorientationabsolute", handleOrientation);
+    else if ("ondeviceorientation" in window)
+      window.removeEventListener("deviceorientation", handleOrientation);
   });
 
   $("#class-next").click(function() {
@@ -495,39 +533,15 @@ function afterLangInit() {
     $("#certainty-slider").show();
   });
 
-
-
-
-  var promise = FULLTILT.getDeviceOrientation({"type": "world"});
-
-  promise.then(function(deviceOrientation) {
-    deviceOrientation.listen(function() {
-      var currentOrientation = deviceOrientation.getScreenAdjustedEuler();
-      compassHeading = 360 - currentOrientation.alpha;
-      $("#orientation").css("display", "block");
-      $("#orientation").text(Math.round(compassHeading));
-    });
-  }).catch(function(errorMessage) {
-    console.log(errorMessage);
-  });
-
-
-
   $("#comment-next").click(function() {
     comment =  $("#comment-input").val();
     $("#comment").hide();
     $("#photo-north").show();
 
-    if (isMobile) {
-      /* orientationData = new FULLTILT.DeviceOrientation({"type": "world"});
+    if (orientationSupported)
+      $("#orientation").css("display", "block");
 
-      orientationData.start(function() {
-        var currentOrientation = orientationData.getScreenAdjustedEuler();
-        compassHeading = 360 - currentOrientation.alpha;
-        $("#orientation").css("display", "block");
-        $("#orientation").text(Math.round(compassHeading));
-      }); */
-
+    if (isApp && orientationSupported) {
       watchNorthDirection = setInterval(function() {
         if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 330 || compassHeading <= 30))
           $("#photo-north .take-photo").removeClass("ui-disabled");
@@ -541,18 +555,18 @@ function afterLangInit() {
     $("#photo-north").hide();
     $("#comment").show();
 
-    if (isMobile) {
+    if (orientationSupported)
+      $("#orientation").css("display", "none");
+
+    if (isApp && orientationSupported)
       clearInterval(watchNorthDirection);
-      /* orientationData.stop();
-      $("#orientation").css("display", "none"); */
-    }
   });
 
   $("#photo-north-next").click(function() {
     $("#photo-north").hide();
     $("#photo-east").show();
 
-    if (isMobile) {
+    if (isApp && orientationSupported) {
       clearInterval(watchNorthDirection);
 
       watchEastDirection = setInterval(function() {
@@ -568,7 +582,7 @@ function afterLangInit() {
     $("#photo-east").hide();
     $("#photo-north").show();
 
-    if (isMobile) {
+    if (isApp && orientationSupported) {
       clearInterval(watchEastDirection);
 
       watchNorthDirection = setInterval(function() {
@@ -584,7 +598,7 @@ function afterLangInit() {
     $("#photo-east").hide();
     $("#photo-south").show();
 
-    if (isMobile) {
+    if (isApp && orientationSupported) {
       clearInterval(watchEastDirection);
 
       watchSouthDirection = setInterval(function() {
@@ -600,7 +614,7 @@ function afterLangInit() {
     $("#photo-south").hide();
     $("#photo-east").show();
 
-    if (isMobile) {
+    if (isApp && orientationSupported) {
       clearInterval(watchSouthDirection);
 
       watchEastDirection = setInterval(function() {
@@ -616,7 +630,7 @@ function afterLangInit() {
     $("#photo-south").hide();
     $("#photo-west").show();
 
-    if (isMobile) {
+    if (isApp && orientationSupported) {
       clearInterval(watchSouthDirection);
 
       watchWestDirection = setInterval(function() {
@@ -632,7 +646,7 @@ function afterLangInit() {
     $("#photo-west").hide();
     $("#photo-south").show();
 
-    if (isMobile) {
+    if (isApp && orientationSupported) {
       clearInterval(watchWestDirection);
 
       watchSouthDirection = setInterval(function() {
@@ -735,11 +749,16 @@ function afterLangInit() {
     marker.closePopup();
     marker.unbindPopup();
 
-    if (isMobile) {
+    if (orientationSupported)
+      $("#orientation").css("display", "none");
+
+    if (isApp && orientationSupported)
       clearInterval(watchWestDirection);
-      /* orientationData.stop();
-      $("#orientation").css("display", "none"); */
-    }
+
+    if ("ondeviceorientationabsolute" in window)
+      window.removeEventListener("deviceorientationabsolute", handleOrientation);
+    else if ("ondeviceorientation" in window)
+      window.removeEventListener("deviceorientation", handleOrientation);
   });
 
   $("#slider").bind("slidestop", function() {

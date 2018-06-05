@@ -344,6 +344,7 @@ select, option {
   padding: 0px 3px;
   text-shadow: none;
   margin: 0px;
+  display: none;
 }
 
 .top-bar {
