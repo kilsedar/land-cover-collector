@@ -7,7 +7,7 @@ function afterLangInit() {
 
   var activeLocationWatch, countLocationPopup = 0;
 
-  var orientationSupported, takePhotoEnabled = false, compassHeading, watchNorthDirection, watchEastDirection, watchSouthDirection, watchWestDirection;
+  var orientationSupported, handleOrientationCount = 0, takePhotoEnabled, compassHeading, watchNorthDirection, watchEastDirection, watchSouthDirection, watchWestDirection;
 
   var curLatLng = [0, 0], curLatLngAccuracy = 0;
   var classification = "", certainty = "60%", comment = "";
@@ -16,32 +16,39 @@ function afterLangInit() {
   var isApp = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
 
   function handleOrientation(event) {
-    if (event.absolute) {
-      orientationSupported = true;
-      compassHeading = Math.round(event.alpha);
-      if (window.screen.orientation.type == "landscape-primary")
-        compassHeading = (compassHeading+270)%360;
-      else if (window.screen.orientation.type == "landscape-secondary")
-        compassHeading = (compassHeading+90)%360;
-      $("#orientation").text(compassHeading);
-    }
-    else if (event.hasOwnProperty("webkitCompassHeading")) {
-      orientationSupported = true;
-      compassHeading = 360 - Math.round(event.webkitCompassHeading);
-      if (window.screen.orientation.type == "landscape-primary")
-        compassHeading = (compassHeading+270)%360;
-      else if (window.screen.orientation.type == "landscape-secondary")
-        compassHeading = (compassHeading+90)%360;
-      $("#orientation").text(compassHeading);
-    }
-    else
-      orientationSupported = false;
+    if (handleOrientationCount < 3)
+      handleOrientationCount+=1;
 
-    if (takePhotoEnabled == false && orientationSupported == true && isApp == true) {
-      $("#input-file").hide();
-      $(".choose-photo").hide();
-      $(".take-photo").show();
-      takePhotoEnabled = true;
+    // on devices that don't support device direction because they don't have the required hardware, although event.absolute returns true the alpha value returned is 0
+    // event listener is called at the beginning and after each photo shoot
+    if (handleOrientationCount > 1) {
+      if (event.absolute) {
+        orientationSupported = true;
+        compassHeading = Math.round(event.alpha);
+        if (window.screen.orientation.type == "landscape-primary")
+          compassHeading = (compassHeading+270)%360;
+        else if (window.screen.orientation.type == "landscape-secondary")
+          compassHeading = (compassHeading+90)%360;
+        $("#orientation").text(compassHeading);
+      }
+      else if (event.hasOwnProperty("webkitCompassHeading")) {
+        orientationSupported = true;
+        compassHeading = 360 - Math.round(event.webkitCompassHeading);
+        if (window.screen.orientation.type == "landscape-primary")
+          compassHeading = (compassHeading+270)%360;
+        else if (window.screen.orientation.type == "landscape-secondary")
+          compassHeading = (compassHeading+90)%360;
+        $("#orientation").text(compassHeading);
+      }
+      else
+        orientationSupported = false;
+
+      if (takePhotoEnabled == false && orientationSupported == true && isApp == true) {
+        $("#input-file").hide();
+        $(".choose-photo").hide();
+        $(".take-photo").show();
+        takePhotoEnabled = true;
+      }
     }
   }
 
@@ -316,6 +323,7 @@ function afterLangInit() {
     $("#comment-input").val("");
     $("#slider").val(3).slider("refresh");
 
+    takePhotoEnabled = false;
     $(".take-photo").hide();
 
     if ("ondeviceorientationabsolute" in window) {
@@ -507,10 +515,14 @@ function afterLangInit() {
     $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-information").removeClass("ui-disabled");
     marker.setIcon(setMarkerClassIcon());
 
-    if ("ondeviceorientationabsolute" in window)
+    if ("ondeviceorientationabsolute" in window) {
       window.removeEventListener("deviceorientationabsolute", handleOrientation);
-    else if ("ondeviceorientation" in window)
+      handleOrientationCount = 0;
+    }
+    else if ("ondeviceorientation" in window) {
       window.removeEventListener("deviceorientation", handleOrientation);
+      handleOrientationCount = 0;
+    }
   });
 
   $("#class-next").click(function() {
@@ -538,15 +550,33 @@ function afterLangInit() {
     $("#comment").hide();
     $("#photo-north").show();
 
-    if (orientationSupported)
+    if (handleOrientationCount < 2) {
+      if ("ondeviceorientationabsolute" in window) {
+        window.removeEventListener("deviceorientationabsolute", handleOrientation);
+        handleOrientationCount = 0;
+      }
+      else if ("ondeviceorientation" in window) {
+        window.removeEventListener("deviceorientation", handleOrientation);
+        handleOrientationCount = 0;
+      }
+    }
+
+    if (orientationSupported) {
       $("#orientation").css("display", "block");
 
-    if (isApp && orientationSupported) {
       watchNorthDirection = setInterval(function() {
-        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 330 || compassHeading <= 30))
-          $("#photo-north .take-photo").removeClass("ui-disabled");
-        else
-          $("#photo-north .take-photo").addClass("ui-disabled");
+        if (isApp) {
+          if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 330 || compassHeading <= 30))
+            $("#photo-north .take-photo").removeClass("ui-disabled");
+          else
+            $("#photo-north .take-photo").addClass("ui-disabled");
+        }
+        else {
+          if (compassHeading >= 330 || compassHeading <= 30)
+            $("#photo-north .choose-photo").removeClass("ui-disabled");
+          else
+            $("#photo-north .choose-photo").addClass("ui-disabled");
+        }
       }, 200);
     }
   });
@@ -555,25 +585,32 @@ function afterLangInit() {
     $("#photo-north").hide();
     $("#comment").show();
 
-    if (orientationSupported)
+    if (orientationSupported) {
       $("#orientation").css("display", "none");
-
-    if (isApp && orientationSupported)
       clearInterval(watchNorthDirection);
+    }
   });
 
   $("#photo-north-next").click(function() {
     $("#photo-north").hide();
     $("#photo-east").show();
 
-    if (isApp && orientationSupported) {
+    if (orientationSupported) {
       clearInterval(watchNorthDirection);
 
       watchEastDirection = setInterval(function() {
-        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 60 && compassHeading <= 120))
-          $("#photo-east .take-photo").removeClass("ui-disabled");
-        else
-          $("#photo-east .take-photo").addClass("ui-disabled");
+        if (isApp) {
+          if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 60 && compassHeading <= 120))
+            $("#photo-east .take-photo").removeClass("ui-disabled");
+          else
+            $("#photo-east .take-photo").addClass("ui-disabled");
+        }
+        else {
+          if (compassHeading >= 60 && compassHeading <= 120)
+            $("#photo-east .choose-photo").removeClass("ui-disabled");
+          else
+            $("#photo-east .choose-photo").addClass("ui-disabled");
+        }
       }, 200);
     }
   });
@@ -582,14 +619,22 @@ function afterLangInit() {
     $("#photo-east").hide();
     $("#photo-north").show();
 
-    if (isApp && orientationSupported) {
+    if (orientationSupported) {
       clearInterval(watchEastDirection);
 
       watchNorthDirection = setInterval(function() {
-        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 330 || compassHeading <= 30))
-          $("#photo-north .take-photo").removeClass("ui-disabled");
-        else
-          $("#photo-north .take-photo").addClass("ui-disabled");
+        if (isApp) {
+          if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 330 || compassHeading <= 30))
+            $("#photo-north .take-photo").removeClass("ui-disabled");
+          else
+            $("#photo-north .take-photo").addClass("ui-disabled");
+        }
+        else {
+          if (compassHeading >= 330 || compassHeading <= 30)
+            $("#photo-north .choose-photo").removeClass("ui-disabled");
+          else
+            $("#photo-north .choose-photo").addClass("ui-disabled");
+        }
       }, 200);
     }
   });
@@ -598,14 +643,23 @@ function afterLangInit() {
     $("#photo-east").hide();
     $("#photo-south").show();
 
-    if (isApp && orientationSupported) {
+    if (orientationSupported) {
       clearInterval(watchEastDirection);
 
       watchSouthDirection = setInterval(function() {
-        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 150 && compassHeading <= 210))
-          $("#photo-south .take-photo").removeClass("ui-disabled");
-        else
-          $("#photo-south .take-photo").addClass("ui-disabled");
+        if (isApp) {
+          if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 150 && compassHeading <= 210))
+            $("#photo-south .take-photo").removeClass("ui-disabled");
+          else
+            $("#photo-south .take-photo").addClass("ui-disabled");
+        }
+        else {
+          if (compassHeading >= 150 && compassHeading <= 210)
+            $("#photo-south .choose-photo").removeClass("ui-disabled");
+          else
+            $("#photo-south .choose-photo").addClass("ui-disabled");
+        }
+
       }, 200);
     }
   });
@@ -614,14 +668,22 @@ function afterLangInit() {
     $("#photo-south").hide();
     $("#photo-east").show();
 
-    if (isApp && orientationSupported) {
+    if (orientationSupported) {
       clearInterval(watchSouthDirection);
 
       watchEastDirection = setInterval(function() {
-        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 60 && compassHeading <= 120))
-          $("#photo-east .take-photo").removeClass("ui-disabled");
-        else
-          $("#photo-east .take-photo").addClass("ui-disabled");
+        if (isApp) {
+          if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 60 && compassHeading <= 120))
+            $("#photo-east .take-photo").removeClass("ui-disabled");
+          else
+            $("#photo-east .take-photo").addClass("ui-disabled");
+        }
+        else {
+          if (compassHeading >= 60 && compassHeading <= 120)
+            $("#photo-east .choose-photo").removeClass("ui-disabled");
+          else
+            $("#photo-east .choose-photo").addClass("ui-disabled");
+        }
       }, 200);
     }
   });
@@ -630,14 +692,22 @@ function afterLangInit() {
     $("#photo-south").hide();
     $("#photo-west").show();
 
-    if (isApp && orientationSupported) {
+    if (orientationSupported) {
       clearInterval(watchSouthDirection);
 
       watchWestDirection = setInterval(function() {
-        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 240 && compassHeading <= 300))
-          $("#photo-west .take-photo").removeClass("ui-disabled");
-        else
-          $("#photo-west .take-photo").addClass("ui-disabled");
+        if (isApp) {
+          if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 240 && compassHeading <= 300))
+            $("#photo-west .take-photo").removeClass("ui-disabled");
+          else
+            $("#photo-west .take-photo").addClass("ui-disabled");
+        }
+        else {
+          if (compassHeading >= 240 && compassHeading <= 300)
+            $("#photo-west .choose-photo").removeClass("ui-disabled");
+          else
+            $("#photo-west .choose-photo").addClass("ui-disabled");
+        }
       }, 200);
     }
   });
@@ -646,14 +716,22 @@ function afterLangInit() {
     $("#photo-west").hide();
     $("#photo-south").show();
 
-    if (isApp && orientationSupported) {
+    if (orientationSupported) {
       clearInterval(watchWestDirection);
 
       watchSouthDirection = setInterval(function() {
-        if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 150 && compassHeading <= 210))
-          $("#photo-south .take-photo").removeClass("ui-disabled");
-        else
-          $("#photo-south .take-photo").addClass("ui-disabled");
+        if (isApp) {
+          if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 150 && compassHeading <= 210))
+            $("#photo-south .take-photo").removeClass("ui-disabled");
+          else
+            $("#photo-south .take-photo").addClass("ui-disabled");
+        }
+        else {
+          if (compassHeading >= 150 && compassHeading <= 210)
+            $("#photo-south .choose-photo").removeClass("ui-disabled");
+          else
+            $("#photo-south .choose-photo").addClass("ui-disabled");
+        }
       }, 200);
     }
   });
@@ -749,16 +827,19 @@ function afterLangInit() {
     marker.closePopup();
     marker.unbindPopup();
 
-    if (orientationSupported)
+    if (orientationSupported) {
       $("#orientation").css("display", "none");
-
-    if (isApp && orientationSupported)
       clearInterval(watchWestDirection);
+    }
 
-    if ("ondeviceorientationabsolute" in window)
+    if ("ondeviceorientationabsolute" in window) {
       window.removeEventListener("deviceorientationabsolute", handleOrientation);
-    else if ("ondeviceorientation" in window)
+      handleOrientationCount = 0;
+    }
+    else if ("ondeviceorientation" in window) {
       window.removeEventListener("deviceorientation", handleOrientation);
+      handleOrientationCount = 0;
+    }
   });
 
   $("#slider").bind("slidestop", function() {
@@ -1079,6 +1160,25 @@ $("#legend-button, #legend").hover(
       $("#legend").css("width", ($("#legend").width()-10) + "px");
   }
 );
+
+$("#legend-button").on("touchstart", function() {
+  $("#legend-button").hide();
+  $("#legend").show();
+  legendHeight = document.getElementById("legend").scrollHeight;
+  if (legendHeight+70 > $("#map").height()) {
+    $("#legend").css("height", ($("#map").height()-70) + "px");
+    $("#legend").css("width", ($("#legend").width()+10) + "px");
+  }
+  else
+    $("#legend").css("height", "auto");
+});
+
+$("#legend-button").on("touchend", function() {
+  $("#legend-button").show();
+  $("#legend").hide();
+  if (legendHeight+70 > $("#map").height())
+    $("#legend").css("width", ($("#legend").width()-10) + "px");
+});
 
 function adjustGuidelinesList() {
   if (guidelinesListHeight+140 > $("#map").height())
