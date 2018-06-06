@@ -175,11 +175,15 @@ select, option {
   right: 10px;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 0px;
-  border: 3px solid rgba(51, 136, 204, 0.5);
+  border: 3px solid rgb(51, 136, 204);
   line-height: 0.5;
   z-index: 1010;
   display: none;
   cursor: pointer;
+}
+
+#legend-button:hover {
+  border: 3px solid rgb(41, 108, 163);
 }
 
 #legend {
@@ -188,7 +192,7 @@ select, option {
   background-color: rgba(255, 255, 255, 0.9);
   display: none;
   padding: 3px;
-  top: 10px;
+  top: 48px;
   right: 10px;
   text-shadow: none;
   z-index: 1000;
@@ -301,7 +305,7 @@ select, option {
 }
 
 #guidelines-button:hover {
-  background-color: rgb(0, 85, 153);
+  background-color: rgb(41, 108, 163);
 }
 
 #guidelines-list {

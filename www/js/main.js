@@ -1140,26 +1140,27 @@ $("#terms-and-conditions-button").click(function() {
   $("#terms-and-conditions-list").slideToggle({"duration": 200});
 });
 
-var legendHeight, guidelinesListHeight;
+var legendHeight, legendWidth, guidelinesListHeight;
 
-$("#legend-button, #legend").hover(
-  function() {
-    $("#legend-button").hide();
-    $("#legend").show();
-    legendHeight = document.getElementById("legend").scrollHeight;
-    if (legendHeight+70 > $("#map").height()) {
-      $("#legend").css("height", ($("#map").height()-70) + "px");
-      $("#legend").css("width", ($("#legend").width()+10) + "px");
-    }
-    else
-      $("#legend").css("height", "auto");
-  }, function() {
-    $("#legend-button").show();
-    $("#legend").hide();
-    if (legendHeight+70 > $("#map").height())
-      $("#legend").css("width", ($("#legend").width()-10) + "px");
+function adjustLegend() {
+  if (legendHeight+108 > $("#map").height()) {
+    $("#legend").css("height", ($("#map").height()-108) + "px");
+    $("#legend").css("width", (legendWidth+10) + "px");
   }
-);
+  else {
+    $("#legend").css("height", "auto");
+    $("#legend").css("width", "auto");
+  }
+}
+
+$("#legend-button").on("vclick", function() {
+  $("#legend").toggle();
+
+  legendHeight = document.getElementById("legend").scrollHeight;
+  legendWidth = $("#legend").width();
+
+  adjustLegend();
+});
 
 function adjustGuidelinesList() {
   if (guidelinesListHeight+140 > $("#map").height())
@@ -1183,15 +1184,7 @@ $("#guidelines-button").on("vclick", function() {
 function onResize() {
   $("#map").height($(window).height() - $("#map").offset().top);
 
-  // following adjustment of legend dimensions is only for mobile devices in case the orientation changes
-  legendHeight = document.getElementById("legend").scrollHeight;
-  if (legendHeight+70 > $("#map").height()) {
-    $("#legend").css("height", ($("#map").height()-70) + "px");
-    $("#legend").css("width", ($("#legend").width()+10) + "px");
-  }
-  else
-    $("#legend").css("height", "auto");
-
+  adjustLegend();
   adjustGuidelinesList();
 }
 
