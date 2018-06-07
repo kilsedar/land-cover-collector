@@ -26,9 +26,9 @@ function afterLangInit() {
         orientationSupported = true;
         compassHeading = 360-Math.round(event.alpha);
         if (window.screen.orientation.type == "landscape-primary")
-          compassHeading = (compassHeading+270)%360;
-        else if (window.screen.orientation.type == "landscape-secondary")
           compassHeading = (compassHeading+90)%360;
+        else if (window.screen.orientation.type == "landscape-secondary")
+          compassHeading = (compassHeading+270)%360;
         $("#orientation").text(compassHeading);
       }
       else if (event.webkitCompassHeading) {
