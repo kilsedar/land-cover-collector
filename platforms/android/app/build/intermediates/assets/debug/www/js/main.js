@@ -24,19 +24,19 @@ function afterLangInit() {
     if (handleOrientationCount > 1) {
       if (event.absolute) {
         orientationSupported = true;
-        compassHeading = Math.round(event.alpha);
+        compassHeading = 360-Math.round(event.alpha);
         if (window.screen.orientation.type == "landscape-primary")
           compassHeading = (compassHeading+270)%360;
         else if (window.screen.orientation.type == "landscape-secondary")
           compassHeading = (compassHeading+90)%360;
         $("#orientation").text(compassHeading);
       }
-      else if (event.hasOwnProperty("webkitCompassHeading")) {
+      else if (event.webkitCompassHeading) {
         orientationSupported = true;
-        compassHeading = 360 - Math.round(event.webkitCompassHeading);
-        if (window.screen.orientation.type == "landscape-primary")
+        compassHeading = Math.round(event.webkitCompassHeading);
+        if (window.orientation == -90)
           compassHeading = (compassHeading+270)%360;
-        else if (window.screen.orientation.type == "landscape-secondary")
+        else if (window.orientation == 90)
           compassHeading = (compassHeading+90)%360;
         $("#orientation").text(compassHeading);
       }
@@ -77,8 +77,8 @@ function afterLangInit() {
 
   // pouchdb & couchdb settings
   localDB = new PouchDB("db_local", {auto_compaction: true});
-  remoteUsersDB = new PouchDB(SETTINGS.db_users_url, {size: 100});
-  remotePointsDB = new PouchDB(SETTINGS.db_points_url, {size: 100});
+  remoteUsersDB = new PouchDB(SETTINGS.db_users_url);
+  remotePointsDB = new PouchDB(SETTINGS.db_points_url);
   function syncError(err) {
     console.log("sync error: " + err);
   }
@@ -562,7 +562,7 @@ function afterLangInit() {
     }
 
     if (orientationSupported) {
-      $("#orientation").css("display", "block");
+      $("#orientation").show();
 
       watchNorthDirection = setInterval(function() {
         if (isApp) {
@@ -586,7 +586,7 @@ function afterLangInit() {
     $("#comment").show();
 
     if (orientationSupported) {
-      $("#orientation").css("display", "none");
+      $("#orientation").hide();
       clearInterval(watchNorthDirection);
     }
   });
@@ -828,7 +828,7 @@ function afterLangInit() {
     marker.unbindPopup();
 
     if (orientationSupported) {
-      $("#orientation").css("display", "none");
+      $("#orientation").hide();
       clearInterval(watchWestDirection);
     }
 
