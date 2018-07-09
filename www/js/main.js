@@ -7,7 +7,7 @@ function afterLangInit() {
 
   var activeLocationWatch, countLocationPopup = 0;
 
-  var orientationSupported, handleOrientationCount = 0, takePhotoEnabled, compassHeading, watchNorthDirection, watchEastDirection, watchSouthDirection, watchWestDirection;
+  var orientationSupported, compassHeading, watchNorthDirection, watchEastDirection, watchSouthDirection, watchWestDirection;
 
   var curLatLng = [0, 0], curLatLngAccuracy = 0;
   var classification = "", certainty = "60%", comment = "";
@@ -16,40 +16,26 @@ function afterLangInit() {
   var isApp = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
 
   function handleOrientation(event) {
-    if (handleOrientationCount < 3)
-      handleOrientationCount+=1;
-
-    // on devices that don't support device direction because they don't have the required hardware, although event.absolute returns true the alpha value returned is 0
-    // event listener is called at the beginning and after each photo shoot
-    if (handleOrientationCount > 1) {
-      if (event.absolute) {
-        orientationSupported = true;
-        compassHeading = 360-Math.round(event.alpha);
-        if (window.screen.orientation.type == "landscape-primary")
-          compassHeading = (compassHeading+90)%360;
-        else if (window.screen.orientation.type == "landscape-secondary")
-          compassHeading = (compassHeading+270)%360;
-        $("#orientation").text(compassHeading);
-      }
-      else if (event.webkitCompassHeading) {
-        orientationSupported = true;
-        compassHeading = Math.round(event.webkitCompassHeading);
-        if (window.orientation == -90)
-          compassHeading = (compassHeading+270)%360;
-        else if (window.orientation == 90)
-          compassHeading = (compassHeading+90)%360;
-        $("#orientation").text(compassHeading);
-      }
-      else
-        orientationSupported = false;
-
-      if (takePhotoEnabled == false && orientationSupported == true && isApp == true) {
-        $("#input-file").hide();
-        $(".choose-photo").hide();
-        $(".take-photo").show();
-        takePhotoEnabled = true;
-      }
+    if (event.absolute) {
+      orientationSupported = true;
+      compassHeading = 360-Math.round(event.alpha);
+      if (window.orientation == 90) // landscape-primary
+        compassHeading = (compassHeading+90)%360;
+      else if (window.orientation == -90) // landscape-secondary
+        compassHeading = (compassHeading+270)%360;
+      $("#orientation").text(compassHeading);
     }
+    else if (event.webkitCompassHeading) {
+      orientationSupported = true;
+      compassHeading = Math.round(event.webkitCompassHeading);
+      if (window.orientation == 90)
+        compassHeading = (compassHeading+90)%360;
+      else if (window.orientation == -90)
+        compassHeading = (compassHeading+270)%360;
+      $("#orientation").text(compassHeading);
+    }
+    else
+      orientationSupported = false;
   }
 
   function addInstructions(parent, instructionText, imageIdArray, type) {
@@ -75,15 +61,22 @@ function afterLangInit() {
 
   networkState = navigator.connection.type;
 
-  // pouchdb & couchdb settings
-  localDB = new PouchDB("db_local", {auto_compaction: true});
+  // PouchDB & CouchDB settings
+  localDB = new PouchDB("db_local_lcc");
   remoteUsersDB = new PouchDB(SETTINGS.db_users_url);
   remotePointsDB = new PouchDB(SETTINGS.db_points_url);
-  function syncError(err) {
-    console.log("sync error: " + err);
-  }
-  if (SETTINGS.db_points_url)
-    localDB.replicate.to(SETTINGS.db_points_url, {live: true}, syncError);
+
+  /* localDB.allDocs(function(error, response) {
+    if (error)
+      return console.log(error);
+    console.log(response.rows.length);
+  }); */
+
+  remotePointsDB.createIndex({
+    index: {
+      fields: ["user"]
+    }
+  });
 
   bing = new L.tileLayer.bing("AqSfYcbsnUwaN_5NvJfoNgNnsBfo1lYuRUKsiVdS5wQP3gMX6x8xuzrjZkWMcJQ1", {type: "AerialWithLabels"});
 
@@ -215,7 +208,7 @@ function afterLangInit() {
 
       activeLocationWatch = setInterval(getLocation, 4000);
 
-      window.localStorage.setItem("isLaunch",true);
+      window.localStorage.setItem("isLaunched", true);
     }
 
     var gender = $("#gender").val();
@@ -244,13 +237,13 @@ function afterLangInit() {
         age: age,
         workstatus: workstatus
       };
-      remoteUsersDB.put(user, function callback(err) {
-        if (!err)
+      remoteUsersDB.put(user, function callback(error) {
+        if (!error)
           navigator.notification.alert(i18n.t("messages.registrationSuccess"), registrationSuccess, "Land Cover Collector", i18n.t("messages.ok"));
         else
-          navigator.notification.alert(i18n.t("messages.error") + " " + err, null, "Land Cover Collector", i18n.t("messages.ok"));
+          navigator.notification.alert(i18n.t("messages.error") + " " + error, null, "Land Cover Collector", i18n.t("messages.ok"));
       });
-    }).catch(function(err) {
+    }).catch(function(error) {
       // if not exists, add the user
       var user = {
         _id: uuid,
@@ -259,17 +252,17 @@ function afterLangInit() {
         age: age,
         workstatus: workstatus
       };
-      remoteUsersDB.put(user, function callback(err) {
-        if (!err)
+      remoteUsersDB.put(user, function callback(error) {
+        if (!error)
           navigator.notification.alert(i18n.t("messages.registrationSuccess"), registrationSuccess, "Land Cover Collector", i18n.t("messages.ok"));
         else
-          navigator.notification.alert(i18n.t("messages.error") + " " + err, null, "Land Cover Collector", i18n.t("messages.ok"));
+          navigator.notification.alert(i18n.t("messages.error") + " " + error, null, "Land Cover Collector", i18n.t("messages.ok"));
       });
     });
   });
 
   // check whether it is the first time launch
-  if (window.localStorage.getItem("isLaunch")) {
+  if (window.localStorage.getItem("isLaunched")) {
     $("#start-page").hide();
     $("#main-page").show();
     $("body").css("overflow-y", "hidden");
@@ -314,7 +307,7 @@ function afterLangInit() {
   $("#add-menu-start").click(function() {
     $("#add-menu").hide();
     $("#classes-menu").show();
-    $("#class-next, #certainty-next, #photo-north-next, #photo-east-next, #photo-south-next, #photo-west-next, #photo-north .take-photo, #photo-east .take-photo, #photo-south .take-photo, #photo-west .take-photo").addClass("ui-disabled");
+    $("#class-next, #certainty-next, #photo-north-next, #photo-east-next, #photo-south-next, #photo-west-next").addClass("ui-disabled");
     $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-information").addClass("ui-disabled");
 
     // set all forms to initial values
@@ -323,13 +316,15 @@ function afterLangInit() {
     $("#comment-input").val("");
     $("#slider").val(3).slider("refresh");
 
-    takePhotoEnabled = false;
-    $(".take-photo").hide();
-
-    if ("ondeviceorientationabsolute" in window) {
-      window.addEventListener("deviceorientationabsolute", handleOrientation);
+    if (isApp) {
+      $("#input-file").hide();
+      $(".choose-photo").hide();
     }
-    else if ("ondeviceorientation" in window) {
+    else {
+      $(".take-photo").hide();
+    }
+
+    if ("ondeviceorientation" in window) {
       window.addEventListener("deviceorientation", handleOrientation);
     }
 
@@ -356,27 +351,30 @@ function afterLangInit() {
     $("#map, #legend-button").show();
     $("body").css("overflow-y", "hidden");
 
-    if (markersAll) {
-      for (var i=0; i<markersAll.length; i++) {
-        map.removeLayer(markersAll[i]);
-      }
-    }
     if (markersMy) {
       for (var i=0; i<markersMy.length; i++) {
         map.removeLayer(markersMy[i]);
+      }
+    }
+    if (markersAll) {
+      for (var i=0; i<markersAll.length; i++) {
+        map.removeLayer(markersAll[i]);
       }
     }
 
     if (map.hasLayer(marker))
       map.removeLayer(marker);
 
-    // read data from the local database
-    localDB.allDocs({include_docs: true}, function(err, doc) {
-      if (err) {
-        navigator.notification.alert(i18n.t("messages.errorPrivateMode"), null, "Land Cover Collector", i18n.t("messages.ok"));
-        return;
-      }
-      else {
+    if (networkState == Connection.NONE || navigator.onLine == false) {
+      navigator.notification.alert(i18n.t("messages.myNoInternet"), null, "Land Cover Collector", i18n.t("messages.ok"));
+      return;
+    }
+    else {
+      remotePointsDB.find({
+        selector: {
+          user: uuid
+        }
+      }).then(function(response) {
         var ids=[];
         var timestamps=[];
         var locations=[];
@@ -384,14 +382,14 @@ function afterLangInit() {
         var certainties=[];
         var comments=[];
         var count=0;
-        doc.rows.forEach(function(todo) {
-          if (todo.doc.location!=null && todo.doc.classification!=null) {
-            ids.push(todo.doc._id);
-            timestamps.push(todo.doc.timestamp);
-            locations.push(todo.doc.location);
-            classes.push(todo.doc.classification);
-            certainties.push(todo.doc.certainty);
-            comments.push(todo.doc.comment);
+        response.docs.forEach(function(doc) {
+          if (doc.location!=null && doc.classification!=null) {
+            ids.push(doc._id);
+            timestamps.push(doc.timestamp);
+            locations.push(doc.location);
+            classes.push(doc.classification);
+            certainties.push(doc.certainty);
+            comments.push(doc.comment);
             count++;
           }
         });
@@ -405,8 +403,8 @@ function afterLangInit() {
           $("#mymap-stat").html(i18n.t("stat.totalMy") + " " + count + " " + i18n.t("stat.contrMyPlural") + "<br><br>");
 
         $("#mymap-stat").show();
-      }
-    });
+      });
+    }
   });
 
   $("#navbar-all").click(function() {
@@ -414,14 +412,14 @@ function afterLangInit() {
     $("#map, #legend-button").show();
     $("body").css("overflow-y", "hidden");
 
-    if (markersAll) {
-      for (var i=0; i<markersAll.length; i++) {
-        map.removeLayer(markersAll[i]);
-      }
-    }
     if (markersMy) {
       for (var i=0; i<markersMy.length; i++) {
         map.removeLayer(markersMy[i]);
+      }
+    }
+    if (markersAll) {
+      for (var i=0; i<markersAll.length; i++) {
+        map.removeLayer(markersAll[i]);
       }
     }
 
@@ -433,9 +431,8 @@ function afterLangInit() {
       return;
     }
     else {
-      // read data from the server database
-      remotePointsDB.allDocs({include_docs: true}, function(err, doc) {
-        if (err) {
+      remotePointsDB.allDocs({include_docs: true}, function(error, response) {
+        if (error) {
           navigator.notification.alert(i18n.t("messages.error"), null, "Land Cover Collector", i18n.t("messages.ok"));
           return;
         }
@@ -447,14 +444,14 @@ function afterLangInit() {
           var certainties=[];
           var comments=[];
           var count=0;
-          doc.rows.forEach(function(todo) {
-            if (todo.doc.location!=null && todo.doc.classification!=null) {
-              ids.push(todo.doc._id);
-              locations.push(todo.doc.location);
-              timestamps.push(todo.doc.timestamp);
-              classes.push(todo.doc.classification);
-              certainties.push(todo.doc.certainty);
-              comments.push(todo.doc.comment);
+          response.rows.forEach(function(row) {
+            if (row.doc.location!=null && row.doc.classification!=null) {
+              ids.push(row.doc._id);
+              locations.push(row.doc.location);
+              timestamps.push(row.doc.timestamp);
+              classes.push(row.doc.classification);
+              certainties.push(row.doc.certainty);
+              comments.push(row.doc.comment);
               count++;
             }
           });
@@ -515,14 +512,8 @@ function afterLangInit() {
     $("#navbar-add, #navbar-my, #navbar-all, #navbar-main-information").removeClass("ui-disabled");
     marker.setIcon(setMarkerClassIcon());
 
-    if ("ondeviceorientationabsolute" in window) {
-      window.removeEventListener("deviceorientationabsolute", handleOrientation);
-      handleOrientationCount = 0;
-    }
-    else if ("ondeviceorientation" in window) {
+   if ("ondeviceorientation" in window)
       window.removeEventListener("deviceorientation", handleOrientation);
-      handleOrientationCount = 0;
-    }
   });
 
   $("#class-next").click(function() {
@@ -550,32 +541,15 @@ function afterLangInit() {
     $("#comment").hide();
     $("#photo-north").show();
 
-    if (handleOrientationCount < 2) {
-      if ("ondeviceorientationabsolute" in window) {
-        window.removeEventListener("deviceorientationabsolute", handleOrientation);
-        handleOrientationCount = 0;
-      }
-      else if ("ondeviceorientation" in window) {
-        window.removeEventListener("deviceorientation", handleOrientation);
-        handleOrientationCount = 0;
-      }
-    }
-
     if (orientationSupported) {
       $("#orientation").show();
 
       watchNorthDirection = setInterval(function() {
         if (isApp) {
-          if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 330 || compassHeading <= 30))
+          if ((window.orientation == 90 || window.orientation == -90) && (compassHeading >= 330 || compassHeading <= 30))
             $("#photo-north .take-photo").removeClass("ui-disabled");
           else
             $("#photo-north .take-photo").addClass("ui-disabled");
-        }
-        else {
-          if (compassHeading >= 330 || compassHeading <= 30)
-            $("#photo-north .choose-photo").removeClass("ui-disabled");
-          else
-            $("#photo-north .choose-photo").addClass("ui-disabled");
         }
       }, 200);
     }
@@ -600,16 +574,10 @@ function afterLangInit() {
 
       watchEastDirection = setInterval(function() {
         if (isApp) {
-          if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 60 && compassHeading <= 120))
+          if ((window.orientation == 90 || window.orientation == -90) && (compassHeading >= 60 && compassHeading <= 120))
             $("#photo-east .take-photo").removeClass("ui-disabled");
           else
             $("#photo-east .take-photo").addClass("ui-disabled");
-        }
-        else {
-          if (compassHeading >= 60 && compassHeading <= 120)
-            $("#photo-east .choose-photo").removeClass("ui-disabled");
-          else
-            $("#photo-east .choose-photo").addClass("ui-disabled");
         }
       }, 200);
     }
@@ -624,16 +592,10 @@ function afterLangInit() {
 
       watchNorthDirection = setInterval(function() {
         if (isApp) {
-          if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 330 || compassHeading <= 30))
+          if ((window.orientation == 90 || window.orientation == -90) && (compassHeading >= 330 || compassHeading <= 30))
             $("#photo-north .take-photo").removeClass("ui-disabled");
           else
             $("#photo-north .take-photo").addClass("ui-disabled");
-        }
-        else {
-          if (compassHeading >= 330 || compassHeading <= 30)
-            $("#photo-north .choose-photo").removeClass("ui-disabled");
-          else
-            $("#photo-north .choose-photo").addClass("ui-disabled");
         }
       }, 200);
     }
@@ -648,18 +610,11 @@ function afterLangInit() {
 
       watchSouthDirection = setInterval(function() {
         if (isApp) {
-          if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 150 && compassHeading <= 210))
+          if ((window.orientation == 90 || window.orientation == -90) && (compassHeading >= 150 && compassHeading <= 210))
             $("#photo-south .take-photo").removeClass("ui-disabled");
           else
             $("#photo-south .take-photo").addClass("ui-disabled");
         }
-        else {
-          if (compassHeading >= 150 && compassHeading <= 210)
-            $("#photo-south .choose-photo").removeClass("ui-disabled");
-          else
-            $("#photo-south .choose-photo").addClass("ui-disabled");
-        }
-
       }, 200);
     }
   });
@@ -673,16 +628,10 @@ function afterLangInit() {
 
       watchEastDirection = setInterval(function() {
         if (isApp) {
-          if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 60 && compassHeading <= 120))
+          if ((window.orientation == 90 || window.orientation == -90) && (compassHeading >= 60 && compassHeading <= 120))
             $("#photo-east .take-photo").removeClass("ui-disabled");
           else
             $("#photo-east .take-photo").addClass("ui-disabled");
-        }
-        else {
-          if (compassHeading >= 60 && compassHeading <= 120)
-            $("#photo-east .choose-photo").removeClass("ui-disabled");
-          else
-            $("#photo-east .choose-photo").addClass("ui-disabled");
         }
       }, 200);
     }
@@ -697,16 +646,10 @@ function afterLangInit() {
 
       watchWestDirection = setInterval(function() {
         if (isApp) {
-          if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 240 && compassHeading <= 300))
+          if ((window.orientation == 90 || window.orientation == -90) && (compassHeading >= 240 && compassHeading <= 300))
             $("#photo-west .take-photo").removeClass("ui-disabled");
           else
             $("#photo-west .take-photo").addClass("ui-disabled");
-        }
-        else {
-          if (compassHeading >= 240 && compassHeading <= 300)
-            $("#photo-west .choose-photo").removeClass("ui-disabled");
-          else
-            $("#photo-west .choose-photo").addClass("ui-disabled");
         }
       }, 200);
     }
@@ -721,16 +664,10 @@ function afterLangInit() {
 
       watchSouthDirection = setInterval(function() {
         if (isApp) {
-          if ((window.screen.orientation.type == "landscape-primary" || window.screen.orientation.type == "landscape-secondary") && (compassHeading >= 150 && compassHeading <= 210))
+          if ((window.orientation == 90 || window.orientation == -90) && (compassHeading >= 150 && compassHeading <= 210))
             $("#photo-south .take-photo").removeClass("ui-disabled");
           else
             $("#photo-south .take-photo").addClass("ui-disabled");
-        }
-        else {
-          if (compassHeading >= 150 && compassHeading <= 210)
-            $("#photo-south .choose-photo").removeClass("ui-disabled");
-          else
-            $("#photo-south .choose-photo").addClass("ui-disabled");
         }
       }, 200);
     }
@@ -757,44 +694,44 @@ function afterLangInit() {
       directionWest: directionWest,
       _attachments:
       {
-        "photo-north.png":
+        "photo-north.jpeg":
         {
-          content_type: "image\/png",
+          content_type: "image\/jpeg",
           data: photoNorth
         },
-        "photo-east.png":
+        "photo-east.jpeg":
         {
-          content_type: "image\/png",
+          content_type: "image\/jpeg",
           data: photoEast
         },
-        "photo-south.png":
+        "photo-south.jpeg":
         {
-          content_type: "image\/png",
+          content_type: "image\/jpeg",
           data: photoSouth
         },
-        "photo-west.png":
+        "photo-west.jpeg":
         {
-          content_type: "image\/png",
+          content_type: "image\/jpeg",
           data: photoWest
         },
-        "photo-north-thumbnail.png":
+        "photo-north-thumbnail.jpeg":
         {
-          content_type: "image\/png",
+          content_type: "image\/jpeg",
           data: photoNorthThumbnail
         },
-        "photo-east-thumbnail.png":
+        "photo-east-thumbnail.jpeg":
         {
-          content_type: "image\/png",
+          content_type: "image\/jpeg",
           data: photoEastThumbnail
         },
-        "photo-south-thumbnail.png":
+        "photo-south-thumbnail.jpeg":
         {
-          content_type: "image\/png",
+          content_type: "image\/jpeg",
           data: photoSouthThumbnail
         },
-        "photo-west-thumbnail.png":
+        "photo-west-thumbnail.jpeg":
         {
-          content_type: "image\/png",
+          content_type: "image\/jpeg",
           data: photoWestThumbnail
         }
       }
@@ -805,21 +742,29 @@ function afterLangInit() {
       marker.setIcon(setMarkerClassIcon());
     }
 
-    localDB.put(poi, function callback(err) {
-      if (!err) {
+    localDB.put(poi, function callback(error, response) {
+      if (!error) {
         if (networkState == Connection.NONE || navigator.onLine == false)
           navigator.notification.alert(i18n.t("messages.contributionSuccessNoInternet"), contributionSuccess, "Land Cover Collector", i18n.t("messages.ok"));
         else
           navigator.notification.alert(i18n.t("messages.contributionSuccess"), contributionSuccess, "Land Cover Collector", i18n.t("messages.ok"));
+
+        localDB.replicate.to(remotePointsDB, {retry: true}).on("complete", function(info) {
+          localDB.destroy().then(function() {
+            localDB = new PouchDB("db_local_lcc");
+          });
+        }).on("error", function(error) {
+          console.log("Replication error: " + error);
+        });
       }
       else {
         navigator.notification.alert(i18n.t("messages.errorStorage"), null, "Land Cover Collector", i18n.t("messages.ok"));
 
-        remotePointsDB.put(poi, function callback(err) {
-          if (!err)
+        remotePointsDB.put(poi, function callback(error) {
+          if (!error)
             navigator.notification.alert(i18n.t("messages.contributionSuccess"), contributionSuccess, "Land Cover Collector", i18n.t("messages.ok"));
           else
-            navigator.notification.alert(i18n.t("messages.error") + " " + err, null, "Land Cover Collector", i18n.t("messages.ok"));
+            navigator.notification.alert(i18n.t("messages.error") + " " + error, null, "Land Cover Collector", i18n.t("messages.ok"));
         });
       }
     });
@@ -832,14 +777,8 @@ function afterLangInit() {
       clearInterval(watchWestDirection);
     }
 
-    if ("ondeviceorientationabsolute" in window) {
-      window.removeEventListener("deviceorientationabsolute", handleOrientation);
-      handleOrientationCount = 0;
-    }
-    else if ("ondeviceorientation" in window) {
+    if ("ondeviceorientation" in window)
       window.removeEventListener("deviceorientation", handleOrientation);
-      handleOrientationCount = 0;
-    }
   });
 
   $("#slider").bind("slidestop", function() {
@@ -897,7 +836,7 @@ function afterLangInit() {
     canvas.height = resizeHeight;
     ctx.drawImage(img, 0, 0, resizeWidth, resizeHeight);
 
-    var dataUrl = canvas.toDataURL("image/png");
+    var dataUrl = canvas.toDataURL("image/jpeg");
     return dataUrl.substr(dataUrl.indexOf(",")+1);
   }
 
@@ -944,19 +883,18 @@ function afterLangInit() {
     window["direction"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)] = compassHeading;
 
     var img = new Image();
-    img.src = "data:image/png;base64,"+pictureData;
+    img.src = "data:image/jpeg;base64,"+pictureData;
     img.onload = function (e) {
       window["photo"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)+"Thumbnail"] = resizeImage(img);
     }
   }
 
   function getPictureFail(message) {
-    console.log("failed taking photo, message: " + message);
+    console.log("Failed taking photo, message: " + message);
   }
 
   $(".take-photo").click(function() {
     navigator.camera.getPicture(getPictureSuccess, getPictureFail, {
-      quality: 100,
       destinationType: Camera.DestinationType.DATA_URL,
       sourceType: Camera.PictureSourceType.CAMERA
     });
@@ -1028,7 +966,7 @@ popupPhotos.appendChild(popupPhotosWest);
 
 function addPopupPhotos(id) {
   window["photoNorth"+id] = document.createElement("img");
-  window["photoNorth"+id].src = "https://landcover.como.polimi.it/couchdb/lcc_points/" + id + "/photo-north-thumbnail.png";
+  window["photoNorth"+id].src = "https://landcover.como.polimi.it/couchdb/lcc_points/" + id + "/photo-north-thumbnail.jpeg";
   popupPhotosNorth.innerHTML = "";
   popupTextNorth.innerHTML = "<b>" + i18n.t("popup.northPhoto") + ":</b><br>";
   popupPhotosNorth.appendChild(popupTextNorth.cloneNode(true));
@@ -1036,7 +974,7 @@ function addPopupPhotos(id) {
   popupPhotosNorth.appendChild(popupRightArrow.cloneNode(true));
 
   window["photoEast"+id] = document.createElement("img");
-  window["photoEast"+id].src = "https://landcover.como.polimi.it/couchdb/lcc_points/" + id + "/photo-east-thumbnail.png";
+  window["photoEast"+id].src = "https://landcover.como.polimi.it/couchdb/lcc_points/" + id + "/photo-east-thumbnail.jpeg";
   popupPhotosEast.innerHTML = "";
   popupTextEast.innerHTML = "<b>" + i18n.t("popup.eastPhoto") + ":</b><br>";
   popupPhotosEast.appendChild(popupTextEast.cloneNode(true));
@@ -1045,7 +983,7 @@ function addPopupPhotos(id) {
   popupPhotosEast.appendChild(popupRightArrow.cloneNode(true));
 
   window["photoSouth"+id] = document.createElement("img");
-  window["photoSouth"+id].src = "https://landcover.como.polimi.it/couchdb/lcc_points/" + id + "/photo-south-thumbnail.png";
+  window["photoSouth"+id].src = "https://landcover.como.polimi.it/couchdb/lcc_points/" + id + "/photo-south-thumbnail.jpeg";
   popupPhotosSouth.innerHTML = "";
   popupTextSouth.innerHTML = "<b>" + i18n.t("popup.southPhoto") + ":</b><br>";
   popupPhotosSouth.appendChild(popupTextSouth.cloneNode(true));
@@ -1054,7 +992,7 @@ function addPopupPhotos(id) {
   popupPhotosSouth.appendChild(popupRightArrow.cloneNode(true));
 
   window["photoWest"+id] = document.createElement("img");
-  window["photoWest"+id].src = "https://landcover.como.polimi.it/couchdb/lcc_points/" + id + "/photo-west-thumbnail.png";
+  window["photoWest"+id].src = "https://landcover.como.polimi.it/couchdb/lcc_points/" + id + "/photo-west-thumbnail.jpeg";
   popupPhotosWest.innerHTML = "";
   popupTextWest.innerHTML = "<b>" + i18n.t("popup.westPhoto") + ":</b><br>";
   popupPhotosWest.appendChild(popupTextWest.cloneNode(true));
