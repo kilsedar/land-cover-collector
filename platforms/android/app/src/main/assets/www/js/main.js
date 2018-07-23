@@ -7,13 +7,20 @@ function afterLangInit() {
 
   var activeLocationWatch, countLocationPopup = 0;
 
-  var orientationSupported, compassHeading, watchNorthDirection, watchEastDirection, watchSouthDirection, watchWestDirection;
+  var orientationSupported, compassHeading = "-", watchNorthDirection, watchEastDirection, watchSouthDirection, watchWestDirection;
 
   var curLatLng = [0, 0], curLatLngAccuracy = 0;
   var classification = "", certainty = "60%", comment = "";
 
   var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
   var isApp = document.URL.indexOf("http://") === -1 && document.URL.indexOf("https://") === -1;
+
+  $.getJSON("https://landcover.como.polimi.it/couchdb/lcc_points/_all_docs?include_docs=true", function(json) {
+    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(json));
+
+    $(".download-data").attr("href", "data:" + data);
+    $(".download-data").attr("download", "data.json");
+  });
 
   function handleOrientation(event) {
     if (event.absolute) {
@@ -856,7 +863,7 @@ function afterLangInit() {
         window["photo"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)] = img.src.substr(img.src.indexOf(",")+1);
         window["photo"+activeDirection.charAt(0).toUpperCase()+activeDirection.slice(1)+"Thumbnail"] = resizeImage(img);
       }
-    }
+    };
 
     // when the file is read it triggers the onload event above
     reader.readAsDataURL(file);
@@ -1062,6 +1069,10 @@ $("#start-acknowledgements-button").click(function() {
   $("#start-acknowledgements").slideToggle({"duration": 200});
 });
 
+$("#start-download-button").click(function() {
+  $("#start-download").slideToggle({"duration": 200});
+});
+
 $("#main-instructions-applications-button").click(function() {
   $("#main-instructions-applications").slideToggle({"duration": 200});
 });
@@ -1072,6 +1083,10 @@ $("#main-instructions-browsers-button").click(function() {
 
 $("#main-acknowledgements-button").click(function() {
   $("#main-acknowledgements").slideToggle({"duration": 200});
+});
+
+$("#main-download-button").click(function() {
+  $("#main-download").slideToggle({"duration": 200});
 });
 
 $("#terms-and-conditions-button").click(function() {

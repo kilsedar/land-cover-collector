@@ -11,7 +11,7 @@ CouchDB version is 2.1.1. Installation instructions using the Apache CouchDB con
 
 Cordova version is 8.0.0. Installation instructions can be found [here](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
-The packages used in this application are already in the repository.
+The plugins used in this application are already in the repository.
 
 It is necessary to point the application to your CouchDB instance in the "www/settings.js" file that you need to create.
 

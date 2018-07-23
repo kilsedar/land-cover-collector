@@ -143,7 +143,7 @@ select, option {
   padding-left: 1.8em;
 }
 
-#start-instructions-applications, #start-instructions-browsers, #start-acknowledgements, #main-instructions-applications, #main-instructions-browsers, #main-acknowledgements {
+#start-instructions-applications, #start-instructions-browsers, #start-acknowledgements, #main-instructions-applications, #main-instructions-browsers, #main-acknowledgements, #start-download, #main-download {
   display: none;
   margin: 10px 0px;
 }
@@ -159,9 +159,12 @@ select, option {
   margin: 10px;
 }
 
-#start-acknowledgements, #main-acknowledgements {
-  margin-bottom: 30px;
+#start-acknowledgements, #main-acknowledgements, #start-download, #main-download {
   text-align: justify;
+}
+
+#start-download, #main-download {
+  margin-bottom: 30px;
 }
 
 #registration {
