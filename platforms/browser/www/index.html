@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="img/favicon.png">
   <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-  <script type="text/javascript" src="js/lib/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/lib/jquery-2.1.0.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/lib/jquery.mobile-1.4.5.css">
   <script type="text/javascript" src="js/lib/jquery.mobile-1.4.5.js"></script>
   <link rel="stylesheet" href="css/lib/leaflet.css">
@@ -16,8 +16,8 @@
   <link rel="stylesheet" href="css/lib/MarkerCluster.Default.css">
   <script type="text/javascript" src="js/lib/leaflet.markercluster-src.js"></script>
   <script type="text/javascript" src="js/lib/leaflet-bing-layer.min.js"></script>
-  <script type="text/javascript" src="js/lib/pouchdb-7.0.0.min.js"></script>
-  <script type="text/javascript" src="js/lib/pouchdb.find.js"></script>
+  <script type="text/javascript" src="js/lib/pouchdb-6.4.0.js"></script>
+  <script type="text/javascript" src="js/lib/pouchdb-6.4.0.find.js"></script>
   <script type="text/javascript" src="js/lib/i18next.min.js"></script>
   <script type="text/javascript" src="js/lib/fingerprint.js"></script>
   <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -175,18 +175,17 @@
             <div id="classes-menu-list" class="ui-corner-all" data-theme="c" data-role="popup">
               <form>
                 <fieldset data-role="controlgroup">
-                  <a href="#"><label for="radio-choice-1" class="valign"><img class="valign classes-menu-image" src="img/classes/artificialSurface.png"><span class="classes-menu-label" data-i18n="classes.artificialSurface">Artificial surface</span></label><input type="radio" name="radio-choice" id="radio-choice-1" value="artificialSurface"></input></a>
-                  <a href="#"><label for="radio-choice-2" class="valign"><img class="valign classes-menu-image" src="img/classes/bareLand.png"><span class="classes-menu-label" data-i18n="classes.bareLand">Bare land</span></label><input type="radio" name="radio-choice" id="radio-choice-2" value="bareLand"></input></a>
-                  <a href="#"><label for="radio-choice-3" class="valign"><img class="valign classes-menu-image" src="img/classes/cultivatedLand.png"><span class="classes-menu-label" data-i18n="classes.cultivatedLand">Cultivated land</span></label><input type="radio" name="radio-choice" id="radio-choice-3" value="cultivatedLand"></input></a>
-                  <a href="#"><label for="radio-choice-4" class="valign"><img class="valign classes-menu-image" src="img/classes/forest.png"><span class="classes-menu-label" data-i18n="classes.forest">Forest</span></label><input type="radio" name="radio-choice" id="radio-choice-4" value="forest"></input></a>
-                  <a href="#"><label for="radio-choice-5" class="valign"><img class="valign classes-menu-image" src="img/classes/grassland.png"><span class="classes-menu-label" data-i18n="classes.grassland">Grassland</span></label><input type="radio" name="radio-choice" id="radio-choice-5" value="grassland"></input></a>
-                  <a href="#"><label for="radio-choice-6" class="valign"><img class="valign classes-menu-image" src="img/classes/permanentSnowAndIce.png"><span class="classes-menu-label" data-i18n="classes.permanentSnowAndIce">Permanent snow and ice</span></label><input type="radio" name="radio-choice" id="radio-choice-6" value="permanentSnowAndIce"></input></a>
-                  <a href="#"><label for="radio-choice-7" class="valign"><img class="valign classes-menu-image" src="img/classes/shrubland.png"><span class="classes-menu-label" data-i18n="classes.shrubland">Shrubland</span></label><input type="radio" name="radio-choice" id="radio-choice-7" value="shrubland"></input></a>
-                  <a href="#"><label for="radio-choice-8" class="valign"><img class="valign classes-menu-image" src="img/classes/tundra.png"><span class="classes-menu-label" data-i18n="classes.tundra">Tundra</span></label><input type="radio" name="radio-choice" id="radio-choice-8" value="tundra"></input></a>
-                  <a href="#"><label for="radio-choice-9" class="valign"><img class="valign classes-menu-image" src="img/classes/waterBody.png"><span class="classes-menu-label" data-i18n="classes.waterBody">Water body</span></label><input type="radio" name="radio-choice" id="radio-choice-9" value="waterBody"></input></a>
-                  <a href="#"><label for="radio-choice-10" class="valign"><img class="valign classes-menu-image" src="img/classes/wetland.png"><span class="classes-menu-label" data-i18n="classes.wetland">Wetland</span></label><input type="radio" name="radio-choice" id="radio-choice-10" value="wetland"></input></a>
-
-                  <a href="#"><button type="button" id="class-ok" class="ui-btn ui-icon-check ui-btn-icon-right ui-corner-all">OK</button></a>
+                  <label for="radio-choice-1" class="valign"><img class="valign classes-menu-image" src="img/classes/artificialSurface.png"><span class="classes-menu-label" data-i18n="classes.artificialSurface">Artificial surface</span></label><input type="radio" name="radio-choice" id="radio-choice-1" value="artificialSurface"></input>
+                  <label for="radio-choice-2" class="valign"><img class="valign classes-menu-image" src="img/classes/bareLand.png"><span class="classes-menu-label" data-i18n="classes.bareLand">Bare land</span></label><input type="radio" name="radio-choice" id="radio-choice-2" value="bareLand"></input>
+                  <label for="radio-choice-3" class="valign"><img class="valign classes-menu-image" src="img/classes/cultivatedLand.png"><span class="classes-menu-label" data-i18n="classes.cultivatedLand">Cultivated land</span></label><input type="radio" name="radio-choice" id="radio-choice-3" value="cultivatedLand"></input>
+                  <label for="radio-choice-4" class="valign"><img class="valign classes-menu-image" src="img/classes/forest.png"><span class="classes-menu-label" data-i18n="classes.forest">Forest</span></label><input type="radio" name="radio-choice" id="radio-choice-4" value="forest"></input>
+                  <label for="radio-choice-5" class="valign"><img class="valign classes-menu-image" src="img/classes/grassland.png"><span class="classes-menu-label" data-i18n="classes.grassland">Grassland</span></label><input type="radio" name="radio-choice" id="radio-choice-5" value="grassland"></input>
+                  <label for="radio-choice-6" class="valign"><img class="valign classes-menu-image" src="img/classes/permanentSnowAndIce.png"><span class="classes-menu-label" data-i18n="classes.permanentSnowAndIce">Permanent snow and ice</span></label><input type="radio" name="radio-choice" id="radio-choice-6" value="permanentSnowAndIce"></input>
+                  <label for="radio-choice-7" class="valign"><img class="valign classes-menu-image" src="img/classes/shrubland.png"><span class="classes-menu-label" data-i18n="classes.shrubland">Shrubland</span></label><input type="radio" name="radio-choice" id="radio-choice-7" value="shrubland"></input>
+                  <label for="radio-choice-8" class="valign"><img class="valign classes-menu-image" src="img/classes/tundra.png"><span class="classes-menu-label" data-i18n="classes.tundra">Tundra</span></label><input type="radio" name="radio-choice" id="radio-choice-8" value="tundra"></input>
+                  <label for="radio-choice-9" class="valign"><img class="valign classes-menu-image" src="img/classes/waterBody.png"><span class="classes-menu-label" data-i18n="classes.waterBody">Water body</span></label><input type="radio" name="radio-choice" id="radio-choice-9" value="waterBody"></input>
+                  <label for="radio-choice-10" class="valign"><img class="valign classes-menu-image" src="img/classes/wetland.png"><span class="classes-menu-label" data-i18n="classes.wetland">Wetland</span></label><input type="radio" name="radio-choice" id="radio-choice-10" value="wetland"></input>
+                  <button type="button" id="class-ok" class="ui-btn ui-icon-check ui-btn-icon-right ui-corner-all">OK</button>
                 </fieldset>
               </form>
             </div>
