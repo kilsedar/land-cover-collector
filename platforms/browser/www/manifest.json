@@ -6,12 +6,6 @@
   "version": "polimi.geolab.lcc",
   "description": "An Apache Cordova application that enables to collect data on land cover classification using the 10 classes of GLobeLand30.",
   "author": "Candan Eylül Kilsedar",
-  "icons": [
-    {
-      "src": "www/img/landCoverCollector.png",
-      "type": "image/png",
-      "sizes": "undefinedxundefined"
-    }
-  ],
+  "icons": [],
   "start_url": "index.html"
 }

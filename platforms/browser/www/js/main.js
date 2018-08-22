@@ -799,14 +799,16 @@ function afterLangInit() {
   });
 
   // close the list of classes
-  $("#class-ok").click(function() {
+  $("#class-ok").click(function(event) {
+    event.preventDefault();
     setTimeout(function() {
       $("#classes-menu-list").popup("close");
     }, 1);
   });
 
   // close the list of classes - for iPad
-  $("#class-ok").on("click touchstart", function() {
+  $("#class-ok").on("click touchstart", function(event) {
+    event.preventDefault();
     setTimeout(function() {
       $("#classes-menu-list").popup("close");
     }, 1);

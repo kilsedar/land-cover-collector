@@ -15,5 +15,5 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <icon src="www/img/landCoverCollector.png" />
+    <preference name="ShowSplashScreen" value="false" />
 </widget>

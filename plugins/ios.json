@@ -25,6 +25,9 @@
     "cordova-plugin-network-information": {
       "PACKAGE_NAME": "polimi.geolab.lcc"
     },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "polimi.geolab.lcc"
+    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "polimi.geolab.lcc"
     }

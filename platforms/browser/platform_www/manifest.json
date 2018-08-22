@@ -1,6 +1,6 @@
 {
-  "name": "HelloCordova",
-  "short_name": "HelloCordova",
+  "name": "Land Cover Collector",
+  "short_name": "Land Cover Collector",
   "description": "Description of your app from template",
   "start_url": "index.html",
   "scope": "index.html",

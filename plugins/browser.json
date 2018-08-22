@@ -7,26 +7,29 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
-    },
-    "cordova-plugin-globalization": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "polimi.geolab.lcc"
     },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
-    },
-    "cordova-plugin-camera": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
+      "PACKAGE_NAME": "polimi.geolab.lcc"
     },
     "cordova-plugin-dialogs": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
+      "PACKAGE_NAME": "polimi.geolab.lcc"
     },
     "cordova-plugin-geolocation": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
+      "PACKAGE_NAME": "polimi.geolab.lcc"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "polimi.geolab.lcc"
     },
     "cordova-plugin-network-information": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
+      "PACKAGE_NAME": "polimi.geolab.lcc"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "polimi.geolab.lcc"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "polimi.geolab.lcc"
     }
   },
   "dependent_plugins": {}
