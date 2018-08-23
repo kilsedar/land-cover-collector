@@ -17,6 +17,21 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
+        <splash density="land-ldpi" src="res/screen/android/splash-land-ldpi.png" />
+        <splash density="land-mdpi" src="res/screen/android/splash-land-mdpi.png" />
+        <splash density="land-hdpi" src="res/screen/android/splash-land-hdpi.png" />
+        <splash density="land-xhdpi" src="res/screen/android/splash-land-xhdpi.png" />
+        <splash density="land-xxhdpi" src="res/screen/android/splash-land-xxhdpi.png" />
+        <splash density="land-xxxhdpi" src="res/screen/android/splash-land-xxxhdpi.png" />
+        <splash density="port-ldpi" src="res/screen/android/splash-portrait-ldpi.png" />
+        <splash density="port-mdpi" src="res/screen/android/splash-portrait-mdpi.png" />
+        <splash density="port-hdpi" src="res/screen/android/splash-portrait-hdpi.png" />
+        <splash density="port-xhdpi" src="res/screen/android/splash-portrait-xhdpi.png" />
+        <splash density="port-xxhdpi" src="res/screen/android/splash-portrait-xxhdpi.png" />
+        <splash density="port-xxxhdpi" src="res/screen/android/splash-portrait-xxxhdpi.png" />
+        <preference name="AutoHideSplashScreen" value="true" />
+        <preference name="SplashScreenDelay" value="3000" />
+        <preference name="SplashMaintainAspectRatio" value="true" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
@@ -37,6 +52,7 @@
     <plugin name="cordova-plugin-network-information" spec="^1.3.4" />
     <plugin name="cordova-plugin-geolocation" spec="^3.0.0" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
-    <engine name="browser" spec="^5.0.4" />
     <engine name="ios" spec="^4.5.5" />
+    <engine name="browser" spec="^5.0.4" />
+    <engine name="android" spec="^7.0.0" />
 </widget>

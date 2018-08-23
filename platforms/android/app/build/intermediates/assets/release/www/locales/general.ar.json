@@ -1,0 +1,155 @@
+{
+  "polimiLink": "<a href='http://www.polimi.it/en/' target='_blank'><img class='logo' src='img/polimi.png'></a>",
+  "registration":
+  {
+    "introduction": "مرحبا! الرجاء إدخال المعلومات التالية",
+    "genderLabel": "الجنس",
+    "genderMale": "ذكر",
+    "genderFemale": "أنثى",
+    "genderUnknown": "أفضل عدم القول",
+    "age": "السن",
+    "workLabel": "حالة العمل",
+    "workEmployed": "عامل أو موظف",
+    "workStudent": "طالب",
+    "workUnemployed": "عاطل عن العمل",
+    "workRetired": "متقاعد",
+    "workOther": "آخر",
+    "button": "تسجيل",
+    "termsAndConditions": {
+      "noticeText": "من خلال التسجيل، أنت تضمنُ موافقتك على",
+      "noticeLink": "شروط وأحكام التطبيق",
+      "noticeFullStop": ".",
+      "listFirst": "يجب أن يكون عمرك على الأقل 18 سنة لاستخدام التطبيق",
+      "listSecond": "سيتم استخدام معلومات الغطاء الأرضي التي تقدمها، بما في ذلك الصور، لأهداف علمية وقد تكون متاحة للجمهور",
+      "listThird": "لا يسمح بأي شكل من أشكال التلاعب بالبيانات",
+      "listFourth": "جامعة ميلانو للعلوم التطبيقية – جيولاب لا يتحمل مسؤولية أي ضرر،  إصابة، خسارة أو نفقة من أي نوع"
+    }
+  },
+  "navbar":
+  {
+    "add": "أضف",
+    "my": "خريطتي",
+    "all": "خريطة الجميع",
+    "information": "معلومات",
+    "registration": "تسجيل"
+  },
+  "classes":
+  {
+    "artificialSurface": "سطح اصطناعي",
+    "bareLand": "أرض جرداء",
+    "cultivatedLand": "أرض مزروعة",
+    "forest": "غابة",
+    "grassland": "أرض معشبة أو مرعى",
+    "permanentSnowAndIce": "جليد و ثلوج دائمة",
+    "shrubland": "شجيرات",
+    "tundra": "التندرا",
+    "waterBody": "حوض مائي",
+    "wetland": "أرض رطبة"
+  },
+  "basemaps":
+  {
+    "osm": "خريطة الشارع المفتوحة (OpenStreetMap)",
+    "bing": "خريطة بينغ الجوية (Bing Aerial)"
+  },
+  "guidelines": {
+    "link": "إرشادات",
+    "listFirst": "أثناء التقاط الصور اتبع الإرشادات أدناه",
+    "listFirstFirst": "أدر هاتفك للعثور على الاتجاه الصحيح هو مبين لك، في ترتيب شمال، شرق، جنوب وغرب. بمجرد العثور على الاتجاه الصحيح (على سبيل المثال: الشمال)، مع تشغيل الكاميرا، لا تحرك الهاتف",
+    "listFirstSecond": "حاول الحفاظ على جهازك عموديا بالنسبة إلى الأرض",
+    "listFirstThird": "لا تلتقط صورا تنتهك الخصوصية، مثل وجوه الأشخاص والحيوانات، لوحات السيارات و اشياء مثل هذه",
+    "listFirstFourth": "لا لإضافة التكبير",
+    "listFirstFifth": "حافظ على جهازك مع الشاشة أفقية",
+    "listSecond": "لا تدخل أماكن حكومية / خاصة وغير متاحة للجمهور، مثل المكاتب والمحميات الطبيعية والأراضي العسكرية، وما إلى ذلك",
+    "listThird": "لا تدخل الحقول التي تحتوي على محاصيل متنامية",
+    "listFourth": "كن على بينة من المخاطر من حولك وعدم دخول المناطق التي يحتمل أن تكون خطرة"
+  },
+  "menu":
+  {
+    "selectClassification": "حدد التصنيف لنقطتك",
+    "comment": "تعليقات؟",
+    "takePhotoNorth": "التقط صورة نحو الشمال",
+    "takePhotoEast": "التقط صورة نحو الشرق",
+    "takePhotoSouth": "التقط صورة نحو الجنوب",
+    "takePhotoWest": "التقط صورة نحو الغرب",
+    "choosePhotoNorth": "اختر صورة نحو الشمال",
+    "choosePhotoEast": "اختر صورة نحو الشرق",
+    "choosePhotoSouth": "اختر صورة نحو الجنوب",
+    "choosePhotoWest": "اختر صورة نحو الغرب",
+    "certainty": "كم أنت مؤكد؟",
+    "buttons":
+    {
+      "contribute": "أدخل نقطتك من الغطاء الأرضي",
+      "cancel": "إلغاء",
+      "next": "التالى",
+      "back": "إلى الوراء",
+      "submit": "أرسل"
+    }
+  },
+  "popup":
+  {
+    "class": "صنف",
+    "certainty": "اليقين من التصنيف",
+    "comment": "تعليق",
+    "date": "التاريخ",
+    "northPhoto": "صورة نحو الشمال",
+    "eastPhoto": "صورة نحو الشرق",
+    "southPhoto": "صور نحو الجنوب",
+    "westPhoto": "صور نحو الغرب"
+  },
+  "messages":
+  {
+    "registrationFormEmpty": "يرجى ملء استمارة التسجيل",
+    "registrationSuccess": "شكرا لكم! الآن يمكنك البدء في المساهمة",
+    "markerPopup": "ليس موقعك الحالي؟ اسحب العلامة لتصحيحه",
+    "contributionSuccess": "شكرا جزيلا على المساهمة",
+    "allNoInternet": "لا يمكن عرض الخريطة التي تظهر جميع المساهمات بسبب عدم وجود اتصال بالإنترنت",
+    "myNoInternet": " لا يمكن عرض خريطة مساهماتكم بسبب عدم وجود اتصال بالإنترنت!",
+    "ok": "حسنا",
+    "registrationNoInternet": "فشل التسجيل بسبب عدم وجود اتصال بالإنترنت",
+    "gpsError": "خطأ نظام تحديد المواقع! يرجى نقل رمز الموقع إلى مكان وجودك الآن",
+    "gpsErrorMobile": "خطأ نظام تحديد المواقع! شغل نظام تحديد المواقع أو حول رمز الموقع إلى مكان وجودك الآن",
+    "contributionSuccessNoInternet": "شكرا على مساهمتكم. ملاحظة: في هذا الوقت أنت غير متصل بالإنترنت، الرجاء إغلاق وإعادة فتح التطبيق بمجرد اتصالك بالإنترنت لمشاركة مساهماتك تلقائيا",
+    "photoUnavailable": "يمكنك التقاط صورة فقط من تطبيقات أندرويد و آي أو إس ( أبل ) وليس من متصفح الويب",
+    "bingNoInternet": "لا يمكن عرض خريطة بينغ الجوية بسبب عدم وجود اتصال بالإنترنت",
+    "osmNoInternet": "لا يمكن عرض خريطة أوبن ستريت ماب بسبب عدم وجود اتصال بالإنترنت",
+    "error": "! خطأ",
+    "errorStorage": "هذا المتصفح لا يدعم التخزين المحلي",
+    "errorPrivateMode": "خطأ! هل أنت في وضع خاص؟"
+  },
+  "stat":
+  {
+    "totalMy": "في المجموع، لديك",
+    "contrMySingle": "مساهمة",
+    "contrMyPlural": "مساهمات",
+    "totalAllSingle": "في المجموع، هناك",
+    "contrAllSingle": "مساهمة ضمن 5 كلم من موقعك الحالي",
+    "totalAllPlural": "في المجموع، هناك",
+    "contrAllPlural": "مساهمات ضمن 5 كلم من موقعك الحالي",
+    "noContrMy": "ليس لديك أي مساهمة حتى الآن",
+    "noContrAll": "لم تتم إضافة أي مساهمة من طرف شخص آخر على بعد 5 كلم من موقعك الحالي"
+  },
+  "information":
+  {
+    "instructions":
+    {
+      "applicationsButton": "تعليمات للتطبيقات",
+      "browsersButton": "تعليمات للمتصفحات",
+      "registration": "بعد قراءة الأحكام والشروط، سجل عن طريق ملء الاستمارة بإدخال جنسك، عمرك وحالة عملك",
+      "guidelines": " قبل إضافة نقطة من الغطاء الأرضي إقرأ التعليمات",
+      "location": "اسمح للتطبيق بالوصول إلى موقع الجهاز لوضع الرمز في موقعك",
+      "classification": "حدد التصنيف لنقطتك",
+      "certaintyAndComment": "حدد نسبة اليقين ثم أضف تعليقا",
+      "takePhotoNorth": "التقط صورة من الشمال.  سیتم تنشیط الزر عند توجیھك في الاتجاه الصحیح (الشمال) وأمسك الجهاز بشكل عمودي (تقريبا) على الأرض",
+      "takePhotoEastSouthWest": "التقط صورة من الشرق، الجنوب والغرب",
+      "choosePhotoNorth": "اختر صورة من الشمال. عند تحميل الصورة تأكد فعلا أن الصورة ملتقطة من الاتجاه الشمالي و الجهاز كان تقريبا في وضع عمودي على الارض (غير موجه نحو السماء أو الأرض). وينطبق الشيء نفسه على جميع الاتجاهات التالية",
+      "choosePhotoEastSouthWest": "اختر صورة من الشرق، الجنوب والغرب",
+      "submission": "ارسل المعلومات التي قمت بإدخالها. بينما تضيف نقطة، إذا كنت ترغب في الالغاء، يجب النقر على 'العودة  إلى الوراء' حتى يظهر الزر 'إلغاء'، ثم انقر هذا الأخير",
+      "myMap": "النقطة التي قمت بإضافتها ستكون مرئية في 'خريطتي' كعلامة، مع رمز مطابق للتصنيف المحدد. يمكن الاستعلام عن نقطة لرؤية المعلومات المدرجة",
+      "everyone": "في باب 'خريطة الجميع' النقاط التي يدخلها الكل يمكن أن ينظر إليها. سيتم تجميع النقاط التي تنتمي إلى نفس التصنيف وقريبة جدا من بعضها البعض، وسيتم إعطاء لون وفقا لتصنيفها. الخريطة الأساسية يمكن تغييرها من خريطة أوبن ستريت ماب إلى خريطة بينغ الجوية سواء في 'خريطتي' أو 'خريطة الجميع "
+    },
+    "acknowledgementsButton": "شكر وتقدير",
+    "acknowledgements": "تطبيق Land Cover Collector تم تطويره <a href='http://geolab.como.polimi.it/' target='_blank'>بجيولاب(GEOlab)</a> - <a href='http://www.dica.polimi.it/en/' target='_blank'>قسم الهندسة المدنية والبيئية</a> في <a href='https://www.polimi.it/en/home/' target='_blank'>جامعة ميلانو للعلوم التطبيقية (Politecnico di Milano)</a>. الهدف من هذا التطبيق هو جمع البيانات عن تصنيف الغطاء الأرضي باستخدام  10 طبقات أو أنواع من <a href='http://www.globallandcover.com/GLC30Download/index.aspx' target='_blank'>GlobeLand30</a>. التطبيق متاح باللغة الإنجليزية والإيطالية والعربية والصينية والإسبانية والروسية والبرتغالية والفرنسية. تم نشره سواءًا كتطبيق أندرويد أم آي أو إس (iOS أم Android) و أيضا متاح على <a href='https://landcover.como.polimi.it/collector/' target='_blank'> شبكة الويب</a>. من الممكن الحصول على اتجاه الجهاز (شمال ، شرق ، جنوب ، غرب) فقط على متصفحات و تطبيقات iOS.<br>التطبيق هو عبارة عن مشروع مفتوح المصدر (open source)، متاح على <a href='https://github.com/kilsedar/land-cover-collector' target='_blank'>GitHub</a>. المشروع محمي بموجب رخصة <a href='https://github.com/kilsedar/land-cover-collector/blob/master/LICENSE' target='_blank'>GNU GPLv3 license</a>. يستند التطبيق جزئيا على مشروع <a href='https://github.com/cartogroup/emomap' target='_blank'>EmoMap</a> (وتطويره في نفس الوقت) الذي أنشأته <a href='http://cartography.tuwien.ac.at' target='_blank'>مجموعة أبحاث علم رسم الخرائط</a> <a href='http://geo.tuwien.ac.at/' target='_blank'>بقسم الجيوديسيا والمعلومات الجغرافية</a> في <a href='https://www.tuwien.ac.at/en/' target='_blank'> جامعة TU Wien</a>.<br>هذا العمل مؤيد من قبل <a href='http://www.urbangeobigdata.it/' target='_blank'>(URBAN GEO BIG DATA) URBAN GEOmatics for Bulk Information Generation, Data Assessment and Technology Awareness</a>, <a href='http://prin.miur.it/' target='_blank'>Project of National Interest (PRIN)</a> بتمويل من <a href='http://www.miur.gov.it/web/guest/home' target='_blank'> (MIUR) وزارة التربية والتعليم، الجامعة والبحث </a> - id. 20159CNLW8.",
+    "downloadButton": "تحميل البيانات",
+    "download": "يمكنك تحميل بيانات الغطاء الأرضي التي تم جمعها باستخدام هذا التطبيق عبرهذا <a class='download-data'>الرابط</a>. البيانات في صيغة JSON. يمثل كل كائن أو معطى في مجموعة البيانات نقطة واحدة من الغطاء الأرضي. على سبيل مثال URL للحصول على صورة هو ما يلي:<a href='https://landcover.como.polimi.it/couchdb/lcc_points/2018-07-09T18:47:44.822Z/photo-north.jpeg' target='_blank'><i>https://landcover.como.polimi.it/couchdb/lcc_points/2018-07-09T18:47:44.822Z/photo-north.jpeg</i></a>.  في هذا العنوان، المعرف <i>2018-07-09T18:47:44.822Z</i>  هو معرف المستند. بطريقة مماثلة، يمكن الوصول إلى كافة الصور الموجودة في قاعدة البيانات. رخصة البيانات هي <a href='https://opendatacommons.org/licenses/odbl/1.0/' target='_blank'> رخصة قاعدة البيانات الحرة v1.0.</a>"
+  }
+}

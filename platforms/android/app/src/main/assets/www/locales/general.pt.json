@@ -1,0 +1,155 @@
+{
+  "polimiLink": "<a href='http://www.polimi.it/en/' target='_blank'><img class='logo' src='img/polimi.png'></a>",
+  "registration":
+  {
+    "introduction": "Bem vindo! Por favor, insira as seguintes informações:",
+    "genderLabel": "Gênero",
+    "genderMale": "Homem",
+    "genderFemale": "Mulher",
+    "genderUnknown": "Não especificado",
+    "age": "Idade",
+    "workLabel": "Condiçao de trabalho",
+    "workEmployed": "Empregado",
+    "workStudent": "Estudante",
+    "workUnemployed": "Desempregado",
+    "workRetired": "Aposentado",
+    "workOther": "Outro",
+    "button": "Registrar",
+    "termsAndConditions": {
+      "noticeText": "Registrando você aceita aos",
+      "noticeLink": "termos e condições",
+      "noticeFullStop": ".",
+      "listFirst": "Você deve possuir 18 anos ou mais para utilizar este aplicativo.",
+      "listSecond": "As informações sobre a cobertura do terreno providas por você, incluindo fotos, serão utilizadas para fins científicos e poderão ser abertas ao público.",
+      "listThird": "É vetada qualquer forma de manipulação dos dados.",
+      "listFourth": "Politecnico di Milano - GEOlab não se responsabilizará por eventuais danos, lesões, perdas e custos de qualquer natureza."
+    }
+  },
+  "navbar":
+  {
+    "add": "Adicionar",
+    "my": "O meu mapa",
+    "all": "Mapa geral",
+    "information": "Informações",
+    "registration": "Registrar"
+  },
+  "classes":
+  {
+    "artificialSurface": "Superfície artificial",
+    "bareLand": "Terreno não urbanizado",
+    "cultivatedLand": "Superfície agricultável utilizada",
+    "forest": "Floresta",
+    "grassland": "Campo",
+    "permanentSnowAndIce": "Neve permanente e gelo",
+    "shrubland": "Arbustal/Bosque",
+    "tundra": "Tundra",
+    "waterBody": "Corpo d'água",
+    "wetland": "Zona úmida"
+  },
+  "basemaps":
+  {
+    "osm": "OpenStreetMap",
+    "bing": "Bing Aerial"
+  },
+  "guidelines": {
+    "link": "Diretrizes",
+    "listFirst": "Quando estiver tirando fotos, siga as instruções abaixo.",
+    "listFirstFirst": "Gire seu telefone para encontrar a direção correta mostrada, na ordem norte, leste, sul e oeste. Quando encontrar a direção correta (por exemplo, norte), com a câmera ativa, não mova seu telefone.",
+    "listFirstSecond": "Tente manter seu dispositivo na vertical com respeito ao terreno.",
+    "listFirstThird": "Não tire fotos que violem a privacidade, como do rosto de pessoas, animais, placas, etc.",
+    "listFirstFourth": "Não dê zoom.",
+    "listFirstFifth": "Segure seu dispositivo em modo paisagem.",
+    "listSecond": "Não entre em locais governamentais, privados e com entrada vetada ao público, como escritórios, reservas naturais, zonas militares, etc.",
+    "listThird": "Não adentre campos com culturas em crescimento.",
+    "listFourth": "Tenha ciência de eventuais perigos ao seu redor e não adentre potenciais zonas de perigo."
+  },
+  "menu":
+  {
+    "selectClassification": "Seleciona a classificação do ponto.",
+    "comment": "Comentários?",
+    "takePhotoNorth": "Tire uma foto do norte.",
+    "takePhotoEast": "Tire uma foto do leste.",
+    "takePhotoSouth": "Tire uma foto do sul.",
+    "takePhotoWest": "Tire uma fotos do oeste.",
+    "choosePhotoNorth": "Selecione uma foto do norte.",
+    "choosePhotoEast": "Selecione uma foto do leste.",
+    "choosePhotoSouth": "Selecione uma foto do sul.",
+    "choosePhotoWest": "Selecione uma foto do oeste.",
+    "certainty": "Quão certo você está?",
+    "buttons":
+    {
+      "contribute": "Insira seu ponto de cobertura do solo!",
+      "cancel": "Cancelar",
+      "next": "Próximo",
+      "back": "Voltar",
+      "submit": "Enviar"
+    }
+  },
+  "popup":
+  {
+    "class": "Classe",
+    "certainty": "Certeza de classificação",
+    "comment": "Comentário",
+    "date": "Data",
+    "northPhoto": "Foto do norte",
+    "eastPhoto": "Foto do leste",
+    "southPhoto": "Foto do sul",
+    "westPhoto": "Foto do oeste"
+  },
+  "messages":
+  {
+    "registrationFormEmpty": "Por favor, complete o formulário de registro!",
+    "registrationSuccess": "Obrigado! Agora você pode começar a contribuir!",
+    "markerPopup": "Esta não é sua localização atual? Arraste o marcado para a posição correta!",
+    "contributionSuccess": "Muito obrigado pela sua contribuição!",
+    "allNoInternet": "O 'Mapa geral' não pode ser exibido sem conexão com a Internet!",
+    "myNoInternet": "O mapa com as suas contribuições não pode ser exibido devido à falta de conexão com a internet!",
+    "ok": "OK",
+    "registrationNoInternet": "Falha durante o registro devido à falta de conexão com a Internet!",
+    "gpsError": "Erro no GPS! Por favor, arraste o marcador para sua posição atual.",
+    "gpsErrorMobile": "Erro no GPS! Ative sua localização ou arraste o marcado para sua posição atual.",
+    "contributionSuccessNoInternet": "Obrigado pela sua contribuição. Note que neste momento você está no mode offline. Por favor, quando possuir conexão abra o aplicativo novamente, a fim de compartilhar suas contribuições.",
+    "photoUnavailable": "Tirar fotos é um recurso disponível apenas para Android e iOS, sendo indisponível para navegadores.",
+    "bingNoInternet": "Bing Aerial não pode ser exibido devido à ausência de conexão com a Internet.",
+    "osmNoInternet": "OpenStreetMap não pode ser exibido devido à ausência de conexão com a Internet.",
+    "error": "Erro!",
+    "errorStorage": "Este navegador não suporta armazenamento local.",
+    "errorPrivateMode": "Erro! Você está navegando privativamente?"
+  },
+  "stat":
+  {
+    "totalMy": "No total, você possui",
+    "contrMySingle": "contribuição.",
+    "contrMyPlural": "contribuições.",
+    "totalAllSingle": "No total, existe",
+    "contrAllSingle": "contribuição dentro de 5km da sua posição atual.",
+    "totalAllPlural": "No total, existem",
+    "contrAllPlural": "contribuições dentro de 5km da sua posição atual.",
+    "noContrMy": "Você não forneceu ainda nenhuma contribuição!",
+    "noContrAll": "Ninguém adicionou uma contribuição em um raio de 5km de sua posição atual."
+  },
+  "information":
+  {
+    "instructions":
+    {
+      "applicationsButton": "Instruções para os aplicativos",
+      "browsersButton": "Instuições para os navegadores",
+      "registration": "Depois de ler os termos e condições, registre-se preenchendo o formulário, inserindo seu gênero, idade e condição de trabalho.",
+      "guidelines": "Antes de adicionar um ponto de cobertura do terreno, leia as diretrizes.",
+      "location": "Permita que o aplicativo acesse a localização do seu dispositivo para posicionar o marcador na sua localização atual.",
+      "classification": "Selecione a classificação do teu ponto.",
+      "certaintyAndComment": "Indique o percentual de certeza e, opcionalmente, insira um comentário.",
+      "takePhotoNorth": "Tire uma foto do norte. O botão será ativado assim que você encontrar a posição correta (norte) e o dispositvo estiver aproximadamente posicionado na vertical com o solo (esta regra vale para todas as direções).",
+      "takePhotoEastSouthWest": "Tire uma foto do leste, sul e oeste.",
+      "choosePhotoNorth": "Selecione uma foto do norte. Tenha atenção para realmente carregar uma foto que corresponda ao norte, com o dispositivo alinhado verticalmente ao solo (não direcionando-se apenas ao solo ou ao céu). O mesmo se aplica a todas as direções.",
+      "choosePhotoEastSouthWest": "Seleciona uma foto do leste, sul e oeste.",
+      "submission": "Envie as informações inseridas. Quando estiver adicionando um ponto, se deseja cancelar, você deve clicar em 'Voltar' até que o botão 'Cancelar' seja exibido, então clique em 'Cancelar'.",
+      "myMap": "O ponto que você adicionou será exibido em 'O meu mapa' como um marcador, com um ícone correspondente a classificação selecionada. O ponto pode ser investigado para se ver a informação inserida.",
+      "everyone": "Em 'Mapa geral', os pontos inseridos por todoss podem ser vistos. Os pontos pertencentes a uma mesma classificação e suficientemente próximos uns aos outros serão agregados e coloridos conforme a sua classifcação. O mapa básico pode ser trocado de OpenStreetMap para Bing Aerial, em ambos 'O meu mapa' e 'Mapa geral'."
+    },
+    "acknowledgementsButton": "Agradecimentos",
+    "acknowledgements": "O aplicativo Land Cover Collector tem sido desenvolvido em <a href='http://geolab.como.polimi.it/' target='_blank'>GEOlab</a> - <a href='http://www.dica.polimi.it/en/' target='_blank'>Departamento de Engenharia Civil e Ambiental</a> da universidade <a href='https://www.polimi.it/en/home/' target='_blank'>Politecnico di Milano</a>. O propósito deste aplicativo é coletar dados sobre classificação de cobertura do solo utilizando as 10 classes de <a href='http://www.globallandcover.com/GLC30Download/index.aspx' target='_blank'>GlobeLand30</a>. Disponível em Inglês, Italiano, Árabe, Chinês, Espanhol, Russo, Português e Francês. Publicado como aplicativos para Android e iOS e disponível <a href='https://landcover.como.polimi.it/collector/' target='_blank'>online</a>. A orientação do dispositivo (norte, leste, sul, oeste) é possível de ser obtida somente em navegadores e aplicativos iOS.<br>Trata-se de um projeto 'open source', disponível no <a href='https://github.com/kilsedar/land-cover-collector' target='_blank'>GitHub</a>. O projeto é protegido sob a licença <a href='https://github.com/kilsedar/land-cover-collector/blob/master/LICENSE' target='_blank'>GNU GPLv3</a>. O aplicativo é parcialmente baseado e estende o projeto <a href='https://github.com/cartogroup/emomap' target='_blank'>EmoMap</a>, desenvolvido pelo <a href='http://cartography.tuwien.ac.at' target='_blank'>Research Group Cartography</a> do <a href='http://geo.tuwien.ac.at/' target='_blank'>Departmento de Geodésia e Geoinformação</a> na <a href='https://www.tuwien.ac.at/en/' target='_blank'>Universidade TU Wien</a>.<br>Este trabalho é suportado pela <a href='http://www.urbangeobigdata.it/' target='_blank'>URBAN GEOmatics for Bulk Information Generation, Data Assessment and Technology Awareness (URBAN GEO BIG DATA)</a>, um <a href='http://prin.miur.it/' target='_blank'>Projeto de Interesse Nacional (PRIN)</a> fundado pelo <a href='http://www.miur.gov.it/web/guest/home' target='_blank'>Ministério Italiano da Educação, Universidade e Pesquisa (MIUR)</a> - id. 20159CNLW8.",
+    "downloadButton": "Baixar dados",
+    "download": "Você pode baixar os dados de cobertura do solo, coletados com esse aplicativo, por meio deste <a class='download-data'>link</a>. Os dados estão no formato JSON. Cada objeto de dados no conjunto de dados representa um ponto de cobertura do solo. A seguir tem-se um exemplo de URL para se obter uma foto: <a href='https://landcover.como.polimi.it/couchdb/lcc_points/2018-07-09T18:47:44.822Z/photo-north.jpeg' target='_blank'><i>https://landcover.como.polimi.it/couchdb/lcc_points/2018-07-09T18:47:44.822Z/photo-north.jpeg</i></a>. Nessa URL, <i>2018-07-09T18:47:44.822Z</i> é a identificação (ID) do documento. De maneira semelhante, todas as imagens no banco de dados podem ser acessadas. A licença dos dados é do tipo é do tipo <a href='https://opendatacommons.org/licenses/odbl/1.0/' target='_blank'>Open Database License (ODbL) v1.0</a>."
+  }
+}

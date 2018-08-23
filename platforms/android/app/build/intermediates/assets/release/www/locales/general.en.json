@@ -1,0 +1,155 @@
+{
+  "polimiLink": "<a href='http://www.polimi.it/en/' target='_blank'><img class='logo' src='img/polimi.png'></a>",
+  "registration":
+  {
+    "introduction": "Welcome! Please insert the following information:",
+    "genderLabel": "Gender",
+    "genderMale": "Male",
+    "genderFemale": "Female",
+    "genderUnknown": "Prefer not to say",
+    "age": "Age",
+    "workLabel": "Work status",
+    "workEmployed": "Employed",
+    "workStudent": "Student",
+    "workUnemployed": "Unemployed",
+    "workRetired": "Retired",
+    "workOther": "Other",
+    "button": "Register",
+    "termsAndConditions": {
+      "noticeText": "By registering you are accepting the",
+      "noticeLink": "terms and conditions",
+      "noticeFullStop": ".",
+      "listFirst": "You should be at least 18 years old to use the application.",
+      "listSecond": "The land cover information you provide, including the photos, will be used for scientific purposes and may be made publicly available.",
+      "listThird": "Any form of data manipulation is not allowed.",
+      "listFourth": "Politecnico di Milano - GEOlab shall not be held responsible for any damage, injury, loss or expense of any kind."
+    }
+  },
+  "navbar":
+  {
+    "add": "Add",
+    "my": "My map",
+    "all": "Everyone",
+    "information": "Information",
+    "registration": "Register"
+  },
+  "classes":
+  {
+    "artificialSurface": "Artificial surface",
+    "bareLand": "Bare land",
+    "cultivatedLand": "Cultivated land",
+    "forest": "Forest",
+    "grassland": "Grassland",
+    "permanentSnowAndIce": "Permanent snow and ice",
+    "shrubland": "Shrubland",
+    "tundra": "Tundra",
+    "waterBody": "Water body",
+    "wetland": "Wetland"
+  },
+  "basemaps":
+  {
+    "osm": "OpenStreetMap",
+    "bing": "Bing Aerial"
+  },
+  "guidelines": {
+    "link": "Guidelines",
+    "listFirst": "While taking photos follow the instructions below.",
+    "listFirstFirst": "Rotate your phone to find the right direction shown to you, in order north, east, south and west. Once you find the right direction (for example: north) and the camera is open, do not move your phone.",
+    "listFirstSecond": "Try to hold your device vertical to the ground.",
+    "listFirstThird": "Do not take pictures that would violate privacy, such as of people's and animals' faces, license plates, etc.",
+    "listFirstFourth": "Do not zoom in.",
+    "listFirstFifth": "Hold your device in landscape mode.",
+    "listSecond": "Do not enter governmental/private and non-publicly accessible places, such as offices, nature reserves, military land, etc.",
+    "listThird": "Do not walk into fields with growing crops.",
+    "listFourth": "Be aware of the dangers around you and do not go into possibly dangerous areas."
+  },
+  "menu":
+  {
+    "selectClassification": "Select the classification of your point.",
+    "comment": "Any comments?",
+    "takePhotoNorth": "Take a photo of north.",
+    "takePhotoEast": "Take a photo of east.",
+    "takePhotoSouth": "Take a photo of south.",
+    "takePhotoWest": "Take a photo of west.",
+    "choosePhotoNorth": "Choose a photo of north.",
+    "choosePhotoEast": "Choose a photo of east.",
+    "choosePhotoSouth": "Choose a photo of south.",
+    "choosePhotoWest": "Choose a photo of west.",
+    "certainty": "How certain are you?",
+    "buttons":
+    {
+      "contribute": "Insert your point of land cover!",
+      "cancel": "Cancel",
+      "next": "Next",
+      "back": "Back",
+      "submit": "Submit"
+    }
+  },
+  "popup":
+  {
+    "class": "Class",
+    "certainty": "Certainty of the classification",
+    "comment": "Comment",
+    "date": "Date",
+    "northPhoto": "Photo of north",
+    "eastPhoto": "Photo of east",
+    "southPhoto": "Photo of south",
+    "westPhoto": "Photo of west"
+  },
+  "messages":
+  {
+    "registrationFormEmpty": "Please complete the registration form!",
+    "registrationSuccess": "Thank you! Now you can start to contribute!",
+    "markerPopup": "Not your current location? Drag the marker to correct!",
+    "contributionSuccess": "Thank you very much for the contribution!",
+    "allNoInternet": "The map displaying all people's contributions can not be shown due to no Internet connection!",
+    "myNoInternet": "The map displaying your contributions can not be shown due to no Internet connection!",
+    "ok": "OK",
+    "registrationNoInternet": "Registration fails due to no Internet connection!",
+    "gpsError": "GPS error! Please drag the marker to set your current location.",
+    "gpsErrorMobile": "GPS error! Turn on your geolocation service or drag the marker to set your current location.",
+    "contributionSuccessNoInternet": "Thank you for the contribution. Note that you are currently in offline mode, please re-open the application once you have Internet connection to share your contributions.",
+    "photoUnavailable": "Taking photo is available only on Android and iOS applications, and not from browsers.",
+    "bingNoInternet": "Bing Aerial cannot be displayed due to no Internet connection!",
+    "osmNoInternet": "OpenStreetMap cannot be displayed due to no Internet connection!",
+    "error": "Error!",
+    "errorStorage": "This browser does not support local storage.",
+    "errorPrivateMode": "Error! Are you in private mode?"
+  },
+  "stat":
+  {
+    "totalMy": "In total, you have",
+    "contrMySingle": "contribution.",
+    "contrMyPlural": "contributions.",
+    "totalAllSingle": "In total, there is",
+    "contrAllSingle": "contribution within 5 km of your current location.",
+    "totalAllPlural": "In total, there are",
+    "contrAllPlural": "contributions within 5 km of your current location.",
+    "noContrMy": "You have not had any contribution yet!",
+    "noContrAll": "No body has added a contribution within 5 km of your current location."
+  },
+  "information":
+  {
+    "instructions":
+    {
+      "applicationsButton": "Instructions for applications",
+      "browsersButton": "Instructions for browsers",
+      "registration": "After reading the terms and conditions, register by filling in the form, entering your gender, age and work status.",
+      "guidelines": "Before adding a point of land cover read the guidelines.",
+      "location": "Allow the application access the device's location to place the marker in your position.",
+      "classification": "Select the classification of your point.",
+      "certaintyAndComment": "State your certainty and then optionally add a comment.",
+      "takePhotoNorth": "Take a photo of north. The button will be enabled once you find the right direction (north) and hold your device approximately vertical to the ground. (this rule applies to all the directions).",
+      "takePhotoEastSouthWest": "Take a photo of east, south and west.",
+      "choosePhotoNorth": "Choose a photo of north. Be careful to actually upload a photo of north, where photo is showing the front (not directed to sky or ground). The same applies to all the following directions.",
+      "choosePhotoEastSouthWest": "Choose a photo of east, south and west.",
+      "submission": "Submit the information you entered. While adding your point, if you want to cancel, you need to click on 'Back' until 'Cancel' button appears, and then 'Cancel'.",
+      "myMap": "The point you added will be visible in the 'My map' as a marker, with an icon of its corresponding classification. The point can be queried to see the inserted information.",
+      "everyone": "In 'Everyone' section points inserted by everyone can be seen. The points belonging to the same classification and close enough to each other will be aggregated and will be given a color of their classification. The base map can be changed from OpenStreetMap to Bing Aerial, both in 'My map' and 'Everyone'."
+    },
+    "acknowledgementsButton": "Acknowledgements",
+    "acknowledgements": "Land Cover Collector application has been developed at the <a href='http://geolab.como.polimi.it/' target='_blank'>GEOlab</a> - <a href='http://www.dica.polimi.it/en/' target='_blank'>Department of Civil and Environmental Engineering</a> of <a href='https://www.polimi.it/en/home/' target='_blank'>Politecnico di Milano</a>. The purpose of the application is to collect data on land cover classification using the 10 classes of <a href='http://www.globallandcover.com/GLC30Download/index.aspx' target='_blank'>GlobeLand30</a>. It is available in English, Italian, Arabic, Chinese, Spanish, Russian, Portuguese and French. It is published as Android and iOS applications and available on <a href='https://landcover.como.polimi.it/collector/' target='_blank'>web</a>. It is possible to get the device orientation (north, east, south, west) only on iOS browsers and application.<br>It is an open source project, available on <a href='https://github.com/kilsedar/land-cover-collector' target='_blank'>GitHub</a>. The project is protected under <a href='https://github.com/kilsedar/land-cover-collector/blob/master/LICENSE' target='_blank'>GNU GPLv3 license</a>. The application is partially based on and extends the project <a href='https://github.com/cartogroup/emomap' target='_blank'>EmoMap</a>, developed by the <a href='http://cartography.tuwien.ac.at' target='_blank'>Research Group Cartography</a> in the <a href='http://geo.tuwien.ac.at/' target='_blank'>Department of Geodesy and Geoinformation</a> in <a href='https://www.tuwien.ac.at/en/' target='_blank'>TU Wien University</a>.<br>This work is supported by <a href='http://www.urbangeobigdata.it/' target='_blank'>URBAN GEOmatics for Bulk Information Generation, Data Assessment and Technology Awareness (URBAN GEO BIG DATA)</a>, a <a href='http://prin.miur.it/' target='_blank'>Project of National Interest (PRIN)</a> funded by the <a href='http://www.miur.gov.it/web/guest/home' target='_blank'>Italian Ministry of Education, University and Research (MIUR)</a> - id. 20159CNLW8.",
+    "downloadButton": "Download data",
+    "download": "You can download the land cover data collected with this application using this <a class='download-data'>link</a>. The data is in JSON format. Each data object in the dataset represents one point of land cover. An example URL to get a photo is the following: <a href='https://landcover.como.polimi.it/couchdb/lcc_points/2018-07-09T18:47:44.822Z/photo-north.jpeg' target='_blank'><i>https://landcover.como.polimi.it/couchdb/lcc_points/2018-07-09T18:47:44.822Z/photo-north.jpeg</i></a>. In this URL <i>2018-07-09T18:47:44.822Z</i> is the ID of the document. In a similar manner, all the images in the database can be accessed. The license of the data is <a href='https://opendatacommons.org/licenses/odbl/1.0/' target='_blank'>Open Database License (ODbL) v1.0</a>."
+  }
+}
