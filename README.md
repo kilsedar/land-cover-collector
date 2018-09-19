@@ -1,5 +1,5 @@
 # Land Cover Collector
-The application "Land Cover Collector" is developed to collect data on land cover classification using the 10 classes of [GlobeLand30](http://www.globallandcover.com/GLC30Download/index.aspx). It will be published as Android and iOS applications and it is available on [web](https://landcover.como.polimi.it/collector/).
+The application Land Cover Collector is developed to collect data on land cover classification using the nomenclature of [GlobeLand30](http://www.globallandcover.com/GLC30Download/index.aspx). It is published as Android and iOS mobile applications and it is available on [Web](https://landcover.como.polimi.it/collector/).
 
 Points of interest added by everyone:
 ![everyonePois](screenshots/everyonePois.png)
