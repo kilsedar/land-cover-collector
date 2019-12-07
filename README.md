@@ -18,4 +18,4 @@ It is necessary to point the application to your CouchDB instance in the "www/se
 ## Credits
 The application uses [EmoMap](https://github.com/cartogroup/emomap). The developer acknowledges its contributions to the development.
 
-This work is supported by [URBAN GEOmatics for Bulk Information Generation, Data Assessment and Technology Awareness (URBAN GEO BIG DATA)](http://www.urbangeobigdata.it/), a [Project of National Interest (PRIN)](http://prin.miur.it/), funded by the [Italian Ministry of Education, University and Research (MIUR)](http://www.miur.gov.it/web/guest/home)―id 20159CNLW8.
+This work was supported by [URBAN GEOmatics for Bulk Information Generation, Data Assessment and Technology Awareness (URBAN GEO BIG DATA)](http://www.urbangeobigdata.it/), a [Project of National Interest (PRIN)](http://prin.miur.it/), funded by the [Italian Ministry of Education, University and Research (MIUR)](http://www.miur.gov.it/web/guest/home)―id 20159CNLW8 and one of the [ISPRS 2018 Education and Capacity Building Initiatives](https://www.isprs.org/society/ecbi/default.aspx) named Capacity Building for High-Resolution Land Cover Inter-comparison and Validation.
